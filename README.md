@@ -10,24 +10,28 @@ web Scraping
 ```
  first: copy your webpage link
 ```
+![image](https://user-images.githubusercontent.com/88646148/215616780-2878eae0-9a36-4412-9f12-3974f5e3a768.png)
+
 
 ```
 second: inspect the page and select the class from the object you want to get information.
 ```
+![image](https://user-images.githubusercontent.com/88646148/215616865-c6a7b6a4-752b-4789-a613-67d84926d01a.png)
 
 ```
  third: choose your keyword and use it
 ```
+![image](https://user-images.githubusercontent.com/88646148/215617377-10c22022-7f91-438d-a6f7-1ac5812be145.png)
+
 ```
  fourth: And there we go!
 ```
+![image](https://user-images.githubusercontent.com/88646148/215617438-2efafd5f-b354-4dcf-baaa-04f7075a6456.png)
 
-```
-fifth: And there we go!
-```
+
 ## Endpoint Response:
 -  go to http://localhost:PORT/api/scraper
-
+-  The petitions must be  POST request
 
 # This project was tested by 
 - jest
