@@ -9,7 +9,8 @@ const arrayOfKeywords = []
 module.exports = async function Scrapper(req, res) {
   const url = req.body.url;
   const objectClass = req.body.objectClass;
-  if (!validUrl.isHttpsUri(url)) {
+	checkInputContent(url,objectClass)
+    if (!validUrl.isHttpsUri(url)) {
     res.send({ error: "invalid url",
   status:404 })
   } else {
@@ -23,6 +24,13 @@ module.exports = async function Scrapper(req, res) {
       });
     }
   }
+}
+function checkInputContent(url,objectClass){
+	if(!url || !objectClass){
+		res.status(404).json({"state":"error",
+		"message":"missing information"})
+	}
+	return(url,objectClass)
 }
 
 function fetchingUrl(req, res, objectClass, url) {
