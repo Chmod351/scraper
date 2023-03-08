@@ -6,25 +6,18 @@ const scraper = require("./routes/scraper.js");
 const ratelimit = require("express-rate-limit");
 const morgan = require("morgan");
 const port = process.env.PORT;
-const Error = require("http-errors");
+
+(swaggerJsdoc = require("swagger-jsdoc")),
+  (swaggerUi = require("swagger-ui-express"));
 
 const limit = ratelimit({
   windowMs: 10 * 60 * 1000,
   max: 5,
 });
 
-const errorMidleware = (err, req, res, next) => {
-  res?.status(err.status || 500);
 
-  res?.send({
-    error: {
-      status: err.status || 500,
 
-      message: err.message,
-    },
-  });
-};
-
+//MIDDLEWARES
 app.use(
   morgan(":method :url :status :response-time ms - :res[content-length]")
 );
@@ -33,11 +26,35 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(limit);
 app.use("/api", scraper);
-app.use(async (req, res, next) => {
-  next(Error.NotFound());
-});
 
-app.use(errorMidleware);
+//END MIDDLEWARES
+
+//START SWAGGER
+
+const options = {
+  definition: {
+    openapi: "3.0.0",
+    info: {
+      title: "web scraper",
+      version: "0.1.0",
+      description: "scraper",
+      license: {
+        name: "GPL",
+        url: "https://github.com/yamilt351/scraper",
+      },
+    },
+    servers: [
+      {
+        url: `http://localhost:${port}/`,
+      },
+    ],
+  },
+  apis: ["./Controlers/scraper.js"],
+};
+
+const specs = swaggerJsdoc(options);
+app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(specs));
+//END SWAGGER
 
 app.listen(port, function () {
   console.log(`Listening on port ${port}`);

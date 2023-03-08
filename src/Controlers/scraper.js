@@ -13,13 +13,13 @@ function checkInputContent(url, res, objectClass) {
   return url, objectClass;
 }
 
-module.exports = async function Scrapper(req, res, next) {
+module.exports = async function Scrapper(req, res) {
   const url = req.body.url;
   const objectClass = req.body.objectClass;
   try {
     checkInputContent(url, res, objectClass);
   } catch (error) {
-    next(error);
+    console.error(error);
   }
   if (!validUrl.isHttpsUri(url)) {
     res.status(400);
@@ -29,7 +29,7 @@ module.exports = async function Scrapper(req, res, next) {
       fetchingUrl(req, res, objectClass, url);
       res.status(200);
     } catch (error) {
-      next(error);
+      console.log(error);
     }
   }
 };

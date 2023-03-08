@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-		"start": "node index.js"
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
@@ -24,6 +24,9 @@
     "morgan": "^1.10.0",
     "needle": "^3.2.0",
     "supertest": "^6.3.3",
+    "swagger": "^0.7.5",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^4.6.2",
     "valid-url": "^1.0.9"
   },
   "devDependencies": {
