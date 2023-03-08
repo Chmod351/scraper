@@ -6,13 +6,24 @@ const articles = [];
 const arrayOfKeywords = [];
 const arrayOfNoKeywords = [];
 
+function checkInputContent(url, res, objectClass) {
+  if (!url || !objectClass) {
+    res.status(400);
+  }
+  return url, objectClass;
+}
+
 module.exports = async function Scrapper(req, res, next) {
   const url = req.body.url;
   const objectClass = req.body.objectClass;
-
-  checkInputContent(url, res, objectClass);
+  try {
+    checkInputContent(url, res, objectClass);
+  } catch (error) {
+    next(error);
+  }
   if (!validUrl.isHttpsUri(url)) {
-    res.status(400)
+    res.status(400);
+    res.send({ message: "bad request" });
   } else {
     try {
       fetchingUrl(req, res, objectClass, url);
@@ -22,13 +33,6 @@ module.exports = async function Scrapper(req, res, next) {
     }
   }
 };
-
-function checkInputContent(url, res, objectClass) {
-  if (!url || !objectClass) {
-    res.status(400)
-  }
-  return url, objectClass;
-}
 
 function fetchingUrl(req, res, objectClass, url) {
   needle(url).then((response) => {
