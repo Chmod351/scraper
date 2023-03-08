@@ -9,6 +9,7 @@ describe('scraping websites' , ()=>{
       objectClass:".com-link",
       keyWord:"la"
     }
+			
     const response = await myRequest.post("/scraper").send(testScrap)
     expect(response.statusCode).to.be.equal(200)
   } )
@@ -19,6 +20,6 @@ describe('scraping websites' , ()=>{
       keyWord: "la"
     }
     const response = await myRequest.post("/scraper").send(testScrap)
-    expect(response.text).to.be.equal("{\"error\":\"invalid url\",\"status\":404}")
+    expect(response.text).to.be.equal("{\"error\":{\"status\":404,\"message\":\"Not Found\"}}")
   })
 });

@@ -1,52 +1,43 @@
-const express= require("express")
-const cors = require('cors')
-require("dotenv").config()
+const express = require("express");
+const cors = require("cors");
+require("dotenv").config();
 const app = express();
-const scraper= require("./routes/scraper.js")
-const ratelimit = require("express-rate-limit")
-const port = process.env.PORT ;
-app.use(cors());
-
-swaggerJsdoc = require("swagger-jsdoc"),
-swaggerUi = require("swagger-ui-express");
-
-app.use(express.urlencoded({ extended: false }));
+const scraper = require("./routes/scraper.js");
+const ratelimit = require("express-rate-limit");
+const morgan = require("morgan");
+const port = process.env.PORT;
+const Error = require("http-errors");
 
 const limit = ratelimit({
   windowMs: 10 * 60 * 1000,
-  max: 5
-})
-app.use(limit)
-app.use("/api/",scraper)
+  max: 5,
+});
 
-const options = {
-  definition: {
-    openapi: "3.0.0",
-    info: {
-      title: "Ultra Scraper",
-      version: "0.1.0",
-      description: "get information about any website in seconds",
-      license: {
-        name: "yamil tauil",
-        url: "https://github.com/yamilt351",
-      },
+const errorMidleware = (err, req, res, next) => {
+  res?.status(err.status || 500);
+
+  res?.send({
+    error: {
+      status: err.status || 500,
+
+      message: err.message,
     },
-    servers: [
-      {
-        url: "http://localhost:5000/",
-      },
-    ],
-  },
-  apis: [
-    "./routes/scraper.js",
-  ],
+  });
 };
-const specs = swaggerJsdoc(options);
+
 app.use(
-  "/api/docs",
-  swaggerUi.serve,
-  swaggerUi.setup(specs)
+  morgan(":method :url :status :response-time ms - :res[content-length]")
 );
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(limit);
+app.use("/api", scraper);
+app.use(async (req, res, next) => {
+  next(Error.NotFound());
+});
+
+app.use(errorMidleware);
 
 app.listen(port, function () {
   console.log(`Listening on port ${port}`);
