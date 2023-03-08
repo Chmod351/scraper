@@ -4,11 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+		"start": "node index.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "GPL V3",
   "dependencies": {
     "apicache": "^1.6.3",
     "axios": "^1.2.6",
