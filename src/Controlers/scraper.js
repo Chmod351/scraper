@@ -4,7 +4,7 @@ const validUrl = require("valid-url");
 
 const articles = [];
 const arrayOfKeywords = [];
-const arrayOfNoKeywords=[];
+const arrayOfNoKeywords = [];
 
 module.exports = async function Scrapper(req, res, next) {
   const url = req.body.url;
@@ -12,8 +12,7 @@ module.exports = async function Scrapper(req, res, next) {
 
   checkInputContent(url, res, objectClass);
   if (!validUrl.isHttpsUri(url)) {
-    console.log(url);
-    res.status(404);
+    res.status(400)
   } else {
     try {
       fetchingUrl(req, res, objectClass, url);
@@ -26,7 +25,7 @@ module.exports = async function Scrapper(req, res, next) {
 
 function checkInputContent(url, res, objectClass) {
   if (!url || !objectClass) {
-    res.status(404);
+    res.status(400)
   }
   return url, objectClass;
 }
@@ -68,7 +67,7 @@ async function scrapingData(req, res, response, objectClass, url) {
       res.json(error);
     }
   } else {
-    res.status(404).json("body not found");
+    res.status(400).json("bad request");
   }
 }
 
@@ -82,11 +81,11 @@ function noKeyword() {
 function withKeyword(keyWord) {
   for (let i = 0; i < articles.length; i++) {
     const compareKeyword = articles[i];
-		const convertToLowerCase= compareKeyword.title.toLowerCase()
+    const convertToLowerCase = compareKeyword.title.toLowerCase();
     if (convertToLowerCase.includes(keyWord)) {
       arrayOfKeywords.push(compareKeyword);
     } else {
-      arrayOfNoKeywords.push(articles[i])
+      arrayOfNoKeywords.push(articles[i]);
     }
   }
 }
