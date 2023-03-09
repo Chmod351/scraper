@@ -4,17 +4,17 @@ require("dotenv").config();
 const options = require("./swaggerConfig");
 const app = express();
 const scrape = require("./routes/scraper.js");
-// const ratelimit = require("express-rate-limit");
+const ratelimit = require("express-rate-limit");
 const morgan = require("morgan");
 const port = process.env.PORT;
 
 const swaggerJsdoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
 
-// const limit = ratelimit({
-//   windowMs: 10 * 60 * 1000,
-//   max: 5,
-// });
+const limit = ratelimit({
+  windowMs: 10 * 60 * 1000,
+  max: 5,
+});
 
 //MIDDLEWARES
 app.use(
@@ -31,7 +31,7 @@ app.use((req, res, next) => {
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-// app.use(limit);
+app.use(limit);
 app.use("/api", scrape);
 
 //END MIDDLEWARES
