@@ -9,9 +9,8 @@ web Scraping
 
 Go to [SwaggerUI](https://scraper-5ask.onrender.com/api/docs)
 
-![image](https://user-images.githubusercontent.com/88646148/215616780-2878eae0-9a36-4412-9f12-3974f5e3a768.png)
 
-
+### Demo
 
 ## Endpoint Response:
 -  https://scraper-5ask.onrender.com/api/scrape
@@ -25,7 +24,6 @@ npx jest --detectOpenHandles
 ```
 
 # Contributions
--  Fork the repo
 -  Clone Repo
 ```
 git clone https://github.com/yamilt351/scrape
