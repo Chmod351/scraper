@@ -11,6 +11,13 @@ const port = process.env.PORT;
 const swaggerJsdoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
 
+const corsOptions = {
+  origin: 'https://scraper-5ask.onrender.com', // Permitir cualquier origen
+  methods: 'POST', // Permitir todos los métodos HTTP
+  preflightContinue: false,
+  optionsSuccessStatus: 204
+}
+
 const limit = ratelimit({
   windowMs: 10 * 60 * 1000,
   max: 15,
@@ -28,7 +35,7 @@ app.use((req, res, next) => {
   );
   next();
 });
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(limit);
