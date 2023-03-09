@@ -27,13 +27,18 @@ function scrapeData(bodyHtml, objectClass) {
 	return articles;
 }
 
+function removeSpecialChars(str) {
+  const regex = /[\n\t]+/g;
+  return str.replace(regex, '');
+}
+
 function filterArticles(articles, filterFn) {
 	return articles.filter(filterFn);
 }
 
 function withKeyword(keyWord) {
 	return function (article) {
-		const convertToLowerCase = article.title.toLowerCase();
+		const convertToLowerCase =article.title.toLowerCase();
 		return convertToLowerCase.includes(keyWord);
 	};
 }
@@ -44,6 +49,8 @@ function noKeyword() {
 	};
 }
 
+
+
 module.exports = async function Scrapper(req, res) {
 	const url = req.body.url;
 	const objectClass = req.body.objectClass;
@@ -52,7 +59,6 @@ module.exports = async function Scrapper(req, res) {
 	try {
 		checkInputContent(url, objectClass);
 	} catch (error) {
-		console.error(error);
 		res.status(400).json({ message: 'Invalid input' });
 		return;
 	}
@@ -65,9 +71,12 @@ module.exports = async function Scrapper(req, res) {
 	try {
 		const bodyHtml = await fetchUrl(url);
 		const articles = scrapeData(bodyHtml, objectClass);
-
+    const cleanedArticles = articles.map(article => {
+      article.title = removeSpecialChars(article.title);
+      return article;
+    });
 		const filterFn = keyWord ? withKeyword(keyWord) : noKeyword();
-		const filteredArticles = filterArticles(articles, filterFn);
+		const filteredArticles = filterArticles(cleanedArticles, filterFn);
 
 		res.status(200).json({
 			state: 'succes',
