@@ -13,7 +13,7 @@ const swaggerUi = require("swagger-ui-express");
 
 const limit = ratelimit({
   windowMs: 10 * 60 * 1000,
-  max: 5,
+  max: 15,
 });
 
 //MIDDLEWARES
