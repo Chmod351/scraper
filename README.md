@@ -21,7 +21,7 @@ Go to [SwaggerUI](https://scraper-5ask.onrender.com/api/docs)
 - jest
 
 ```
-npx jest --detectOpenHandles
+npx jest
 ```
 
 # Contributions

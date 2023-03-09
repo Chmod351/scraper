@@ -1,5 +1,6 @@
 const SERVER = process.env.SERVER;
 const port = process.env.PORT;
+const dir = __dirname;
 const options = {
   definition: {
     openapi: "3.0.0",
@@ -45,7 +46,7 @@ const options = {
       },
     },
   },
-  apis: [__dirname + "./routes/scrape.js"],
+  apis: [dir + "./routes/scrape.js"],
 };
 
 module.exports = options;
