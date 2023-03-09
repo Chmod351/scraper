@@ -12,7 +12,7 @@ const swaggerJsdoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
 
 const corsOptions = {
-  origin: 'https://scraper-5ask.onrender.com', // Permitir cualquier origen
+  origin: '*', // Permitir cualquier origen
   methods: 'POST', // Permitir todos los métodos HTTP
   preflightContinue: false,
   optionsSuccessStatus: 204
