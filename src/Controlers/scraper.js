@@ -1,104 +1,83 @@
-const needle = require("needle");
-const scraper = require("cheerio");
-const validUrl = require("valid-url");
+const needle = require('needle');
+const scraper = require('cheerio');
+const validUrl = require('valid-url');
 
-const articles = [];
-const arrayOfKeywords = [];
-const arrayOfNoKeywords = [];
-
-function checkInputContent(url, res, objectClass) {
-  if (!url || !objectClass) {
-    res.status(400);
-  }
-  return url, objectClass;
+function checkInputContent(url, objectClass) {
+	if (!url || !objectClass) {
+		throw new Error('Invalid input');
+	}
 }
 
-module.exports = async function Scrapper(req, res) {
-  const url = req.body.url;
-  const objectClass = req.body.objectClass;
-  try {
-    checkInputContent(url, res, objectClass);
-  } catch (error) {
-    console.error(error);
-  }
-  if (!validUrl.isHttpsUri(url)) {
-    res.status(400);
-    res.send({ message: "bad request" });
-  } else {
-    try {
-      fetchingUrl(req, res, objectClass, url);
-      res.status(200);
-    } catch (error) {
-      console.log(error);
-    }
-  }
-};
-
-function fetchingUrl(req, res, objectClass, url) {
-  needle(url).then((response) => {
-    scrapingData(req, res, response, objectClass, url);
-  });
+async function fetchUrl(url) {
+	const response = await needle(url);
+	return response.body;
 }
 
-async function scrapingData(req, res, response, objectClass, url) {
-  const bodyHtml = response.body;
-
-  if (bodyHtml) {
-    const scraperLoad = scraper.load(bodyHtml);
-    try {
-      scraperLoad(objectClass, bodyHtml).each(function () {
-        const title = scraperLoad(this).text();
-
-        const link = scraperLoad(this).find("a").attr("href");
-
-        articles.push({
-          title,
-          link,
-        });
-      });
-
-      scrapingWord((keyWord = await req.body.keyWord));
-
-      res.status(200).json({
-        state: "succes",
-        "objects found": arrayOfKeywords.length,
-        "key-word": keyWord,
-        "scanned webpage": url,
-        "found articles": arrayOfKeywords,
-      });
-      return arrayOfKeywords;
-    } catch (error) {
-      res.json(error);
-    }
-  } else {
-    res.status(400).json("bad request");
-  }
+function scrapeData(bodyHtml, objectClass) {
+	const articles = [];
+	const scraperLoad = scraper.load(bodyHtml);
+	scraperLoad(objectClass, bodyHtml).each(function () {
+		const title = scraperLoad(this).text();
+		const link = scraperLoad(this).find('a').attr('href');
+		articles.push({
+			title,
+			link,
+		});
+	});
+	return articles;
 }
 
-function noKeyword() {
-  for (let i = 0; i < articles.length; i++) {
-    const element = articles[i];
-    arrayOfKeywords.push(element);
-  }
+function filterArticles(articles, filterFn) {
+	return articles.filter(filterFn);
 }
 
 function withKeyword(keyWord) {
-  for (let i = 0; i < articles.length; i++) {
-    const compareKeyword = articles[i];
-    const convertToLowerCase = compareKeyword.title.toLowerCase();
-    if (convertToLowerCase.includes(keyWord)) {
-      arrayOfKeywords.push(compareKeyword);
-    } else {
-      arrayOfNoKeywords.push(articles[i]);
-    }
-  }
+	return function (article) {
+		const convertToLowerCase = article.title.toLowerCase();
+		return convertToLowerCase.includes(keyWord);
+	};
 }
 
-function scrapingWord(keyWord) {
-  if (keyWord) {
-    withKeyword(keyWord);
-  } else {
-    noKeyword();
-  }
-  return arrayOfKeywords;
+function noKeyword() {
+	return function () {
+		return true;
+	};
 }
+
+module.exports = async function Scrapper(req, res) {
+	const url = req.body.url;
+	const objectClass = req.body.objectClass;
+	const keyWord = req.body.keyWord;
+
+	try {
+		checkInputContent(url, objectClass);
+	} catch (error) {
+		console.error(error);
+		res.status(400).json({ message: 'Invalid input' });
+		return;
+	}
+
+	if (!validUrl.isHttpsUri(url)) {
+		res.status(400).json({ message: 'Bad request' });
+		return;
+	}
+
+	try {
+		const bodyHtml = await fetchUrl(url);
+		const articles = scrapeData(bodyHtml, objectClass);
+
+		const filterFn = keyWord ? withKeyword(keyWord) : noKeyword();
+		const filteredArticles = filterArticles(articles, filterFn);
+
+		res.status(200).json({
+			state: 'succes',
+			'objects found': filteredArticles.length,
+			'key-word': keyWord,
+			'scanned webpage': url,
+			'found articles': filteredArticles,
+		});
+	} catch (error) {
+		console.log(error);
+		res.status(500).json({ message: 'Internal server error' });
+	}
+};

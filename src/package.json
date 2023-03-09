@@ -26,7 +26,7 @@
     "supertest": "^6.3.3",
     "swagger": "^0.7.5",
     "swagger-jsdoc": "^6.2.8",
-    "swagger-ui-express": "^4.6.2",
+    "swagger-ui-express": "^4.6.0",
     "valid-url": "^1.0.9"
   },
   "devDependencies": {
