@@ -15,10 +15,10 @@ async function fetchUrl(url) {
 
 function scrapeData(bodyHtml, objectClass) {
 	const articles = [];
-	const scraperLoad = scraper.load(bodyHtml);
-	scraperLoad(objectClass, bodyHtml).each(function () {
-		const title = scraperLoad(this).text();
-		const link = scraperLoad(this).find('a').attr('href');
+	const scrapeLoad = scraper.load(bodyHtml);
+	scrapeLoad(objectClass, bodyHtml).each(function () {
+		const title = scrapeLoad(this).text();
+		const link = scrapeLoad(this).find('a').attr('href');
 		articles.push({
 			title,
 			link,

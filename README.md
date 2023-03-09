@@ -12,7 +12,7 @@ web Scraping
 
 
 ## Endpoint Response:
--  /api/scraper
+-  /api/scrape
 -  The petitions must be  POST request
 
 # This project was tested by 
@@ -26,7 +26,7 @@ npx jest --detectOpenHandles
 -  Fork the repo
 -  Clone Repo
 ```
-git clone https://github.com/yamilt351/scraper
+git clone https://github.com/yamilt351/scrape
 ```
 - Make your changes
 - Test your changes 

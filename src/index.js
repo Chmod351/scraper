@@ -3,7 +3,7 @@ const cors = require("cors");
 require("dotenv").config();
 const options = require("./swaggerConfig");
 const app = express();
-const scraper = require("./routes/scraper.js");
+const scrape = require("./routes/scraper.js");
 // const ratelimit = require("express-rate-limit");
 const morgan = require("morgan");
 const port = process.env.PORT;
@@ -32,7 +32,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 // app.use(limit);
-app.use("/api", scraper);
+app.use("/api", scrape);
 
 //END MIDDLEWARES
 

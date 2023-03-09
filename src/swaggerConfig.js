@@ -10,7 +10,7 @@ const options = {
         "Suppose you want some information from a website? Let’s say a paragraph on Donald Trump! What do you do? Well, you can copy and paste the information from Wikipedia to your own file. But what if you want to get large amounts of information from a website as quickly as possible? Such as large amounts of data from a website to train a Machine Learning algorithm? In such a situation, copying and pasting will not work! And that’s when you’ll need to use Web Scraping",
       license: {
         name: "GPL",
-        url: "https://github.com/yamilt351/scraper",
+        url: "https://github.com/yamilt351/scrape",
       },
     },
     servers: [
@@ -45,7 +45,7 @@ const options = {
       },
     },
   },
-  apis: ["./routes/scraper.js"],
+  apis: ["./routes/scrape.js"],
 };
 
 module.exports = options;
