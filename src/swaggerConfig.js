@@ -45,7 +45,7 @@ const options = {
       },
     },
   },
-  apis: ["./routes/scrape.js"],
+  apis: [__dirname + "./routes/scrape.js"],
 };
 
 module.exports = options;
