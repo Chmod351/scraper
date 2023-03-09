@@ -15,7 +15,7 @@ const options = {
     },
     servers: [
       {
-        url: `${SERVER}${port}`,
+					url: `${SERVER}:${port}`,
         description: "Deployment server",
       },
     ],

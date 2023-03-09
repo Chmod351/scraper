@@ -7,12 +7,14 @@ web Scraping
 ===================================================================================
 ## How use it? :
 
+Go to [SwaggerUI](https://scraper-5ask.onrender.com/api/docs)
+
 ![image](https://user-images.githubusercontent.com/88646148/215616780-2878eae0-9a36-4412-9f12-3974f5e3a768.png)
 
 
 
 ## Endpoint Response:
--  /api/scrape
+-  https://scraper-5ask.onrender.com/api/scrape
 -  The petitions must be  POST request
 
 # This project was tested by 
