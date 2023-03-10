@@ -12,13 +12,9 @@ const swaggerJsdoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
 const specs = swaggerJsdoc(options);
 
-// const corsOptions = {
-//   origin: '*', // Permitir cualquier origen
-//   methods: 'POST', // Permitir todos los métodos HTTP
-//   preflightContinue: false,
-//   allowedHeaders: 'Content-Type',
-//   optionsSuccessStatus: 204
-// }
+const corsOptions = {
+		origin:"https://scraper-5ask.onrender.com"
+}
 
 const limit = ratelimit({
   windowMs: 10 * 60 * 1000,
@@ -36,7 +32,7 @@ app.use(limit);
 //END MIDDLEWARES
 
 app.use("/api", scrape);
-app.use("/api/docs",cors(), swaggerUi.serve, swaggerUi.setup(specs));
+app.use("/api/docs", cors(corsOptions), swaggerUi.serve, swaggerUi.setup(specs));
 
 app.listen(port, function () {
   console.log(`Listening on port ${port}`);
