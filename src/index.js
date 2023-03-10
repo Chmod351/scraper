@@ -10,6 +10,7 @@ const port = process.env.PORT;
 
 const swaggerJsdoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
+const specs = swaggerJsdoc(options);
 
 // const corsOptions = {
 //   origin: '*', // Permitir cualquier origen
@@ -25,21 +26,17 @@ const limit = ratelimit({
 });
 
 //MIDDLEWARES
-app.use(
-  morgan(":method :url :status :response-time ms - :res[content-length]")
-);
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(
+  morgan(":method :url :status :response-time ms - :res[content-length]")
+);
 app.use(limit);
-app.use("/api", scrape);
-
 //END MIDDLEWARES
 
-const specs = swaggerJsdoc(options);
-app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(specs));
-
-//END SWAGGER
+app.use("/api", scrape);
+app.use("/api/docs",cors(), swaggerUi.serve, swaggerUi.setup(specs));
 
 app.listen(port, function () {
   console.log(`Listening on port ${port}`);
