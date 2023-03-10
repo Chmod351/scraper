@@ -11,13 +11,13 @@ const port = process.env.PORT;
 const swaggerJsdoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
 
-const corsOptions = {
-  origin: "*", // Permitir cualquier origen
-  methods: "POST", // Permitir todos los métodos HTTP
-  preflightContinue: false,
-  allowedHeaders: "Content-Type",
-  optionsSuccessStatus: 204,
-};
+// const corsOptions = {
+//   origin: '*', // Permitir cualquier origen
+//   methods: 'POST', // Permitir todos los métodos HTTP
+//   preflightContinue: false,
+//   allowedHeaders: 'Content-Type',
+//   optionsSuccessStatus: 204
+// }
 
 const limit = ratelimit({
   windowMs: 10 * 60 * 1000,
@@ -28,7 +28,7 @@ const limit = ratelimit({
 app.use(
   morgan(":method :url :status :response-time ms - :res[content-length]")
 );
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(limit);
