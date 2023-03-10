@@ -12,11 +12,12 @@ const swaggerJsdoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
 
 const corsOptions = {
-  origin: '*', // Permitir cualquier origen
-  methods: 'POST', // Permitir todos los métodos HTTP
+  origin: "*", // Permitir cualquier origen
+  methods: "POST", // Permitir todos los métodos HTTP
   preflightContinue: false,
-  optionsSuccessStatus: 204
-}
+  allowedHeaders: "Content-Type",
+  optionsSuccessStatus: 204,
+};
 
 const limit = ratelimit({
   windowMs: 10 * 60 * 1000,
