@@ -13,8 +13,12 @@ const swaggerUi = require("swagger-ui-express");
 const specs = swaggerJsdoc(options);
 
 const corsOptions = {
-  origin: "*",
-  allowedHeaders: ["Content-Type", "Authorization"],
+  origin: [
+    "https://scraper-5ask.onrender.com/api/docs/#/default/post_api_scrape",
+    "https://scraper-5ask.onrender.com",
+    "https://scraper-5ask.onrender.com/api/docs",
+  ],
+  allowedHeaders: "Content-Type",
 };
 
 const limit = ratelimit({
