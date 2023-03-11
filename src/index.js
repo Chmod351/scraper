@@ -7,7 +7,7 @@ const scrape = require("./routes/scraper.js");
 const ratelimit = require("express-rate-limit");
 const morgan = require("morgan");
 const port = process.env.PORT;
-
+const path = require('path');
 const swaggerJsdoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
 const specs = swaggerJsdoc(options);
@@ -35,6 +35,7 @@ app.use(
 );
 app.use(limit);
 //END MIDDLEWARES
+app.use('/public', express.static(path.join(__dirname, 'public')));
 
 app.use("/api", scrape);
 app.use(
