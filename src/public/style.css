@@ -33,6 +33,7 @@ h1 {
   text-decoration: 2px white underline;
 }
 input {
+  color: #fff;
   margin: 0.4rem 0rem;
   background-color: transparent;
   border: none;
