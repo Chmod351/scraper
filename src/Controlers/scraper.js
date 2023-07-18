@@ -3,28 +3,28 @@ const scraper = require('cheerio');
 const validUrl = require('valid-url');
 
 function checkInputContent(url, objectClass) {
-	if (!url || !objectClass) {
-		throw new Error('Invalid input');
-	}
+  if (!url || !objectClass) {
+    throw new Error('Invalid input');
+  }
 }
 
 async function fetchUrl(url) {
-	const response = await needle(url);
-	return response.body;
+  const response = await needle(url);
+  return response.body;
 }
 
 function scrapeData(bodyHtml, objectClass) {
-	const articles = [];
-	const scrapeLoad = scraper.load(bodyHtml);
-	scrapeLoad(objectClass, bodyHtml).each(function () {
-		const title = scrapeLoad(this).text();
-		const link = scrapeLoad(this).find('a').attr('href');
-		articles.push({
-			title,
-			link,
-		});
-	});
-	return articles;
+  const articles = [];
+  const scrapeLoad = scraper.load(bodyHtml);
+  scrapeLoad(objectClass, bodyHtml).each(function () {
+    const title = scrapeLoad(this).text();
+    const link = scrapeLoad(this).find('a').attr('href');
+    articles.push({
+      title,
+      link,
+    });
+  });
+  return articles;
 }
 
 function removeSpecialChars(str) {
@@ -33,60 +33,58 @@ function removeSpecialChars(str) {
 }
 
 function filterArticles(articles, filterFn) {
-	return articles.filter(filterFn);
+  return articles.filter(filterFn);
 }
 
 function withKeyword(keyWord) {
-	return function (article) {
-		const convertToLowerCase =article.title.toLowerCase();
-		return convertToLowerCase.includes(keyWord);
-	};
+  return function (article) {
+    const convertToLowerCase = article.title.toLowerCase();
+    return convertToLowerCase.includes(keyWord);
+  };
 }
 
 function noKeyword() {
-	return function () {
-		return true;
-	};
+  return function () {
+    return true;
+  };
 }
 
-
-
 module.exports = async function Scrapper(req, res) {
-	const url = req.body.url;
-	const objectClass = req.body.objectClass;
-	const keyWord = req.body.keyWord;
+  const url = req.body.url;
+  const objectClass = req.body.objectClass;
+  const keyWord = req.body.keyWord;
 
-	try {
-		checkInputContent(url, objectClass);
-	} catch (error) {
-		res.status(400).json({ message: 'Invalid input' });
-		return;
-	}
+  try {
+    checkInputContent(url, objectClass);
+  } catch (error) {
+    res.status(400).json({ message: 'Invalid input' });
+    return;
+  }
 
-	if (!validUrl.isHttpsUri(url)) {
-		res.status(400).json({ message: 'Bad request' });
-		return;
-	}
+  if (!validUrl.isHttpsUri(url)) {
+    res.status(400).json({ message: 'Bad request' });
+    return;
+  }
 
-	try {
-		const bodyHtml = await fetchUrl(url);
-		const articles = scrapeData(bodyHtml, objectClass);
-    const cleanedArticles = articles.map(article => {
+  try {
+    const bodyHtml = await fetchUrl(url);
+    const articles = scrapeData(bodyHtml, objectClass);
+    const cleanedArticles = articles.map((article) => {
       article.title = removeSpecialChars(article.title);
       return article;
     });
-		const filterFn = keyWord ? withKeyword(keyWord) : noKeyword();
-		const filteredArticles = filterArticles(cleanedArticles, filterFn);
+    const filterFn = keyWord ? withKeyword(keyWord) : noKeyword();
+    const filteredArticles = filterArticles(cleanedArticles, filterFn);
 
-		res.status(200).json({
-			state: 'succes',
-			'objects found': filteredArticles.length,
-			'key-word': keyWord,
-			'scanned webpage': url,
-			'found articles': filteredArticles,
-		});
-	} catch (error) {
-		console.log(error);
-		res.status(500).json({ message: 'Internal server error' });
-	}
+    res.status(200).json({
+      state: 'succes',
+      'objects found': filteredArticles.length,
+      'key-word': keyWord,
+      'scanned webpage': url,
+      'found articles': filteredArticles,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
 };

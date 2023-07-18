@@ -4,11 +4,38 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Scrapper</title>
-   <link rel="stylesheet" href="style.css" type="text/css"> 
-   </head>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+  </head>
   <body>
     <section class="section-scraper">
-      <h1>Web Scrapper 4000</h1>
+      <h1>Web Scrapper</h1>
+      <form id="scraper-form" class="form-scraper">
+        <label for="url">URL:</label><br />
+        <input
+          type="text"
+          id="url"
+          name="url"
+          required
+          value="https://www.lanacion.com.ar/"
+        /><br />
+        <label for="objectClass">Object Class:</label><br />
+        <input
+          type="text"
+          id="objectClass"
+          name="objectClass"
+          required
+          value=".ln-link"
+        /><br />
+        <label for="keyWord">Keyword:</label><br />
+        <input
+          type="text"
+          id="keyWord"
+          name="keyWord"
+          value=""
+          placeholder="what are you looking for"
+        /><br />
+        <input type="submit" value="Submit" / class="button">
+      </form>
       <h2>How to use it?</h2>
       <ul class="list-Scrapper">
         <li>Copy the website target link and paste into url field</li>
@@ -22,19 +49,9 @@
         <li>click on submit</li>
         <li>for more information use https://github.com/yamilt351/scraper</li>
       </ul>
-      <form
-        method="POST"
-        action="https://scraper-5ask.onrender.com/api/scrape"
-        class="form-scraper"
-      >
-        <label for="url">URL:</label><br />
-        <input type="text" id="url" name="url" required value="https://libreddit.de/"/><br />
-        <label for="objectClass">Object Class:</label><br />
-        <input type="text" id="objectClass" name="objectClass" required value=".post_title" /><br />
-        <label for="keyWord">Keyword:</label><br />
-        <input type="text" id="keyWord" name="keyWord" value=""/><br />
-        <input type="submit" value="Submit" / class="button">
-      </form>
+      <div id="response"></div>
     </section>
+
+    <script src="script.js"></script>
   </body>
 </html>

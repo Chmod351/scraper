@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap');
+
 body {
-  background-color: #333333;
+  background-color: black;
   font: 1.3rem sans-serif #333;
+  font-family: 'Roboto', sans-serif;
   color: #fff;
 }
 .section-scraper {
@@ -8,21 +11,22 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
 }
 .button {
   margin-top: 1rem;
   width: 100%;
-  height: 1.4rem;
+  height: 2rem;
   border: none;
   background-color: red;
   color: #fff;
+  cursor: pointer;
 }
 .button:hover {
   color: #fff;
   background-color: #222222;
 }
 .form-scraper {
+  width: 30em;
   margin-top: 2rem;
   border: 1px solid black;
   padding: 1rem;
@@ -30,12 +34,21 @@ body {
 }
 
 h1 {
-  text-decoration: 2px white underline;
+  font-size: 2.4rem;
+  text-decoration: 2px white;
 }
+
 input {
+  width: 100%;
   color: #fff;
   margin: 0.4rem 0rem;
   background-color: transparent;
   border: none;
   border-bottom: 1px solid #fff;
+}
+
+@media screen and (max-width: 800px) {
+  .form-scraper {
+    width: 80%;
+  }
 }

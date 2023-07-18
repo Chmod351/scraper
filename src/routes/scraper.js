@@ -31,6 +31,7 @@ let cache = apiCache.middleware;
  *       400:
  *         description: Error de solicitud.
  */
+
 router.post("/scrape", cache("30 minutes"), Scrapper);
 
 module.exports = router;
