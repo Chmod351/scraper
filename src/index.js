@@ -14,8 +14,8 @@ const app = express();
 const middlewares = await importMiddlewares();
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const port = config.port;
-//MIDDLEWARES
 
+//MIDDLEWARES
 middlewares.forEach((middleware) => {
   app.use(middleware);
 });
