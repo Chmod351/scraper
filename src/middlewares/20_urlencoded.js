@@ -1,5 +1,3 @@
-import express  from 'express';
-
-import express from 'express'
-const expressJsonMiddleware = express.json();
-export default expressJsonMiddleware;
+import express from 'express';
+const url = express.urlencoded({ extended: true });
+export default url;
