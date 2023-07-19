@@ -1,50 +1,30 @@
-const express = require('express');
-const cors = require('cors');
-require('dotenv').config();
-const options = require('./swaggerConfig');
-const app = express();
-const scrape = require('./routes/scraper.js');
-const ratelimit = require('express-rate-limit');
-const morgan = require('morgan');
-const port = process.env.PORT;
-const path = require('path');
-const swaggerJsdoc = require('swagger-jsdoc');
-const swaggerUi = require('swagger-ui-express');
+import express from 'express';
+import options from './config/swaggerConfig.js';
+import scrape from './routes/scraper.js';
+import path from 'path';
+import swaggerJsdoc from 'swagger-jsdoc';
+import swaggerUi from 'swagger-ui-express';
+import importMiddlewares from './config/middlewaresConfig.js';
+import { fileURLToPath } from 'url';
+import config from './config/envConfig.js';
+
+// CONFIG
 const specs = swaggerJsdoc(options);
+const app = express();
+const middlewares = await importMiddlewares();
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const port = config.port;
+//MIDDLEWARES
 
-const corsOptions = {
-  origin: [
-    'https://scraper-5ask.onrender.com/api/docs/#/default/post_api_scrape',
-    'https://scraper-5ask.onrender.com',
-    'https://scraper-5ask.onrender.com/api/docs',
-  ],
-  allowedHeaders: 'Content-Type',
-};
-
-const limit = ratelimit({
-  windowMs: 10 * 60 * 1000,
-  max: 15,
+middlewares.forEach((middleware) => {
+  app.use(middleware);
 });
 
-//MIDDLEWARES
-app.use(cors(corsOptions));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(
-  morgan(':method :url :status :response-time ms - :res[content-length]'),
-);
-app.use(limit);
-//END MIDDLEWARES
+//ROUTES
 app.use('/public', express.static(path.join(__dirname, 'public')));
-
 app.use('/api', scrape);
-app.use(
-  '/api/docs',
-  cors(corsOptions),
-  swaggerUi.serve,
-  swaggerUi.setup(specs),
-);
+app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(specs));
 
 app.listen(port, function () {
-  console.log(`Listening on port ${port}`);
+  console.log(`the aplication is running on http://localhost:${port}`);
 });

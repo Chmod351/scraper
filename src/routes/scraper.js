@@ -1,7 +1,8 @@
-const express = require("express");
+import express from 'express';
 const router = express.Router();
-const apiCache = require("apicache");
-const Scrapper = require("../Controlers/scraper.js");
+import apiCache from 'apicache';
+import scrapper from '../Controlers/scraper.js';
+
 let cache = apiCache.middleware;
 
 /**
@@ -12,7 +13,7 @@ let cache = apiCache.middleware;
  *     description: Use esta API para extraer datos de un sitio web.
  *     requestBody:
  *       description: Datos necesarios para realizar la extracción.
- *       required: true
+ *       fromd: true
  *       content:
  *         application/json:
  *           schema:
@@ -32,6 +33,6 @@ let cache = apiCache.middleware;
  *         description: Error de solicitud.
  */
 
-router.post("/scrape", cache("30 minutes"), Scrapper);
+router.post('/scrape', cache('30 minutes'), scrapper);
 
-module.exports = router;
+export default router;

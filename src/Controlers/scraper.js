@@ -1,6 +1,6 @@
-const needle = require('needle');
-const scraper = require('cheerio');
-const validUrl = require('valid-url');
+import needle from 'needle';
+import cheerio from 'cheerio';
+import validUrl from 'valid-url';
 
 function checkInputContent(url, objectClass) {
   if (!url || !objectClass) {
@@ -15,7 +15,7 @@ async function fetchUrl(url) {
 
 function scrapeData(bodyHtml, objectClass) {
   const articles = [];
-  const scrapeLoad = scraper.load(bodyHtml);
+  const scrapeLoad = cheerio.load(bodyHtml);
   scrapeLoad(objectClass, bodyHtml).each(function () {
     const title = scrapeLoad(this).text();
     const link = scrapeLoad(this).find('a').attr('href');
@@ -49,17 +49,12 @@ function noKeyword() {
   };
 }
 
-module.exports = async function Scrapper(req, res) {
+const scrap = async function Scrapper(req, res) {
   const url = req.body.url;
   const objectClass = req.body.objectClass;
   const keyWord = req.body.keyWord;
 
-  try {
-    checkInputContent(url, objectClass);
-  } catch (error) {
-    res.status(400).json({ message: 'Invalid input' });
-    return;
-  }
+  checkInputContent(url, objectClass);
 
   if (!validUrl.isHttpsUri(url)) {
     res.status(400).json({ message: 'Bad request' });
@@ -88,3 +83,5 @@ module.exports = async function Scrapper(req, res) {
     res.status(500).json({ message: 'Internal server error' });
   }
 };
+
+export default scrap;
