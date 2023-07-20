@@ -25,7 +25,9 @@ middlewares.forEach((middleware) => {
 app.use('/public', express.static(path.join(__dirname, 'public')));
 app.use('/api', scrape);
 app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(specs));
+
 app.use(errorHandler);
+
 app.listen(port, function () {
   console.log(`the aplication is running on http://localhost:${port}`);
 });

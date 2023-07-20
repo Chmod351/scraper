@@ -20,4 +20,5 @@ function errorHandler(error, req, res, next) {
   }
   next();
 }
+
 export { errorHandler, BadRequestError, NotFoundError };

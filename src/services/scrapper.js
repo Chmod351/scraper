@@ -1,19 +1,19 @@
 import needle from 'needle';
 import cheerio from 'cheerio';
-import { BadRequestError } from '../helpers/errorHandler';
+import { BadRequestError } from '../helpers/errorHandler.js';
 
 async function fetchUrl(url) {
   try {
     const response = await needle(url);
     return response.body;
   } catch (error) {
-    return error;
+    return error.statusCode;
   }
 }
 
 function checkInputContent(url, objectClass) {
   if (!url || !objectClass) {
-    throw new BadRequestError('no inputs found');
+    throw new BadRequestError('bad request');
   }
 }
 
@@ -84,6 +84,7 @@ const scrap = async function Scrapper(req, res) {
 const scrappService = {
   scrap,
   checkInputContent,
+  fetchUrl,
 };
 
 export default scrappService;
