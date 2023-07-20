@@ -1,6 +1,6 @@
-const request = require('supertest');
-const { expect } = require('chai');
-const myRequest = request('http://localhost:5000/api');
+import Request from 'supertest';
+import { expect } from 'chai';
+const myRequest = Request('http://localhost:5000/api');
 
 describe('status-400', () => {
   it('should return statusCode 400 bad request /api/scrape/', async () => {

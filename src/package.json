@@ -1,13 +1,13 @@
 {
   "name": "src",
   "version": "1.0.0",
-  "description": "",
+  "description": "this is a web scrapper to get information about any site",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "jest",
-    "test:unit": "jest scraper.unit.test.js",
-    "test:integration": "jest scraper.test.js",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test:unit": "node --experimental-vm-modules node_modules/jest/bin/jest.js scraper.unit.test.js",
+    "test:integration": "node --experimental-vm-modules node_modules/jest/bin/jest.js scraper.test.js",
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
