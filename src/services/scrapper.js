@@ -85,6 +85,7 @@ const scrappService = {
   scrap,
   checkInputContent,
   fetchUrl,
+  scrapeData,
 };
 
 export default scrappService;
