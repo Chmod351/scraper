@@ -1,16 +1,19 @@
 import needle from 'needle';
 import cheerio from 'cheerio';
-import validUrl from 'valid-url';
+
+async function fetchUrl(url) {
+  try {
+    const response = await needle(url);
+    return response.body;
+  } catch (error) {
+    return error;
+  }
+}
 
 function checkInputContent(url, objectClass) {
   if (!url || !objectClass) {
     throw new Error('Invalid input');
   }
-}
-
-async function fetchUrl(url) {
-  const response = await needle(url);
-  return response.body;
 }
 
 function scrapeData(bodyHtml, objectClass) {
@@ -49,43 +52,37 @@ function noKeyword() {
   };
 }
 
+function Articles(articles) {
+  articles.map((article) => {
+    article.title = removeSpecialChars(article.title);
+    return article;
+  });
+}
+
 const scrap = async function Scrapper(req, res) {
-  const url = req.body.url;
-  const objectClass = req.body.objectClass;
   const keyWord = req.body.keyWord;
+  const objectClass = req.body.objectClass;
 
-  checkInputContent(url, objectClass);
+  const bodyHtml = await fetchUrl(url);
+  const articles = scrapeData(bodyHtml, objectClass);
 
-  if (!validUrl.isHttpsUri(url)) {
-    res.status(400);
-    return;
-  }
+  const cleanedArticles = Articles(articles);
 
-  try {
-    const bodyHtml = await fetchUrl(url);
-    const articles = scrapeData(bodyHtml, objectClass);
-    const cleanedArticles = articles.map((article) => {
-      article.title = removeSpecialChars(article.title);
-      return article;
-    });
-    const filterFn = keyWord ? withKeyword(keyWord) : noKeyword();
-    const filteredArticles = filterArticles(cleanedArticles, filterFn);
-    
-    res.status(200).json({
-      state: 'succes',
-      'objects found': filteredArticles.length,
-      'key-word': keyWord,
-      'scanned webpage': url,
-      'found articles': filteredArticles,
-    });
-  } catch (error) {
-    console.log(error);
-    res.status(500);
-  }
+  const filterFn = keyWord ? withKeyword(keyWord) : noKeyword();
+  const filteredArticles = filterArticles(cleanedArticles, filterFn);
+
+  res.status(200).json({
+    state: 'succes',
+    'objects found': filteredArticles.length,
+    'key-word': keyWord,
+    'scanned webpage': url,
+    'found articles': filteredArticles,
+  });
 };
 
 const scrappService = {
   scrap,
+  checkInputContent,
 };
 
 export default scrappService;

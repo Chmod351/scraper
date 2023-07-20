@@ -10,7 +10,7 @@ describe('status-400', () => {
       keyWord: 'linux',
     };
     const response = await myRequest.post('/scrape').send(testScrap);
-    expect(response.text).to.be.equal('{"message":"Invalid input"}');
+    expect(response.text).to.be.equal(400);
   });
   it('should return statusCode 400 bad request /api/scrape', async () => {
     const testScrap = {

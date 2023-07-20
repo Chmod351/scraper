@@ -2,7 +2,6 @@ import express from 'express';
 const router = express.Router();
 import apiCache from 'apicache';
 import scrapper from '../Controlers/scraper.js';
-
 let cache = apiCache.middleware;
 
 /**
@@ -32,7 +31,12 @@ let cache = apiCache.middleware;
  *       400:
  *         description: Error de solicitud.
  */
+router.post('/scrape', cache('30 minutes'), scrapper.scrap);
+// router.get('/scrape', cache('2 minutes'), scrapper);
+// router.get('/scrape/links', scrapper);
 
-router.post('/scrape', cache('30 minutes'), scrapper);
+// router.get('/scrape/stats/pages', scrapper);
+// router.get('/scrape/stats/words', scrapper);
+// router.get('/scrape/stats/links', scrapper);
 
 export default router;
