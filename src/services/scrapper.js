@@ -1,5 +1,6 @@
 import needle from 'needle';
 import cheerio from 'cheerio';
+import { BadRequestError } from '../helpers/errorHandler';
 
 async function fetchUrl(url) {
   try {
@@ -12,7 +13,7 @@ async function fetchUrl(url) {
 
 function checkInputContent(url, objectClass) {
   if (!url || !objectClass) {
-    throw new Error('Invalid input');
+    throw new BadRequestError('no inputs found');
   }
 }
 

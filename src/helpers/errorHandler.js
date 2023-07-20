@@ -6,7 +6,6 @@ class NotFoundError extends Error {
   }
 }
 
-
 class BadRequestError extends Error {
   constructor(message) {
     super(message);
@@ -21,10 +20,4 @@ function errorHandler(error, req, res, next) {
   }
   next();
 }
-export {
-  errorHandler,
-  UnauthorizedError,
-  BadRequestError,
-  AuthenticationError,
-  NotFoundError,
-};
+export { errorHandler, BadRequestError, NotFoundError };
