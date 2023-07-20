@@ -2,13 +2,13 @@ import scrappService from '../services/scrapper';
 import { expect } from 'chai';
 
 describe('should return status 200', () => {
-  it('should fetch the url and return status code 200 ', async () => {
+  it('fetchUrl should fetch the url and return status code 200 ', async () => {
     const testScrap = 'https://www.lanacion.com.ar/';
     const response = await scrappService.fetchUrl(testScrap);
     expect(response).contain('</html');
   });
 
-  it('should not return any error if objectClass and url exists', () => {
+  it('checkInputContent  should not return any error if objectClass and url exists', () => {
     const testScrap = {
       url: 'www.example.com',
       objectClass: '.class',
@@ -19,7 +19,7 @@ describe('should return status 200', () => {
     );
     expect(response).to.be.equal(undefined);
   });
-  it('should  return an array with articles when given an valid html', () => {
+  it('scrapeData should  return an array with articles when given an valid html', () => {
     const bodyHtml = `
       <div class="article">
         <h2>Title 1</h2>
@@ -48,4 +48,15 @@ describe('should return status 200', () => {
       { title: 'Title 2 Read more', link: 'https://example.com/article2' },
     ]);
   });
+  it('removeSpecialChars should remove specials chars in the string', () => {
+    const input = 'Hello\n\tWorld!';
+    const expectedOutput = 'HelloWorld!';
+    const result = scrappService.removeSpecialChars(input);
+    expect(result).to.be.equal(expectedOutput);
+  });
+  it('filterArticles  should clean the articles data ', () => {});
+  it('withKeyword should return true if the keyword exists', () => {});
+  it('withKeyword should return false if the keyword it does not exists', () => {});
+  it('cleanArticles should return the articles cleaned', () => {});
+  it('scrap should return the data scrapped succesfully', () => {});
 });

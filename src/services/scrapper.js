@@ -7,7 +7,7 @@ async function fetchUrl(url) {
     const response = await needle(url);
     return response.body;
   } catch (error) {
-    return error.statusCode;
+    return error.response.body;
   }
 }
 
@@ -40,6 +40,12 @@ function filterArticles(articles, filterFn) {
   return articles.filter(filterFn);
 }
 
+function noKeyword() {
+  return function () {
+    return true;
+  };
+}
+
 function withKeyword(keyWord) {
   return function (article) {
     const convertToLowerCase = article.title.toLowerCase();
@@ -47,35 +53,29 @@ function withKeyword(keyWord) {
   };
 }
 
-function noKeyword() {
-  return function () {
-    return true;
-  };
-}
-
-function Articles(articles) {
-  articles.map((article) => {
+function cleanArticles(articles) {
+  return articles.map((article) => {
     article.title = removeSpecialChars(article.title);
     return article;
   });
 }
 
 const scrap = async function Scrapper(req, res) {
-  const keyWord = req.body.keyWord;
+  const keyword = req.body.keyWord;
   const objectClass = req.body.objectClass;
 
   const bodyHtml = await fetchUrl(url);
   const articles = scrapeData(bodyHtml, objectClass);
 
-  const cleanedArticles = Articles(articles);
+  const cleanedArticles = cleanArticles(articles);
 
-  const filterFn = keyWord ? withKeyword(keyWord) : noKeyword();
+  const filterFn = keyword ? withKeyword(keyword) : noKeyword();
   const filteredArticles = filterArticles(cleanedArticles, filterFn);
 
   res.status(200).json({
     state: 'succes',
     'objects found': filteredArticles.length,
-    'key-word': keyWord,
+    'key-word': keyword,
     'scanned webpage': url,
     'found articles': filteredArticles,
   });
@@ -86,6 +86,7 @@ const scrappService = {
   checkInputContent,
   fetchUrl,
   scrapeData,
+  removeSpecialChars,
 };
 
 export default scrappService;
