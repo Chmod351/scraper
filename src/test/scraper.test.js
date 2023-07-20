@@ -26,17 +26,22 @@ describe('status-400', () => {
 describe('status-200', () => {
   it('should return statuscode 200 /api/scrape/', async () => {
     const testScrap = {
-      url: 'https://www.lanacion.com.ar/',
-      objectClass: '.ln-link',
-      keyWord: 'gobierno',
+      body: {
+        url: 'https://www.lanacion.com.ar/',
+        keyWord: 'dolar',
+        objectClass: '.ln-link',
+      },
     };
     const response = await myRequest.post('/scrape').send(testScrap);
     expect(response.statusCode).to.be.equal(200);
   });
   it('should return statusCode 200 /api/scrape', async () => {
     const testScrap = {
-      url: 'https://www.lanacion.com.ar/',
-      objectClass: '.ln-link',
+      body: {
+        url: 'https://www.lanacion.com.ar/',
+        keyWord: '',
+        objectClass: '.ln-link',
+      },
     };
     const response = await myRequest.post('/scrape').send(testScrap);
     expect(response.statusCode).to.be.equal(200);

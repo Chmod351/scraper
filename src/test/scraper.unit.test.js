@@ -71,8 +71,42 @@ describe('should return status 200', () => {
 
     expect(result).to.deep.equal(expectedOutput);
   });
-  it('withKeyword should return true if the keyword exists', () => {});
-  it('withKeyword should return false if the keyword it does not exists', () => {});
-  it('cleanArticles should return the articles cleaned', () => {});
-  it('scrap should return the data scrapped succesfully', () => {});
+  it('cleanArticles should return the articles cleaned', () => {
+    const articles = [
+      { title: 'Article 1\n\t', link: 'https://example.com/article1' },
+      { title: 'Article 2\n\t', link: 'https://example.com/article2' },
+      { title: 'Article 3\n\t', link: 'https://example.com/article3' },
+    ];
+
+    const expectedOutput = [
+      { title: 'Article 1', link: 'https://example.com/article1' },
+      { title: 'Article 2', link: 'https://example.com/article2' },
+      { title: 'Article 3', link: 'https://example.com/article3' },
+    ];
+
+    const result = scrappService.cleanArticles(articles);
+
+    expect(result).to.deep.equal(expectedOutput);
+  });
+  it('noKeyword should return a function that always returns true', () => {
+    const filterFn = scrappService.noKeyword();
+
+    expect(filterFn()).to.equal(true);
+  });
+
+  it('withKeyword should return a function that checks if the keyword exists in the body', () => {
+    const article = {
+      title: 'Article with Keyword',
+      link: 'https://example.com/article1',
+    };
+
+    const filterFn = scrappService.withKeyword('keyword');
+    const resultWithKeyword = filterFn(article);
+
+    const filterFnNoKeyword = scrappService.withKeyword('Not Found');
+    const resultNoKeyword = filterFnNoKeyword(article);
+
+    expect(resultWithKeyword).to.equal(true);
+    expect(resultNoKeyword).to.equal(false);
+  });
 });

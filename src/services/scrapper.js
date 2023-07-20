@@ -62,6 +62,7 @@ function cleanArticles(articles) {
 
 const scrap = async function Scrapper(req, res) {
   const keyword = req.body.keyWord;
+  const url = req.body.url;
   const objectClass = req.body.objectClass;
   // obtiene el body de la pagina
   const bodyHtml = await fetchUrl(url);
@@ -74,7 +75,7 @@ const scrap = async function Scrapper(req, res) {
   // busca a los articulos por palabra clave si la hay sino llama a todos
   const filteredArticles = filterArticles(cleanedArticles, filterFn);
 
-  res.status(200).json({
+  res.json({
     state: 'succes',
     'objects found': filteredArticles.length,
     'key-word': keyword,
@@ -90,6 +91,7 @@ const scrappService = {
   scrapeData,
   removeSpecialChars,
   filterArticles,
+  noKeyword,
   withKeyword,
   cleanArticles,
 };
