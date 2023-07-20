@@ -54,7 +54,23 @@ describe('should return status 200', () => {
     const result = scrappService.removeSpecialChars(input);
     expect(result).to.be.equal(expectedOutput);
   });
-  it('filterArticles  should clean the articles data ', () => {});
+  it('filterArticles  should return the result with the keyword ', () => {
+    const articles = [
+      { title: 'Article 1', link: 'https://example.com/article1' },
+      { title: 'Article 2', link: 'https://example.com/article2' },
+      { title: 'Article 3', link: 'https://example.com/article3' },
+    ];
+
+    const filterFn = (article) => article.title.includes('Article 2');
+
+    const expectedOutput = [
+      { title: 'Article 2', link: 'https://example.com/article2' },
+    ];
+
+    const result = scrappService.filterArticles(articles, filterFn);
+
+    expect(result).to.deep.equal(expectedOutput);
+  });
   it('withKeyword should return true if the keyword exists', () => {});
   it('withKeyword should return false if the keyword it does not exists', () => {});
   it('cleanArticles should return the articles cleaned', () => {});
