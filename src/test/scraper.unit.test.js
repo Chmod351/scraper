@@ -110,3 +110,11 @@ describe('should return status 200', () => {
     expect(resultNoKeyword).to.equal(false);
   });
 });
+
+describe('this test should fail', () => {
+  it('fetchUrl should fail if the url is not valid ', async () => {
+    const testScrap = 'lanacion.com.ar/';
+    const response = await scrappService.fetchUrl(testScrap);
+    expect(response).to.be.equal(error);
+  });
+});

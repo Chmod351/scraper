@@ -2,7 +2,7 @@ import Request from 'supertest';
 import { expect } from 'chai';
 const myRequest = Request('http://localhost:5000/api');
 
-describe('status-400', () => {
+describe('scrape should faild with status 400 when an invalid request is done', () => {
   it('should return statusCode 400 bad request /api/scrape/', async () => {
     const testScrap = {
       url: '',
@@ -23,7 +23,7 @@ describe('status-400', () => {
   });
 });
 
-describe('status-200', () => {
+describe(' scrape should return  status 200 when an valid request is provided', () => {
   it('should return statuscode 200 /api/scrape/', async () => {
     const testScrap = {
       body: {
