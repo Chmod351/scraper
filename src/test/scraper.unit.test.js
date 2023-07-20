@@ -111,10 +111,10 @@ describe('should return status 200', () => {
   });
 });
 
-describe('this test should fail', () => {
+describe('edge cases', () => {
   it('fetchUrl should fail if the url is not valid ', async () => {
-    const testScrap = 'lanacion.com.ar/';
+    const testScrap = 'wwww.lanacion';
     const response = await scrappService.fetchUrl(testScrap);
-    expect(response).to.be.equal(error);
+    expect(response).to.be.equal(`getaddrinfo ENOTFOUND ${testScrap}`);
   });
 });

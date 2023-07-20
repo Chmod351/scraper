@@ -21,6 +21,15 @@ describe('scrape should faild with status 400 when an invalid request is done', 
     const response = await myRequest.post('/scrape').send(testScrap);
     expect(response.statusCode).to.be.equal(400);
   });
+  it('should return statusCode 400 bad request /api/scrape/', async () => {
+    const testScrap = {
+      url: 'https://www.lanacion.com.ar/',
+      objectClass: '',
+      keyWord: 'linux',
+    };
+    const response = await myRequest.post('/scrape').send(testScrap);
+    expect(response.text).to.be.equal('{"error":"bad request"}');
+  });
 });
 
 describe(' scrape should return  status 200 when an valid request is provided', () => {
