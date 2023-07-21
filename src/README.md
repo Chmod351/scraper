@@ -4,7 +4,7 @@ This project is a highly versatile web scraper that allows users to extract data
 
 # Documentation
 
-[Postman Documentation]()
+[Postman Documentation](https://www.postman.com/orange-trinity-332576/workspace/scrapper/request/21643141-9324c29a-d14b-44c0-9a4d-2bf51d823d54?ctx=documentation)
 
 ## Custom use.
 
@@ -14,14 +14,6 @@ Then just choose what you want to search and put it in the keyword field, for ex
 [video](video)
 Press the button to get the results:
 [results](video)
-
-## Export.
-
-The application provides an export option for users who need the information in other contexts. To use this feature, you must be registered in the application.
-
-- Export Formats:
-  - [PDF](link)
-  - [CSV](Link)
 
 ## Local Configuration.
 
@@ -38,7 +30,7 @@ LIMIT=2000
 
 install dependencies with `npm i`
 
-The application was tested with Jest . Chai and Supertest
+The application was tested with [Jest](link) . [Chai](link) and [Supertest](link)
 
 - to run integration test:
   `npm run test:integration`
@@ -76,6 +68,6 @@ You can only send up to 15 requests per 10 minutes.
 `git clone https://github.com/yamilt351/scrape`
 
 - Make your changes
-- Test your changes
+- Test your changes `npm run test`
 - Document your changes
 - Create your pull request with evidences
