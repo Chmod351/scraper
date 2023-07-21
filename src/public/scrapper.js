@@ -33,16 +33,24 @@ window.addEventListener('DOMContentLoaded', () => {
           const articlesList = foundArticles
             .map(
               (article) =>
-                `<li>Title: ${article.title}, Link: ${article.link}</li>`,
+                `<li>
+          <a href=${scannedWebpage}${article.link} role="link">
+          <p>${article.title}</p>
+          </a>
+            </li>`,
             )
             .join('');
           responseContainer.innerHTML = `
-          <p class="text">Objects Found: ${objectsFound}</p>
+          <section class="scrapped-results">
+          <p class="text">Matchs: ${objectsFound}</p>
           <p class="text">Key Word: ${keyWord}</p>
-          <p class="text">Scanned Webpage: ${scannedWebpage}</p>
-          <p class="text">Found Articles:</p>
+          <p class="text">Target: ${scannedWebpage}</p>
+          </section>
+          <h3 class="big-title">Found Articles:</h3>
+          <div class="links-scrapped">
           <ul>${articlesList}</ul>
-  `;
+          </div>
+         `;
         } else {
           responseContainer.innerHTML = `<p>Error: ${data.message}</p>`;
         }
@@ -52,3 +60,5 @@ window.addEventListener('DOMContentLoaded', () => {
       });
   });
 });
+
+AOS.init();
