@@ -28,11 +28,15 @@ app.use('/assets', express.static(path.join(__dirname, 'assests')));
 app.use('/api', scrape);
 
 app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(specs));
-//redirect all routes to the public route
-app.use((req, res) => {
-  res.redirect('/public/html.html');
-});
 
+//redirect all routes to the public route
+app.use((req, res, next) => {
+  if (!req.route) {
+    res.redirect('/public/html.html');
+  } else {
+    next();
+  }
+});
 app.use(errorHandler);
 
 app.listen(port, function () {
