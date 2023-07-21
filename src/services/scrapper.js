@@ -60,7 +60,7 @@ function cleanArticles(articles) {
   });
 }
 
-const scrap = async function Scrapper(req, res) {
+const scrappAction = async function Scrapper(req, res) {
   const keyword = req.body.keyWord;
   const url = req.body.url;
   const objectClass = req.body.objectClass;
@@ -85,7 +85,7 @@ const scrap = async function Scrapper(req, res) {
 };
 
 const scrappService = {
-  scrap,
+  scrappAction,
   checkInputContent,
   fetchUrl,
   scrapeData,
