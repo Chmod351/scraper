@@ -39,24 +39,43 @@ LIMIT=2000
 install dependencies with `npm i`
 
 The application was tested with Jest . Chai and Supertest
-to run integration test:
-`npm run test:integration`
-to run unit tests:
-`npm run test:unit`
-to run the whole test sets:
-`npm run test`
+
+- to run integration test:
+  `npm run test:integration`
+- to run unit tests:
+  `npm run test:unit`
+- to run the whole test:
+  `npm run test`
 
 # Api
 
 if you want just [use our Public Api](https://scraper-5ask.onrender.com/api/scrappe) you have to send a `POST` request to this endpoint with :
-`{
+
+```
+{
       "url":"https://www.url.com.ar",
       "objectClass":".css-class-selector",
       "keyWord":"keyword"
-}`
+}
+```
+
+for more [information click here](#Documentation)
 
 The keyword parameter is optional, but it is considered a best practice to include it. Without specifying a keyword, the web scraper may retrieve a large amount of data from the target site, potentially overloading it and leading to IP blocking. By providing a keyword, you can narrow down the data to only what is relevant, reducing the API's load and improving its performance, resulting in faster response times
+
+if the response is too big the api use `compression` middleware to reduce the size.
 
 ## Usage Limitations:
 
 You can only send up to 15 requests per 10 minutes.
+
+# Contributions
+
+- Clone Repo
+
+`git clone https://github.com/yamilt351/scrape`
+
+- Make your changes
+- Test your changes
+- Document your changes
+- Create your pull request with evidences
