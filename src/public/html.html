@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Web Scrapper</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mediaQuery.css" />
   </head>
   <body>
     <main>
@@ -26,14 +27,35 @@
                   </button>
                 </div>
               </section>
-              <h1 class="big-title">Web Scrapper</h3>
+              <h1 class="big-title">Web Scrapper</h1>
             </div>
 
             <div class="links">
               <ul>
-                <li><a href="#About" role="link">About</a></li>
-                <li><a href="#Guide" role="link">Guide</a></li>
-                <li><a href="#Contact" role="link">Contact</a></li>
+                <li>
+                  <a
+                    href="https://github.com/yamilt351"
+                    role="link"
+                    target="_blank"
+                    >About Me</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://github.com/yamilt351/scraper"
+                    role="link"
+                    target="_blank"
+                    >Documentation</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.linkedin.com/in/yamil-tauil/"
+                    role="link"
+                    target="_blank"
+                    >Contact</a
+                  >
+                </li>
               </ul>
             </div>
 
@@ -52,28 +74,31 @@
                 <h1>Future is here,</h1>
                 <h1>Start Scrapping now.</h1>
               </div>
-              <form id="scraper-form" class="form-scraper" >
+              <form id="scraper-form" class="form-scraper">
                 <label class="text" for="url">URL:</label><br />
                 <input
- class="text"
+                  class="text"
                   type="text"
                   id="url"
                   name="url"
                   required
+                  value="https://libreddit.de/r/linux"
                   placeholder="site url"
                 /><br />
-                <label class="text" for="objectClass">Object Class:</label><br />
+                <label class="text" for="objectClass">Object Class:</label
+                ><br />
                 <input
- class="text"
+                  class="text"
                   type="text"
                   id="objectClass"
+                  value=".post_title"
                   name="objectClass"
                   required
                   placeholder="css class"
                 /><br />
                 <label class="text" for="keyWord">Keyword:</label><br />
-                <input 
- class="text"
+                <input
+                  class="text"
                   type="text"
                   id="keyWord"
                   name="keyWord"
@@ -94,15 +119,14 @@
               />
             </div>
           </div>
+          <div id="response"></div>
         </section>
-
-        <div id="response"></div>
       </div>
     </main>
 
     <!-- JavaScript Files -->
-
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
     <script src="script.js"></script>
+    <script src="scrapper.js"></script>
   </body>
 </html>

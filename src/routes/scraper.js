@@ -31,7 +31,7 @@ import scrapper from '../Controlers/scraper.js';
  *       400:
  *         description: Error de solicitud.
  */
-router.post('/scrape', scrapper.scrapperController);
+router.post('/scrappe', scrapper.scrapperController);
 // router.get('/scrape', cache('2 minutes'), scrapper);
 // router.get('/scrape/links', scrapper);
 

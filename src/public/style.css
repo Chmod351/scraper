@@ -277,6 +277,7 @@ input {
   animation: appear 1s 1 both;
 }
 
+
 @keyframes appear {
   0% {
     clip-path: circle(30% at -25% -25%);
@@ -351,7 +352,9 @@ input {
   }
 
   .showcase-area .container {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column-reverse;
+
     justify-content: center;
     grid-gap: 2rem;
   }
@@ -397,9 +400,3 @@ input {
     font-size: 0.8rem;
   }
 }
-
-/* @media screen and (max-width: 800px) { */
-/*   .form-scraper { */
-/*     width: 80%; */
-/*   } */
-/* } */

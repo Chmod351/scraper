@@ -2,7 +2,6 @@ import needle from 'needle';
 import cheerio from 'cheerio';
 import { BadRequestError } from '../helpers/errorHandler.js';
 
-
 async function fetchUrl(url) {
   try {
     const response = await needle(url);
@@ -62,6 +61,7 @@ function cleanArticles(articles) {
 }
 
 const scrappAction = async function Scrapper(req, res) {
+  console.log('scrapeando');
   const keyword = req.body.keyWord;
   const url = req.body.url;
   const objectClass = req.body.objectClass;
