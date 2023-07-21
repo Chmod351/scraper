@@ -2,40 +2,9 @@
 
 This project is a highly versatile web scraper that allows users to extract data from any website by providing the URL link and CSS selector for scraping. With this tool, developers, analysts, and researchers can easily obtain specific information from different online sources for further analysis and processing. Powered by Node.js, the web scraper offers an efficient and flexible solution for fetching data from diverse web pages without limitations.
 
-## Use.
+# Documentation
 
-you can [go to swagger](https://scraper-5ask.onrender.com/api/docs) and watch the online demo with an out the box example.
-
-you can [go to demo live site](https://scraper-5ask.onrender.com/public/html.html) and try it with an out the box example
-
-## Response Example.
-
-`
-{
-"state": "succes",
-"objects found": 112,
-"key-word": "",
-"scanned webpage": "https://www.targetSite.com.ar",
-"found articles": [
-{
-"title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum euismod sapien at lectus efficitur facilisis.",
-"link": "/economia/exigen-un-nuevo-anticipo-de-ganancias-a-empresas-nid21072023/"
-},
-{
-"title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum euismod sapien at lectus efficitur facilisis.",
-"link": "/economia/la-reaccion-de-hernan-lacunza-al-nuevo-anticipo-de-ganancias-a-empresas-que-anuncio-la-afip-nid21072023/"
-},
-{
-"title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum euismod sapien at lectus efficitur facilisis.",
-"link": "/espectaculos/murio-a-los-96-anos-tony-bennett-el-iconico-cantante-con-siete-decadas-de-carrera-nid21072023/"
-},
-{
-"title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum euismod sapien at lectus efficitur facilisis.",
-"link": "/economia/campo/mas-perjuicios-que-beneficios-fuerte-rechazo-de-la-produccion-y-la-exportacion-a-un-nuevo-dolar-para-nid20072023/"
-}]
-}
-
-`
+[Postman Documentation]()
 
 ## Custom use.
 
@@ -64,8 +33,30 @@ PORT=5000
 URL_DOCS=https://yourUrlHere/api/docs
 URL_SERVER=https://hostingServer.com
 URL_SCRAPPER=https://your-site-here.com
+LIMIT=2000
 ```
 
 install dependencies with `npm i`
 
-Click this [link to use our Public Api](https://scraper-5ask.onrender.com/api/scrappe)
+The application was tested with Jest . Chai and Supertest
+to run integration test:
+`npm run test:integration`
+to run unit tests:
+`npm run test:unit`
+to run the whole test sets:
+`npm run test`
+
+# Api
+
+if you want just [use our Public Api](https://scraper-5ask.onrender.com/api/scrappe) you have to send a `POST` request to this endpoint with :
+`{
+      "url":"https://www.url.com.ar",
+      "objectClass":".css-class-selector",
+      "keyWord":"keyword"
+}`
+
+The keyword parameter is optional, but it is considered a best practice to include it. Without specifying a keyword, the web scraper may retrieve a large amount of data from the target site, potentially overloading it and leading to IP blocking. By providing a keyword, you can narrow down the data to only what is relevant, reducing the API's load and improving its performance, resulting in faster response times
+
+## Usage Limitations:
+
+You can only send up to 15 requests per 10 minutes.
