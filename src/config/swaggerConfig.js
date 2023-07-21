@@ -49,4 +49,4 @@ const options = {
   apis: ['./routes/scraper.js'],
 };
 
-module.exports = options;
+export default options;
