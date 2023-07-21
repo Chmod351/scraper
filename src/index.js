@@ -36,5 +36,7 @@ app.use((req, res) => {
 app.use(errorHandler);
 
 app.listen(port, function () {
-  console.log(`the aplication is running on http://localhost:${port}`);
+  console.log(`the aplication is running on http://localhost:${port} 
+   site is on http://localhost:${port}/public/html.html
+`);
 });

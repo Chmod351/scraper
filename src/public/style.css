@@ -10,16 +10,6 @@
   --lightTwo: #aaa;
 }
 
-.dark {
-  --mainColor: #64bcf4;
-  --hoverColor: #5bacdf;
-  --backgroundColor: #192e3a;
-  --darkOne: #f3f3f3;
-  --darkTwo: #fff;
-  --lightOne: #ccc;
-  --lightTwo: #e7e3e3;
-}
-
 *,
 *::before,
 *::after {
