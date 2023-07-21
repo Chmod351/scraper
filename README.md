@@ -10,17 +10,17 @@ This project is a highly versatile web scraper that allows users to extract data
 
 Select the Class container which contain the Link (<a> Element)
 
-[Screencast from 2023-07-21 09-24-17.webm](https://github.com/yamilt351/scraper/assets/88646148/12168afa-3df0-4aa5-a473-57bf826754cb)
+[How Stract Data From Any Site Example](https://github.com/yamilt351/scraper/assets/88646148/12168afa-3df0-4aa5-a473-57bf826754cb)
 
 Then just choose what you want to search and put it in the keyword field, for example:
 
 
-[Screencast from 2023-07-21 13-54-55.webm](https://github.com/yamilt351/scraper/assets/88646148/bcbba111-4fde-4cfc-b8bc-ef601d07645a)
+[Write the CSS Selector In The Form](https://github.com/yamilt351/scraper/assets/88646148/bcbba111-4fde-4cfc-b8bc-ef601d07645a)
 
 
 Press the button to get the results:
 
-[Screencast from 2023-07-21 13-55-44.webm](https://github.com/yamilt351/scraper/assets/88646148/f417499c-60aa-4df0-85b0-224f27e440b0)
+[Get Data From The Target Site](https://github.com/yamilt351/scraper/assets/88646148/f417499c-60aa-4df0-85b0-224f27e440b0)
 
 
 ## Local Configuration.
