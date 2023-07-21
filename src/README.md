@@ -30,7 +30,7 @@ LIMIT=2000
 
 install dependencies with `npm i`
 
-The application was tested with [Jest](link) . [Chai](link) and [Supertest](link)
+The application was tested with [Jest](https://jestjs.io/docs/getting-started) . [Chai](https://www.chaijs.com/) and [Supertest](https://github.com/visionmedia/supertest)
 
 - to run integration test:
   `npm run test:integration`
