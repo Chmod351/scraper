@@ -6,4 +6,5 @@ export default {
   document: process.env.URL_DOCS,
   host: process.env.SERVER,
   applicationUrl: process.env.SCRAPPER,
+  requestLimit: process.env.LIMIT,
 };
