@@ -2,56 +2,107 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Scrapper</title>
-    <link rel="stylesheet" href="style.css" type="text/css" />
+    <title>Web Scrapper</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <section class="section-scraper">
-      <h1>Web Scrapper</h1>
-      <form id="scraper-form" class="form-scraper">
-        <label for="url">URL:</label><br />
-        <input
-          type="text"
-          id="url"
-          name="url"
-          required
-          value="https://www.lanacion.com.ar/"
-        /><br />
-        <label for="objectClass">Object Class:</label><br />
-        <input
-          type="text"
-          id="objectClass"
-          name="objectClass"
-          required
-          value=".ln-link"
-        /><br />
-        <label for="keyWord">Keyword:</label><br />
-        <input
-          type="text"
-          id="keyWord"
-          name="keyWord"
-          value=""
-          placeholder="what are you looking for"
-        /><br />
-        <input type="submit" value="Submit" / class="button">
-      </form>
-      <h2>How to use it?</h2>
-      <ul class="list-Scrapper">
-        <li>Copy the website target link and paste into url field</li>
-        <li>
-          select the CSS class selector of the target to scrap . "a element"
-        </li>
-        <li>
-          then if you want to filter your results , put your keyword into the
-          keyword field
-        </li>
-        <li>click on submit</li>
-        <li>for more information use https://github.com/yamilt351/scraper</li>
-      </ul>
-      <div id="response"></div>
-    </section>
+    <main>
+      <div class="big-wrapper light">
+        <img
+          src="assests/shape.png"
+          alt="transparent background"
+          class="shape"
+        />
+        <header>
+          <nav class="container" role="navigation">
+            <div class="logo">
+              <section class="bottom-area">
+                <div class="container">
+                  <button class="toggle-btn" role="button">
+                    <i class="far fa-moon" title="dark theme"></i>
+                    <i class="far fa-sun" title="light theme"></i>
+                  </button>
+                </div>
+              </section>
+              <h1 class="big-title">Web Scrapper</h3>
+            </div>
 
+            <div class="links">
+              <ul>
+                <li><a href="#About" role="link">About</a></li>
+                <li><a href="#Guide" role="link">Guide</a></li>
+                <li><a href="#Contact" role="link">Contact</a></li>
+              </ul>
+            </div>
+
+            <div class="overlay"></div>
+
+            <div class="hamburger-menu" role="menuitem">
+              <div class="bar"></div>
+            </div>
+          </nav>
+        </header>
+
+        <section class="showcase-area">
+          <div class="container">
+            <aside class="left">
+              <div class="big-title">
+                <h1>Future is here,</h1>
+                <h1>Start Scrapping now.</h1>
+              </div>
+              <form id="scraper-form" class="form-scraper" >
+                <label class="text" for="url">URL:</label><br />
+                <input
+ class="text"
+                  type="text"
+                  id="url"
+                  name="url"
+                  required
+                  placeholder="site url"
+                /><br />
+                <label class="text" for="objectClass">Object Class:</label><br />
+                <input
+ class="text"
+                  type="text"
+                  id="objectClass"
+                  name="objectClass"
+                  required
+                  placeholder="css class"
+                /><br />
+                <label class="text" for="keyWord">Keyword:</label><br />
+                <input 
+ class="text"
+                  type="text"
+                  id="keyWord"
+                  name="keyWord"
+                  placeholder="Keyword to search"
+                /><br />
+
+                <div class="cta">
+                  <input type="submit" class="button" value="Get started" />
+                </div>
+              </form>
+            </aside>
+
+            <div class="right">
+              <img
+                src="./assests/person.png"
+                alt="Person Image"
+                class="person"
+              />
+            </div>
+          </div>
+        </section>
+
+        <div id="response"></div>
+      </div>
+    </main>
+
+    <!-- JavaScript Files -->
+
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

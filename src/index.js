@@ -23,8 +23,15 @@ middlewares.forEach((middleware) => {
 
 //ROUTES
 app.use('/public', express.static(path.join(__dirname, 'public')));
+app.use('/assets', express.static(path.join(__dirname, 'assests')));
+
 app.use('/api', scrape);
+
 app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(specs));
+//redirect all routes to the public route
+app.use((req, res) => {
+  res.redirect('/public/html.html');
+});
 
 app.use(errorHandler);
 
