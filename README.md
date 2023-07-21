@@ -9,6 +9,7 @@ This project is a highly versatile web scraper that allows users to extract data
 ## Custom use.
 
 Select the Class container which contain the Link (<a> Element)
+
 [Screencast from 2023-07-21 09-24-17.webm](https://github.com/yamilt351/scraper/assets/88646148/12168afa-3df0-4aa5-a473-57bf826754cb)
 
 Then just choose what you want to search and put it in the keyword field, for example:
