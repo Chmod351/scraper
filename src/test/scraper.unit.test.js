@@ -1,7 +1,7 @@
 import scrappService from '../services/scrapper';
 import { expect } from 'chai';
 
-describe('should return status 200', () => {
+describe('Normal Cases: Unit Tests', () => {
   it('fetchUrl should fetch the url and return status code 200 ', async () => {
     const testScrap = 'https://www.lanacion.com.ar/';
     const response = await scrappService.fetchUrl(testScrap);
@@ -111,7 +111,7 @@ describe('should return status 200', () => {
   });
 });
 
-describe('edge cases', () => {
+describe('Edge Cases : Unit Tests', () => {
   it('fetchUrl should fail if the url is not valid ', async () => {
     const testScrap = 'wwww.lanacion';
     const response = await scrappService.fetchUrl(testScrap);

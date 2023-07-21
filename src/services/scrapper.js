@@ -7,7 +7,7 @@ async function fetchUrl(url) {
     const response = await needle(url);
     return response.body;
   } catch (error) {
-    return error.message
+    return error.message;
   }
 }
 

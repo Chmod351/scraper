@@ -1,16 +1,18 @@
 import scrappService from '../services/scrapper.js';
 import validUrl from 'valid-url';
 
-function scrap(req, res, next) {
-  scrappService
-    .checkInputContent(req.body.url, req.body.objectClass)
-    .then(() => validUrl.isHttpsUri(req.body.url))
-    .then(() => scrappService.scrap(req, res, next))
-    .then((response) => res.json(response))
-    .catch((error) => next(error));
+async function scrapperController(req, res, next) {
+  try {
+    scrappService.checkInputContent(req.body.url, req.body.objectClass);
+    validUrl.isHttpsUri(req.body.url);
+    const response = await scrappService.scrap(req, res, next);
+    res.json(response);
+  } catch (error) {
+    next(error);
+  }
 }
 
 const scrapper = {
-  scrap,
+  scrapperController,
 };
 export default scrapper;

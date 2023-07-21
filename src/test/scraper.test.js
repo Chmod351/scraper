@@ -1,8 +1,10 @@
 import Request from 'supertest';
 import { expect } from 'chai';
-const myRequest = Request('http://localhost:5000/api');
+import envConfig from '../config/envConfig';
 
-describe('scrape should faild with status 400 when an invalid request is done', () => {
+const myRequest = Request(`http://localhost:${envConfig.port}/api`);
+
+describe('Edge Cases: Integration Tests', () => {
   it('should return statusCode 400 bad request /api/scrape/', async () => {
     const testScrap = {
       url: '',
@@ -32,25 +34,21 @@ describe('scrape should faild with status 400 when an invalid request is done', 
   });
 });
 
-describe(' scrape should return  status 200 when an valid request is provided', () => {
+describe('Normal Cases: Integration Tests', () => {
   it('should return statuscode 200 /api/scrape/', async () => {
     const testScrap = {
-      body: {
-        url: 'https://www.lanacion.com.ar/',
-        keyWord: 'dolar',
-        objectClass: '.ln-link',
-      },
+      url: 'https://ciervademo.onrender.com/',
+      keyWord: 'informal',
+      objectClass: '.sc-JrDLc eryktK',
     };
     const response = await myRequest.post('/scrape').send(testScrap);
     expect(response.statusCode).to.be.equal(200);
   });
   it('should return statusCode 200 /api/scrape', async () => {
     const testScrap = {
-      body: {
-        url: 'https://www.lanacion.com.ar/',
+        url: 'https://ciervademo.onrender.com/',
         keyWord: '',
-        objectClass: '.ln-link',
-      },
+        objectClass: '.sc-JrDLc eryktK',
     };
     const response = await myRequest.post('/scrape').send(testScrap);
     expect(response.statusCode).to.be.equal(200);
