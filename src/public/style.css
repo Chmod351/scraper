@@ -45,17 +45,7 @@ header .container {
   align-items: center;
 }
 
-input {
-  background-color: transparent;
-  padding: 0.2rem;
-  width: 20rem;
-  border: 1px solid var(--hoverColor);
-  font-size: 1rem;
-  border-radius: 0.8rem;
-}
-input:focus {
-  border: 1px solid var(--mainColor);
-}
+
 
 .big-wrapper {
   position: relative;

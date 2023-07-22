@@ -14,14 +14,11 @@ Select the Class container which contain the Link (<a> Element)
 
 Then just choose what you want to search and put it in the keyword field, for example:
 
-
 [Write the CSS Selector In The Form](https://github.com/yamilt351/scraper/assets/88646148/bcbba111-4fde-4cfc-b8bc-ef601d07645a)
-
 
 Press the button to get the results:
 
 [Get Data From The Target Site](https://github.com/yamilt351/scraper/assets/88646148/f417499c-60aa-4df0-85b0-224f27e440b0)
-
 
 ## Local Configuration.
 
@@ -68,6 +65,7 @@ if the response is too big the api use `compression` middleware to reduce the si
 ## Usage Limitations:
 
 You can only send up to 15 requests per 10 minutes.
+If the webpage has incorrect element nesting, the scraper will fail
 
 # Contributions
 
@@ -79,3 +77,4 @@ You can only send up to 15 requests per 10 minutes.
 - Test your changes `npm run test`
 - Document your changes
 - Create your pull request with evidences
+- Code Styles are provided by [eslint](https://github.com/neoclide/coc-eslint) & [prettier](https://github.com/neoclide/coc-prettier)

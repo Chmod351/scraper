@@ -65,7 +65,7 @@
   .showcase-area .container {
     display: flex;
     flex-direction: column-reverse;
-
+    align-items: unset;
     justify-content: center;
     grid-gap: 2rem;
   }
@@ -111,7 +111,15 @@
     font-size: 0.8rem;
   }
   .footer__container {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+    display: flex;
+    max-width: 100%;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 5rem;
+  }
+  .footer__col {
+    min-width: 100vw;
+    width: auto;
+    padding: 1rem;
   }
 }
