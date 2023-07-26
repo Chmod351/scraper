@@ -65,7 +65,7 @@
   .showcase-area .container {
     display: flex;
     flex-direction: column-reverse;
-
+    align-items: unset;
     justify-content: center;
     grid-gap: 2rem;
   }
@@ -109,5 +109,17 @@
 
   .showcase-area .btn {
     font-size: 0.8rem;
+  }
+  .footer__container {
+    display: flex;
+    max-width: 100%;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 5rem;
+  }
+  .footer__col {
+    min-width: 100vw;
+    width: auto;
+    padding: 1rem;
   }
 }
