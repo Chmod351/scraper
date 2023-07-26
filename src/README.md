@@ -1,7 +1,6 @@
 # Index
 [FAQ]()
 [Developers Documentation]()
-[Author]()
 [License]()
 [Demo]()
 [Contributions]()
