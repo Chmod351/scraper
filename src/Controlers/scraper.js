@@ -2,7 +2,6 @@ import scrappService from '../services/scrapper.js';
 import validUrl from 'valid-url';
 
 async function scrapperController(req, res, next) {
-  console.log('controller');
   try {
     scrappService.checkInputContent(req.body.url, req.body.objectClass);
     validUrl.isHttpsUri(req.body.url);
