@@ -56,12 +56,13 @@ for more [information click here](#Documentation)
 
 The keyword parameter is optional, but it is considered a best practice to include it. Without specifying a keyword, the web scraper may retrieve a large amount of data from the target site, potentially overloading it and leading to IP blocking. By providing a keyword, you can narrow down the data to only what is relevant, reducing the API's load and improving its performance, resulting in faster response times
 
-if the response is too big the api use `compression` middleware to reduce the size.
+if the response is too big the api use [`compression`](https://www.npmjs.com/package/compression) middleware to reduce the size.
 
 ## Usage Limitations:
 
-You can only send up to 15 requests per 10 minutes.
-If the webpage has incorrect element nesting, the scraper will fail
+- You can only send up to 15 requests per 10 minutes.
+- If the webpage has incorrect element nesting, the scraper will fail
+- before use this tool please read [FAQ](https://github.com/yamilt351/scraper/blob/master/src/FAQ.md)
 
 # Contributions
 
