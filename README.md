@@ -28,7 +28,7 @@ Clone Repo
 
 `git clone https://github.com/yamilt351/scrape`
 
-Make your changes
-Test your changes npm run test
-Document your changes
-Create your pull request with evidences
+- Make your changes
+- Test your changes `npm run test`
+- Document your changes
+- Create your pull request with evidences
