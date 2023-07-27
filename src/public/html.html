@@ -1,6 +1,232 @@
-<!DOCTYPE html><html lang=en><meta charset=UTF-8><meta content="IE=edge"http-equiv=X-UA-Compatible><meta content="width=device-width,initial-scale=1"name=viewport><title>Web Scrapper</title><link href=style.css rel=stylesheet><link href=mediaQuery.css rel=stylesheet><link href=footer.css rel=stylesheet><link href=scrapperSection.css rel=stylesheet><link href=gallery.css rel=stylesheet><link href=https://unpkg.com/aos@2.3.1/dist/aos.css rel=stylesheet><main><div class="light big-wrapper"><img alt="transparent background"class=shape src=assests/shape.png><header><nav class=container role=navigation><div class=logo><h1 class=big-title>Web Scrapper</h1></div><div class=links><ul><li><a href=https://github.com/yamilt351 role=link target=_blank>About Me</a><li><a href=https://github.com/yamilt351/scraper role=link target=_blank>Documentation</a><li><a href=https://www.linkedin.com/in/yamil-tauil/ role=link target=_blank>Contact</a></ul></div><div class=overlay></div><div class=hamburger-menu role=menuitem><div class=bar></div></div></nav></header><section class=showcase-area><div class=container><aside class=left><div class=big-title><h1>Future is here,</h1><h1 id=element>Start Scrapping now.</h1></div><div data-aos=fade-right><form class=form-scraper id=scraper-form><label class=text for=url>URL:</label><br><input class=text id=url name=url placeholder="site url"title="target site URL"required value=https://www.lanacion.com.ar><br><label class=text for=objectClass>Object Class:</label><br><input class=text id=objectClass name=objectClass placeholder="css class"title="article css Class"required value=.ln-card><br><label class=text for=keyWord>Keyword:</label><br><input class=text id=keyWord name=keyWord placeholder="Keyword to search"title="keyword to search (optional)"><br><div class=cta><input class=button value="Get started"type=submit></div></form></div></aside><div data-aos=fade-left><div class=right><img alt="Person Image"class=person src=./assests/person.png></div></div></div><div class=scrapp-container data-aos=fade-up id=response></div></section></div></main><section class="light product-description-container"><h3 class="big-title guide">Guide</h3><div class=gallery-container><article class=item data-aos=zoom-in title=" Go to the page that you want to scrappe. Then press F12 or Q .
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Scrapper</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mediaQuery.css" />
+    <link rel="stylesheet" href="footer.css" />
+    <link rel="stylesheet" href="scrapperSection.css" />
+    <link rel="stylesheet" href="gallery.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  </head>
+  <body>
+    <main>
+      <div class="big-wrapper light">
+        <img
+          src="assests/shape.png"
+          alt="transparent background"
+          class="shape"
+        />
+        <header>
+          <nav class="container" role="navigation">
+            <div class="logo">
+              <h1 class="big-title">Web Scrapper</h1>
+            </div>
+            <div class="links">
+              <ul>
+                <li>
+                  <a
+                    href="https://github.com/yamilt351"
+                    role="link"
+                    target="_blank"
+                    >About Me</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://github.com/yamilt351/scraper"
+                    role="link"
+                    target="_blank"
+                    >Documentation</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.linkedin.com/in/yamil-tauil/"
+                    role="link"
+                    target="_blank"
+                    >Contact</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div class="overlay"></div>
+
+            <div class="hamburger-menu" role="menuitem">
+              <div class="bar"></div>
+            </div>
+          </nav>
+        </header>
+
+        <section class="showcase-area">
+          <div class="container">
+            <aside class="left">
+              <div class="big-title">
+                <h1>Future is here,</h1>
+                <h1 id="element">Start Scrapping now.</h1>
+              </div>
+
+              <div data-aos="fade-right">
+                <form id="scraper-form" class="form-scraper">
+                  <label class="text" for="url">URL:</label><br />
+                  <input
+                    title="target site URL"
+                    class="text"
+                    type="text"
+                    id="url"
+                    name="url"
+                    required
+                    value="https://www.lanacion.com.ar"
+                    placeholder="site url"
+                  /><br />
+                  <label class="text" for="objectClass">Object Class:</label
+                  ><br />
+                  <input
+                    title="article css Class"
+                    class="text"
+                    type="text"
+                    id="objectClass"
+                    value=".ln-card"
+                    name="objectClass"
+                    required
+                    placeholder="css class"
+                  /><br />
+                  <label class="text" for="keyWord">Keyword:</label><br />
+                  <input
+                    title="keyword to search (optional)"
+                    class="text"
+                    type="text"
+                    id="keyWord"
+                    name="keyWord"
+                    placeholder="Keyword to search"
+                  /><br />
+
+                  <div class="cta">
+                    <input type="submit" class="button" value="Get started" />
+                  </div>
+                </form>
+              </div>
+            </aside>
+
+            <div data-aos="fade-left">
+              <div class="right">
+                <img
+                  src="./assests/person.png"
+                  alt="Person Image"
+                  class="person"
+                />
+              </div>
+            </div>
+          </div>
+          <div id="response" class="scrapp-container" data-aos="fade-up"></div>
+        </section>
+      </div>
+    </main>
+    <section class="product-description-container light">
+      <h3 class="big-title guide">Guide</h3>
+      <div class="gallery-container">
+        <article
+          data-aos="zoom-in"
+          class="item"
+          title=" Go to the page that you want to scrappe. Then press F12 or Q .
             Select the Class container which contain the Link a Element
-            and the text that you need and copy the class container."><img alt="press the button"class=scrap-img src="./assests/Screenshot from 2023-07-26 20-38-35.png"role=img><p class=text>Go to the page that you want to scrappe. Then press F12 or Q .<br>Select the Class container which contain the Link a Element and the text that you need and copy the class container.</article><article class=item data-aos=zoom-in title="Then just choose what you want to search and put it in the keyword
-            field, for example: argentina."><img alt="selectd a css container which contain the links and text that you want to scrapp"class=scrap-img src="./assests/Screenshot from 2023-07-26 20-40-08.png"role=img><p class=text>Then just choose what you want to search and put it in the keyword field, for example: argentina.</article><article class=item data-aos=zoom-in title="Press the button to get the results related to the keyword 
+            and the text that you need and copy the class container."
+        >
+          <img
+            class="scrap-img"
+            src="./assests/Screenshot from 2023-07-26 20-38-35.png"
+            alt="press the button"
+            role="img"
+          />
+          <p class="text">
+            Go to the page that you want to scrappe. Then press F12 or Q .
+            <br />Select the Class container which contain the Link a Element
+            and the text that you need and copy the class container.
+          </p>
+        </article>
+        <article
+          data-aos="zoom-in"
+          class="item"
+          title="Then just choose what you want to search and put it in the keyword
+            field, for example: argentina."
+        >
+          <img
+            class="scrap-img"
+            src="./assests/Screenshot from 2023-07-26 20-40-08.png"
+            alt="selectd a css container which contain the links and text that you want to scrapp"
+            role="img"
+          />
+          <p class="text">
+            Then just choose what you want to search and put it in the keyword
+            field, for example: argentina.
+          </p>
+        </article>
+        <article
+          data-aos="zoom-in"
+          class="item"
+          title="Press the button to get the results related to the keyword 
             Only results with 'argentina' keyword will appear in the results
-            field"><img alt="write what you want to scrap"class=scrap-img src="./assests//Screenshot from 2023-07-26 20-40-31.png"role=img><p class=text>Press the button to get the results related to the keyword<br>Only results with 'argentina' keyword will appear in the results field</article></div></section><footer class="light footer"><div class="footer__container section__container"><aside class=footer__col><h3>Web Scrapper<span>.</span></h3><p>Explore your suitable and dream places around the world. Here you can find your right destination.</aside><aside class=footer__col><h4>Support</h4><p>FAQs<p>Terms & Conditions<p>Privacy Policy<p>Contact Us</aside><aside class=footer__col><h4>Address</h4><p><span>Address:</span> 280 Wilson Street, Cima, California, 92323, United States<p><span>Email:</span> y.kasper@protonmail.com<p><span>Phone:</span> +54 9 11 2582-3455</aside></div><div class=footer__bar>Copyright © 2023 Yamil Tauil. All rights reserved.</div></footer><script src=https://unpkg.com/aos@2.3.1/dist/aos.js></script><script src=https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js></script><script>const typed=new Typed("#element",{strings:["Select a site to scrap.","Start Scrapping Now!"],typeSpeed:50,smartBackspace:!0})</script><script src=scrapper.js></script>
+            field"
+        >
+          <img
+            class="scrap-img"
+            src="./assests//Screenshot from 2023-07-26 20-40-31.png"
+            alt="write what you want to scrap"
+            role="img"
+          />
+          <p class="text">
+            Press the button to get the results related to the keyword <br />
+            Only results with 'argentina' keyword will appear in the results
+            field
+          </p>
+        </article>
+      </div>
+    </section>
+    <footer class="footer light">
+      <div class="section__container footer__container">
+        <aside class="footer__col">
+          <h3>Web Scrapper<span>.</span></h3>
+          <p>
+            Explore your suitable and dream places around the world. Here you
+            can find your right destination.
+          </p>
+        </aside>
+        <aside class="footer__col">
+          <h4>Support</h4>
+          <p>FAQs</p>
+          <p>Terms & Conditions</p>
+          <p>Privacy Policy</p>
+          <p>Contact Us</p>
+        </aside>
+        <aside class="footer__col">
+          <h4>Address</h4>
+          <p>
+            <span>Address:</span> 280 Wilson Street, Cima, California, 92323,
+            United States
+          </p>
+          <p><span>Email:</span> y.kasper@protonmail.com</p>
+          <p><span>Phone:</span> +54 9 11 2582-3455</p>
+        </aside>
+      </div>
+      <div class="footer__bar">
+        Copyright © 2023 Yamil Tauil. All rights reserved.
+      </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script>
+      const typed = new Typed('#element', {
+        strings: ['Select a site to scrap.', 'Start Scrapping Now!'],
+        typeSpeed: 50,
+        smartBackspace: true,
+      });
+    </script>
+    <script src="scrapper.js"></script>
+  </body>
+</html>
