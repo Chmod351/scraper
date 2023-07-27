@@ -45,8 +45,6 @@ header .container {
   align-items: center;
 }
 
-
-
 .big-wrapper {
   position: relative;
   padding: 1.7rem 0 2rem;
@@ -98,20 +96,34 @@ header .container {
 }
 
 .button {
-  margin-top: 10px;
-  display: inline-block;
-  padding: 0.9rem 1.9rem;
-  color: #fff !important;
-  background-color: var(--mainColor);
-  border-radius: 16px;
-  text-transform: capitalize;
-  transition: 0.3s;
+  background-image: linear-gradient(
+    to right,
+    #1fa2ff 0%,
+    #12d8fa 51%,
+    #1fa2ff 100%
+  );
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
 }
 
 .button:hover {
-  background-color: var(--hoverColor);
-  transform: scale(1) !important;
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
 }
+
+/* .button:hover { */
+/*   background-color: var(--hoverColor); */
+/*   transform: scale(1) !important; */
+/* } */
 
 .hamburger-menu {
   position: relative;

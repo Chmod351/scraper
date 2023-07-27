@@ -122,4 +122,12 @@
     width: auto;
     padding: 1rem;
   }
+  .gallery-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .item {
+    flex-direction: row;
+    max-width: 100vw;
+  }
 }
