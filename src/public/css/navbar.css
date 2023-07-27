@@ -1,0 +1,136 @@
+.container {
+  max-width: 1200px;
+  overflow: hidden;
+  margin: 0 auto;
+  padding: var(--padding-container);
+}
+
+.nav {
+  width: 90%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  --padding-container: 0;
+}
+
+.nav__figure {
+  z-index: 100;
+}
+
+.nav__hamburguer {
+  z-index: 100;
+  width: 30px;
+  height: 30px;
+  position: relative;
+}
+
+.nav__button {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+}
+
+.nav__container {
+  position: absolute;
+  inset: 0;
+  padding: 70px 0;
+  min-height: 600px;
+  background-color: var(--very-dark-blue-alpha);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  z-index: 10;
+
+  transform: translate(-100%);
+  transition: transform 0.3s;
+}
+
+.nav__container--active {
+  transform: translateX(0);
+}
+
+.nav__list {
+  width: 90%;
+  padding: 0;
+  list-style: none;
+  padding: 0;
+}
+
+.nav__element {
+  text-align: center;
+  padding: 1.5rem 0;
+  border-top: 1px solid #fff;
+}
+
+.nav__link {
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  display: block;
+  font-weight: 500;
+}
+
+.nav__link--last {
+  border: 1px solid #fff;
+  border-radius: 4px;
+  padding: 1rem 0;
+}
+
+.nav__social {
+  margin: 0 auto;
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .nav__hamburguer {
+    display: none;
+  }
+
+  .nav__container {
+    position: static;
+    padding: 0;
+    min-height: unset;
+
+    background-color: #fff;
+
+    display: block;
+    transform: unset;
+    transition: none;
+  }
+
+  .nav__list {
+    width: unset;
+    display: grid;
+    grid-auto-flow: column;
+    gap: 2rem;
+  }
+
+  .nav__element {
+    padding: 0;
+    border-top: none;
+  }
+
+  .nav__link {
+    color: var(--very-dark-blue);
+    padding: 0.6rem 0;
+  }
+
+  .nav__link--last {
+    border: none;
+    color: white;
+    padding: 0.6rem 1.5rem;
+    background-color: var(--soft-red);
+    box-shadow: -5px 2px 3px var(--grayish-blue);
+  }
+
+  .nav__social {
+    display: none;
+  }
+}
