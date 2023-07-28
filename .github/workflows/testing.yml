@@ -20,4 +20,4 @@ jobs:
       - name: Run Jest test
         run: |
           cd src/
-          npm run test
+          npm run test:unit
