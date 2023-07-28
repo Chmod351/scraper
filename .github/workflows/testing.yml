@@ -1,5 +1,5 @@
 name: Jest Tests
-     run: |
+run: |
        cd src/
        npm install
 
