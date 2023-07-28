@@ -1,6 +1,443 @@
-<!DOCTYPE html><html lang=en><meta charset=UTF-8><meta content="IE=edge"http-equiv=X-UA-Compatible><meta content="width=device-width,initial-scale=1"name=viewport><title>Web Scrapper</title><link href=style.css rel=stylesheet><link href=mediaQuery.css rel=stylesheet><link href=footer.css rel=stylesheet><link href=scrapperSection.css rel=stylesheet><link href=gallery.css rel=stylesheet><link href=https://unpkg.com/aos@2.3.1/dist/aos.css rel=stylesheet><main><div class="light big-wrapper"><img alt="transparent background"class=shape src=assests/shape.png><header><nav class=container role=navigation><div class=logo><h1 class=big-title>Web Scrapper</h1></div><div class=links><ul><li><a href=https://github.com/yamilt351 role=link target=_blank>About Me</a><li><a href=https://github.com/yamilt351/scraper role=link target=_blank>Documentation</a><li><a href=https://www.linkedin.com/in/yamil-tauil/ role=link target=_blank>Contact</a></ul></div><div class=overlay></div><div class=hamburger-menu role=menuitem><div class=bar></div></div></nav></header><section class=showcase-area><div class=container><aside class=left><div class=big-title><h1>Future is here,</h1><h1 id=element>Start Scrapping now.</h1></div><div data-aos=fade-right><form class=form-scraper id=scraper-form><label class=text for=url>URL:</label><br><input class=text id=url name=url placeholder="site url"title="target site URL"required value=https://www.lanacion.com.ar><br><label class=text for=objectClass>Object Class:</label><br><input class=text id=objectClass name=objectClass placeholder="css class"title="article css Class"required value=.ln-card><br><label class=text for=keyWord>Keyword:</label><br><input class=text id=keyWord name=keyWord placeholder="Keyword to search"title="keyword to search (optional)"><br><div class=cta><input class=button value="Get started"type=submit></div></form></div></aside><div data-aos=fade-left><div class=right><img alt="Person Image"class=person src=./assests/person.png></div></div></div><div class=scrapp-container data-aos=fade-up id=response></div></section></div></main><section class="light product-description-container"><h3 class="big-title guide">Guide</h3><div class=gallery-container><article class=item data-aos=zoom-in title=" Go to the page that you want to scrappe. Then press F12 or Q .
-            Select the Class container which contain the Link a Element
-            and the text that you need and copy the class container."><img alt="press the button"class=scrap-img src="./assests/Screenshot from 2023-07-26 20-38-35.png"role=img><p class=text>Go to the page that you want to scrappe. Then press F12 or Q .<br>Select the Class container which contain the Link a Element and the text that you need and copy the class container.</article><article class=item data-aos=zoom-in title="Then just choose what you want to search and put it in the keyword
-            field, for example: argentina."><img alt="selectd a css container which contain the links and text that you want to scrapp"class=scrap-img src="./assests/Screenshot from 2023-07-26 20-40-08.png"role=img><p class=text>Then just choose what you want to search and put it in the keyword field, for example: argentina.</article><article class=item data-aos=zoom-in title="Press the button to get the results related to the keyword 
-            Only results with 'argentina' keyword will appear in the results
-            field"><img alt="write what you want to scrap"class=scrap-img src="./assests//Screenshot from 2023-07-26 20-40-31.png"role=img><p class=text>Press the button to get the results related to the keyword<br>Only results with 'argentina' keyword will appear in the results field</article></div></section><footer class="light footer"><div class="footer__container section__container"><aside class=footer__col><h3>Web Scrapper<span>.</span></h3><p>Explore your suitable and dream places around the world. Here you can find your right destination.</aside><aside class=footer__col><h4>Support</h4><p>FAQs<p>Terms & Conditions<p>Privacy Policy<p>Contact Us</aside><aside class=footer__col><h4>Address</h4><p><span>Address:</span> 280 Wilson Street, Cima, California, 92323, United States<p><span>Email:</span> y.kasper@protonmail.com<p><span>Phone:</span> +54 9 11 2582-3455</aside></div><div class=footer__bar>Copyright © 2023 Yamil Tauil. All rights reserved.</div></footer><script src=https://unpkg.com/aos@2.3.1/dist/aos.js></script><script src=https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js></script><script>const typed=new Typed("#element",{strings:["Select a site to scrap.","Start Scrapping Now!"],typeSpeed:50,smartBackspace:!0})</script><script src=scrapper.js></script>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/logo-bookmark-footer.svg"
+    />
+    <title>Web Scrapper</title>
+    <link rel="stylesheet" href="./css/navbar.css" />
+    <link rel="stylesheet" href="./css/articles.css" />
+    <link rel="stylesheet" href="./css/extensionsDownload.css" />
+    <link rel="stylesheet" href="./css/features.css" />
+    <link rel="stylesheet" href="./css/joined.css" />
+    <link rel="stylesheet" href="./css/footer.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="stylesheet" href="./css/scrapper.css" />
+    <link rel="preconnect" href="https://fonts.gstaticWeb Scrapper
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="hero">
+      <nav class="nav container">
+        <figure class="nav__figure">
+          <img src="./images/logo-bookmark.svg" class="nav__logo" />
+        </figure>
+
+        <div class="nav__hamburguer">
+          <img src="./images/icon-hamburger.svg" class="nav__button" />
+        </div>
+
+        <div class="nav__container">
+          <ul class="nav__list container">
+            <li class="nav__element">
+              <a href="#faq" class="nav__link">FAQS</a>
+            </li>
+
+            <li class="nav__element">
+              <a
+                href="https://github.com/yamilt351/scraper/blob/master/README.md#Contributions"
+                target="_blank"
+                class="nav__link"
+                >Documentation</a
+              >
+            </li>
+
+            <li class="nav__element">
+              <a
+                target="_blank"
+                href="https://www.linkedin.com/in/yamil-tauil/"
+                class="nav__link"
+                >Contact</a
+              >
+            </li>
+
+            <li class="nav__element">
+              <a href="#product" class="nav__link nav__link--last">TRY NOW</a>
+            </li>
+          </ul>
+
+          <div class="nav__social">
+            <a href="#" class="nav__media" target="_blank">
+              <img src="./images/icon-facebook.svg" class="nav__socialme" />
+            </a>
+
+            <a href="#" class="nav__media" target="_blank">
+              <img src="./images/icon-twitter.svg" class="nav__socialme" />
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      <section class="hero__main container">
+        <figure class="hero__figure">
+          <img src="./images/illustration-hero.svg" class="hero__img" />
+        </figure>
+
+        <article class="hero__texts" data-aos="fade-right">
+          <h1 class="hero__title">A Powerfull Web Scrapper</h1>
+          <p class="hero__paragraph">
+            This project is a highly versatile web scraper that allows users to
+            extract data from any website by providing the URL link and CSS
+            selector for scraping. With this tool, developers, analysts, and
+            researchers can easily obtain specific information from different
+            online sources for further analysis and processing.
+          </p>
+
+          <div class="hero__buttons">
+            <a href="#product" class="hero__button"> Start Scrapping Now!</a>
+
+            <a
+              href="https://github.com/yamilt351/scraper/tree/master"
+              class="hero__button hero__button--white"
+            >
+              Colaborate with Us!</a
+            >
+          </div>
+        </article>
+      </section>
+    </header>
+
+    <main class="main">
+      <section class="features container">
+        <div class="features__content">
+          <h2 class="features__title">Features</h2>
+          <p class="features__paragraph">
+            Our aim is to make it quick and easy for you to access your required
+            data.
+          </p>
+
+          <ul class="features__list">
+            <li class="features__element">
+              <a
+                href="#"
+                class="features__tab features__tab--active"
+                data-article="1"
+                >How it's Works?</a
+              >
+            </li>
+
+            <li class="features__element">
+              <a href="#" class="features__tab" data-article="2"
+                >Speedy Searching
+              </a>
+            </li>
+
+            <li class="features__element">
+              <a href="#" class="features__tab" data-article="3"
+                >Privacy Policy
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="features__container">
+          <article class="features__article features__article--active">
+            <figure class="features__figure">
+              <img
+                src="./images/illustration-features-tab-1.svg"
+                class="features__img"
+              />
+            </figure>
+
+            <div class="features__texts">
+              <h3 class="features__subtitle">Scrappe a site with one click</h3>
+              <p class="features__copy">
+                Go to the website you want to scrape. Open the browser's
+                developer tools by pressing F12 or right-clicking and selecting
+                "Inspect". Use the console to explore the page's content and
+                find the container that holds the text and the "a" (link)
+                element you want to extract. Once you find the container with
+                the appropriate class, copy it. Then, paste the CSS class into
+                our form and get their data!.
+              </p>
+              <a href="#product" class="features__cta">More Info</a>
+            </div>
+          </article>
+
+          <article class="features__article">
+            <figure class="features__figure">
+              <img
+                src="./images/illustration-features-tab-2.svg"
+                class="features__img"
+              />
+            </figure>
+
+            <div class="features__texts">
+              <h3 class="features__subtitle">Intelligent search</h3>
+              <p class="features__copy">
+                Accelerate the retrieval of results using keywords, filter out
+                all unnecessary results, and save your time!
+              </p>
+              <a href="#product" class="features__cta">More Info</a>
+            </div>
+          </article>
+
+          <article class="features__article">
+            <figure class="features__figure">
+              <img
+                src="./images/illustration-features-tab-3.svg"
+                class="features__img"
+              />
+            </figure>
+
+            <div class="features__texts">
+              <h3 class="features__subtitle">Keep it private</h3>
+              <p class="features__copy">
+                We take our users' privacy very seriously, which is why we do
+                not store any information related to the use of this tool. Your
+                results remain as private as possible
+              </p>
+              <a href="#product" class="features__cta">More Info</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- web extensions -->
+      <!-- <section class="download container"> -->
+      <!--   <h2 class="download__title">Download the extension</h2> -->
+      <!--   <p class="download__paragraph"> -->
+      <!--     We’ve got more browsers in the pipeline. Please do let us know if -->
+      <!--     you’ve got a favourite you’d like us to prioritize. -->
+      <!--   </p> -->
+
+      <!--   <div class="download__container"> -->
+      <!--     <article -->
+      <!--       class="download__item" -->
+      <!--       data-aos="fade-down" -->
+      <!--       data-aos-easing="linear" -->
+      <!--       data-aos-duration="1300" -->
+      <!--     > -->
+      <!--       <figure class="download__figure"> -->
+      <!--         <img src="./images/logo-chrome.svg" class="download__img" /> -->
+      <!--       </figure> -->
+
+      <!--       <h3 class="download__browser">Add to Chrome</h3> -->
+      <!--       <p class="download__version">Minimum version 62</p> -->
+      <!--       <a href="#" class="download__extension">Add & Install Extension</a> -->
+      <!--     </article> -->
+
+      <!--     <article -->
+      <!--       class="download__item" -->
+      <!--       data-aos="fade-down" -->
+      <!--       data-aos-easing="linear" -->
+      <!--       data-aos-duration="1600" -->
+      <!--     > -->
+      <!--       <figure class="download__figure"> -->
+      <!--         <img src="./images/logo-firefox.svg" class="download__img" /> -->
+      <!--       </figure> -->
+
+      <!--       <h3 class="download__browser">Add to Firefox</h3> -->
+      <!--       <p class="download__version">Minimum version 55</p> -->
+      <!--       <a href="#" class="download__extension">Add & Install Extension</a> -->
+      <!--     </article> -->
+
+      <!--     <article -->
+      <!--       class="download__item" -->
+      <!--       data-aos="fade-down" -->
+      <!--       data-aos-easing="linear" -->
+      <!--       data-aos-duration="1800" -->
+      <!--     > -->
+      <!--       <figure class="download__figure"> -->
+      <!--         <img src="./images/logo-opera.svg" class="download__img" /> -->
+      <!--       </figure> -->
+
+      <!--       <h3 class="download__browser">Add to Opera</h3> -->
+      <!--       <p class="download__version">Minimum version 46</p> -->
+      <!--       <a href="#" class="download__extension">Add & Install Extension</a> -->
+      <!--     </article> -->
+      <!--   </div> -->
+      <!-- </section> -->
+
+      <section class="article container" id="faq">
+        <h2 class="article__title">Frequently Asked Questions</h2>
+        <p class="article__paragraph">
+          Here are some of our FAQs. If you have any other questions you’d like
+          answered please feel free to email us.
+        </p>
+
+        <div class="article__container">
+          <h3 class="article__question">
+            What is Web Scraping?
+            <img src="./images/icon-arrow.svg" class="article__arrow" />
+          </h3>
+
+          <article class="article__content">
+            <div class="article__show">
+              <p class="article__anwser">
+                Web Scraping is an automated technique for extracting data from
+                websites in a structured manner. It involves accessing web
+                pages, analyzing their content, and extracting relevant
+                information, which can then be used for various purposes, such
+                as data analysis, research, price monitoring, among others.
+              </p>
+            </div>
+          </article>
+
+          <h3 class="article__question">
+            Is Web Scraping legal?
+            <img src="./images/icon-arrow.svg" class="article__arrow" />
+          </h3>
+
+          <article class="article__content">
+            <div class="article__show">
+              <p class="article__anwser">
+                The legality of Web Scraping depends on the jurisdiction and the
+                terms of service of the target website. Some websites explicitly
+                prohibit Web Scraping in their terms of use, while others allow
+                it with certain restrictions. It is important to review the
+                site's terms of service before engaging in any Web Scraping
+                activity to ensure compliance with the established rules.
+              </p>
+            </div>
+          </article>
+
+          <h3 class="article__question">
+            What types of data can be extracted with Web Scraping?
+            <img src="./images/icon-arrow.svg" class="article__arrow" />
+          </h3>
+
+          <article class="article__content">
+            <div class="article__show">
+              <p class="article__anwser">
+                With Web Scraping, it is possible to extract various types of
+                data, such as e-commerce product information, product prices,
+                news, user reviews, social media data, job listings, flight
+                information, and much more. The extracted information can be
+                used for analysis, market research, competitive intelligence,
+                and other purposes.
+              </p>
+            </div>
+          </article>
+
+          <h3 class="article__question">
+            What are the challenges of Web Scraping?
+            <img src="./images/icon-arrow.svg" class="article__arrow" />
+          </h3>
+
+          <article class="article__content">
+            <div class="article__show">
+              <p class="article__anwser">
+                Web Scraping can present several challenges, such as IP blocking
+                or bot detection by target websites, the changing structure of
+                the site, handling unstructured data, managing sessions and
+                cookies, and respecting privacy policies and terms of service.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <a
+          href="https://github.com/yamilt351/scraper/blob/master/src/FAQ.md"
+          class="features__cta"
+          >More Info</a
+        >
+      </section>
+
+      <section class="joined" id="product">
+        <div class="joined__container container">
+          <p class="joined__paragraph">35,000+ active users!</p>
+          <h2 class="joined__title">Use your FREE TRY NOW!</h2>
+          <form id="scraper-form" class="joined__form">
+            <label class="joined__text" for="url">Target URL:</label><br />
+            <input
+              title="target site URL"
+              class="joined__input"
+              type="text"
+              id="url"
+              name="url"
+              required
+              value="https://www.lanacion.com.ar"
+              placeholder="site url"
+            /><br />
+            <label class="joined__text" for="objectClass"
+              >Css Object Class:</label
+            ><br />
+            <input
+              title="article css Class"
+              class="joined__input"
+              type="text"
+              id="objectClass"
+              value=".ln-card"
+              name="objectClass"
+              required
+              placeholder="css class"
+            /><br />
+            <label class="joined__text" for="keyWord">Keyword To Search:</label
+            ><br />
+            <input
+              title="keyword to search (optional)"
+              class="joined__input"
+              type="text"
+              id="keyWord"
+              name="keyWord"
+              placeholder="Keyword to search"
+            /><br />
+
+            <div class="cta">
+              <input type="submit" class="joined__submit" value="Get started" />
+            </div>
+          </form>
+          <div id="response" class="scrapp-container" data-aos="fade-up"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__container container">
+        <figure class="footer__figure">
+          <img src="./images/logo-bookmark-footer.svg" class="footer__logo" />
+        </figure>
+
+        <ul class="footer__list">
+          <li class="footer__item">
+            <a href="#faq" class="footer__link"> FAQs</a>
+          </li>
+          <li class="footer__item">
+            <a
+              href="https://github.com/yamilt351/scraper/blob/master/README.md#Contributions"
+              class="footer__link"
+              >Documentation</a
+            >
+          </li>
+          <li class="footer__item">
+            <a
+              href="https://www.linkedin.com/in/yamil-tauil/"
+              class="footer__link"
+            >
+              Contact</a
+            >
+          </li>
+        </ul>
+
+        <div class="footer__media">
+          <a
+            href="https://www.linkedin.com/in/yamil-tauil/"
+            class="footer__social"
+          >
+            <img src="./images/icon-facebook.svg" class="footer__icon" />
+          </a>
+          <a
+            href="https://github.com/yamilt351/scraper/tree/master"
+            class="footer__social"
+          >
+            <img src="./images/icon-twitter.svg" class="footer__icon" />
+          </a>
+        </div>
+      </div>
+    </footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="./js/scrapper.js"></script>
+    <script src="./js/main.js"></script>
+  </body>
+</html>

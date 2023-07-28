@@ -1,0 +1,42 @@
+.scrapped-results {
+  margin: 2rem 0;
+}
+.scrapped-results p {
+  color: white;
+  display: flex;
+  justify-content: start;
+}
+.scrapped-list {
+  border-radius: 10px;
+  height: auto;
+  width: 90%;
+  margin: 1rem 0;
+  padding: 0.5rem;
+  list-style: none;
+  color: white;
+  background-image: linear-gradient(
+    to right,
+    #fff 0%,
+    #f1f1f1f1 51%,
+    #f3f3f3f3 100%
+  );
+  background-size: 200% auto;
+  transition: 0.5s;
+}
+.scrapped-list:hover {
+  transition: ease-in 0.5s;
+  color: black;
+
+  background-position: right center;
+}
+
+.text-scrapped {
+  color: black;
+}
+.text-scrapped:hover {
+  transition: ease-in 0.5s;
+}
+
+.links-scrapped {
+  margin: auto;
+}

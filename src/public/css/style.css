@@ -1,0 +1,191 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --soft-blue: hsl(231, 69%, 60%);
+  --soft-red: hsl(0, 94%, 66%);
+  --grayish-blue: hsl(229, 8%, 60%);
+  --very-dark-blue: hsl(229, 31%, 21%);
+
+  --grayish-blue-alpha: hsl(229, 8%, 60%, 0.5);
+  --very-dark-blue-alpha: hsl(229, 31%, 21%, 0.8);
+
+  --padding-container: 60px 0;
+}
+
+img {
+  display: block;
+}
+
+body {
+  font-family: 'Rubik', sans-serif;
+}
+
+/* Hero */
+.container {
+  max-width: 1200px;
+  overflow: hidden;
+  margin: 0 auto;
+  padding: var(--padding-container);
+}
+
+.hero__main {
+  width: 100%;
+  --padding-container: 40px 0 60px;
+
+  display: grid;
+  grid-template-columns: 5% 1fr 5%;
+}
+
+.hero__figure {
+  grid-column: 1/4;
+  padding: 2rem 0;
+  position: relative;
+}
+
+.hero__figure::before {
+  content: '';
+  position: absolute;
+  background-color: var(--soft-blue);
+  width: 60%;
+  max-width: 450px;
+  bottom: 30px;
+  top: 30%;
+  right: 0;
+
+  border-radius: 100px 0 0 100px;
+  z-index: -1;
+}
+
+.hero__img {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 450px;
+}
+
+.hero__texts {
+  text-align: center;
+  grid-column: 2/3;
+}
+
+.hero__title {
+  font-size: 2rem;
+  color: var(--very-dark-blue);
+}
+
+.hero__paragraph {
+  color: var(--grayish-blue);
+  line-height: 1.5;
+  margin: 1.3rem 0;
+}
+
+.hero__buttons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.hero__button {
+  background-color: var(--soft-blue);
+  color: #fff;
+  text-decoration: none;
+  padding: 1rem;
+  font-weight: 500;
+  border-radius: 4px;
+
+  box-shadow: -5px 2px 3px var(--grayish-blue-alpha);
+}
+
+.hero__button--white {
+  background-color: #fff;
+  color: var(--grayish-blue);
+}
+
+
+
+@media (min-width: 768px) {
+  :root {
+    --padding-container: 80px 0;
+  }
+
+  img {
+    display: block;
+  }
+
+
+  /* Hero */
+
+  .hero__main {
+    align-items: center;
+    grid-template-columns: 5% 1fr 1fr 5%;
+  }
+
+  .hero__figure {
+    grid-column: span 2/-1;
+  }
+
+  .hero__figure::before {
+    bottom: 0;
+    width: 70%;
+    max-width: 600px;
+  }
+
+  .hero__img {
+    max-width: 5000px;
+  }
+
+  .hero__texts {
+    text-align: left;
+    grid-row: 1/2;
+  }
+
+  .hero__title {
+    font-size: 2.5rem;
+  }
+
+  .hero__paragraph {
+    margin: 1.5rem 0;
+  }
+
+  .hero__buttons {
+    justify-content: flex-start;
+  }
+
+
+  /* article */
+
+  .article__title {
+    font-size: 2.5rem;
+  }
+
+}
+
+
+@media (min-width: 1250px) {
+  .hero__main {
+    width: 90%;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero__figure {
+    grid-column: span 1/-1;
+    grid-row: 1/2;
+  }
+
+  .hero__texts {
+    grid-row: 1/2;
+    grid-column: 1/2;
+  }
+
+  .features {
+    width: 90%;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .features__content {
+    grid-column: 1/-1;
+  }
+}
+
