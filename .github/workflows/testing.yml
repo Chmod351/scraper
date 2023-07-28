@@ -17,5 +17,7 @@ jobs:
         run: |
           cd src/
           npm install
-      - name: Run Jest tests
-        run: npm test
+      - name: Run Jest test
+        run: |
+          cd src/
+          npm run test
