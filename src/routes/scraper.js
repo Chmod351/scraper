@@ -9,9 +9,9 @@ import scrapper from '../Controlers/scraper.js';
  *  /api/scrape:
  *   post:
  *     summary: Extraer datos de un sitio web.
- *     description: Use esta API para extraer datos de un sitio web.
+ *     description: Use this Api to scrape data from any site, first read our documentation before use it https://github.com/yamilt351/scraper!
  *     requestBody:
- *       description: Datos necesarios para realizar la extracción.
+ *       description: Required data.
  *       fromd: true
  *       content:
  *         application/json:
@@ -19,7 +19,7 @@ import scrapper from '../Controlers/scraper.js';
  *             $ref: '#/components/schemas/ScraperRequest'
  *     responses:
  *       200:
- *         description: Datos extraídos exitosamente.
+ *         description: Succesfull response.
  *         content:
  *           application/json:
  *             schema:
@@ -27,9 +27,9 @@ import scrapper from '../Controlers/scraper.js';
  *               properties:
  *                 data:
  *                   type: string
- *                   description: Datos extraídos del sitio web.
+ *                   description: Dato found.
  *       400:
- *         description: Error de solicitud.
+ *         description: Bad request.
  */
 router.post('/scrappe', scrapper.scrapperController);
 // router.get('/scrape', cache('2 minutes'), scrapper);
