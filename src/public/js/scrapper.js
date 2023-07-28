@@ -33,8 +33,8 @@ window.addEventListener('DOMContentLoaded', () => {
           const articlesList = foundArticles
             .map(
               (article) =>
-                `<li>
-          <a href=${scannedWebpage}${article.link} role="link">
+                `<li class="scrapped-list">
+          <a href=${scannedWebpage}${article.link} role="link" class="text-scrapped">
           <p>${article.title}</p>
           </a>
             </li>`,
@@ -42,9 +42,9 @@ window.addEventListener('DOMContentLoaded', () => {
             .join('');
           responseContainer.innerHTML = `
           <section class="scrapped-results">
-          <p class="text">Matchs: ${objectsFound}</p>
-          <p class="text">Key Word: ${keyWord}</p>
-          <p class="text">Target: ${scannedWebpage}</p>
+          <p class="text-scrapped">Matchs: ${objectsFound}</p>
+          <p class="text-scrapped">Key Word: ${keyWord}</p>
+          <p class="text-scrapped">Target: ${scannedWebpage}</p>
           </section>
           <h3 class="big-title">Found Articles:</h3>
           <div class="links-scrapped">
