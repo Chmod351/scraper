@@ -6,7 +6,7 @@ import scrapper from '../Controlers/scraper.js';
 
 /**
  * @swagger
- *  /api/scrape:
+ *  /api/scrappe:
  *   post:
  *     summary: Extraer datos de un sitio web.
  *     description: Use this Api to scrape data from any site, first read our documentation before use it https://github.com/yamilt351/scraper!

@@ -8,5 +8,5 @@ const applicationUrl = config.applicationUrl;
 export default cors({
   origin: [documentation, host, applicationUrl],
   allowedHeaders: 'Content-Type',
-  methods: ['GET'],
+  methods: ['POST'],
 });
