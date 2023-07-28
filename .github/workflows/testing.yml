@@ -1,4 +1,7 @@
 name: Jest Tests
+     run: |
+       cd src/
+       npm install
 
 on:
   pull_request:
