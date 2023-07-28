@@ -1,7 +1,10 @@
 import envConfig from './envConfig.js';
 const SERVER = envConfig.API_URL;
+const PORT = envConfig.port;
+
 const demo = 'https://scraper-5ask.onrender.com/public/html.html';
 const documentation = 'https://github.com/yamilt351/scraper';
+
 const options = {
   definition: {
     openapi: '3.0.0',
@@ -17,7 +20,7 @@ const options = {
     },
     servers: [
       {
-        url: `${SERVER}`,
+        url: `${SERVER}:${PORT}`,
         description: 'Deployment server',
       },
     ],

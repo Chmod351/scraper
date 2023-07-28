@@ -15,7 +15,7 @@ const app = express();
 const middlewares = await importMiddlewares();
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const port = config.port;
-
+const enviroment = config.API_URL;
 //MIDDLEWARES
 middlewares.forEach((middleware) => {
   app.use(middleware);
@@ -41,8 +41,8 @@ app.use((req, res, next) => {
 app.use(errorHandler);
 
 app.listen(port, function () {
-  console.log(`the aplication is running on http://localhost:${port} 
-   site is on http://localhost:${port}/public/html.html
-   swagger http://localhost:${port}/api/docs
+  console.log(`the aplication is running on ${enviroment}:${port} 
+   site is on ${enviroment}:${port}/public/html.html
+   swagger ${enviroment}:${port}/api/docs
 `);
 });
