@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test": "npm run test:unit && npm run test:integration",
     "test:unit": "node --experimental-vm-modules node_modules/jest/bin/jest.js scraper.unit.test.js",
     "test:integration": "node --experimental-vm-modules node_modules/jest/bin/jest.js scraper.integration.test.js",
     "start": "node index.js",
