@@ -1,7 +1,5 @@
 name: Jest Tests
-run: |
-  cd src/
-  npm install
+
 'on':
   pull_request:
     branches:
@@ -17,6 +15,9 @@ jobs:
         with:
           node-version: 16.x
       - name: Install dependencies
+run: |
+  cd src/
+  npm install
         run: npm install
       - name: Run Jest tests
         run: npm test
