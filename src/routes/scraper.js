@@ -32,11 +32,5 @@ import scrapper from '../Controlers/scraper.js';
  *         description: Bad request.
  */
 router.post('/scrappe', scrapper.scrapperController);
-// router.get('/scrape', cache('2 minutes'), scrapper);
-// router.get('/scrape/links', scrapper);
-
-// router.get('/scrape/stats/pages', scrapper);
-// router.get('/scrape/stats/words', scrapper);
-// router.get('/scrape/stats/links', scrapper);
 
 export default router;
