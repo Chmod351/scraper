@@ -1,6 +1,6 @@
 import express from 'express';
 import options from './config/swaggerConfig.js';
-import scrape from './routes/scraper.js';
+import scrape from './scrapper/scraperRoutes.js';
 import path from 'path';
 import swaggerJsdoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';

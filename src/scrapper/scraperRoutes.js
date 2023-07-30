@@ -1,7 +1,7 @@
 import express from 'express';
 const router = express.Router();
 // import apiCache from 'apicache';
-import scrapper from '../Controlers/scraper.js';
+import scrapper from '../scrapper/scrapperControllers.js';
 // let cache = apiCache.middleware;
 
 /**

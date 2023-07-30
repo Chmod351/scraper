@@ -1,4 +1,4 @@
-import scrappService from '../services/scrapper';
+import scrappService from '../scrapper/scrapperService.js';
 import { expect } from 'chai';
 
 describe('Normal Cases: Unit Tests', () => {

@@ -2,7 +2,7 @@ import Request from 'supertest';
 import { expect } from 'chai';
 import envConfig from '../config/envConfig';
 
-const baseUrl = envConfig.API_URL/api;
+const baseUrl = `${envConfig.API_URL}:${envConfig.port}/api`;
 
 describe('Edge Cases: Integration Tests', () => {
   it('should return statusCode 400 bad request /api/scrappe', async () => {
