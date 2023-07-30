@@ -1,9 +1,9 @@
 import cors from 'cors';
 import config from '../config/envConfig.js';
 
-const documentation = config.document;
+const documentation = `${config.host}/api/docs`;
 const host = config.host;
-const applicationUrl = config.applicationUrl;
+const applicationUrl = `${config.host}/api/public/html.html`;
 
 export default cors({
   origin: [documentation, host, applicationUrl],

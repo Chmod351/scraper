@@ -23,10 +23,11 @@ create your .env file with this values:
 
 ```
 PORT=5000
-URL_DOCS=https://yourUrlHere/api/docs
-URL_SERVER=https://hostingServer.com
-URL_SCRAPPER=https://your-site-here.com
+URL_DOCS=https://url.com/api/docs
+URL_SERVER=https://url.com
+URL_SCRAPPER=https://url.com/api
 LIMIT=2000
+
 ```
 
 install dependencies with `npm i`
