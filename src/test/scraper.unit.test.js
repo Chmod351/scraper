@@ -117,30 +117,29 @@ describe('Edge Cases : Unit Tests', () => {
     const response = await scrappService.fetchUrl(testScrap);
     expect(response).to.be.equal(`getaddrinfo ENOTFOUND www.lanacion`);
   });
-});
 
-it('fetchUrl should fails it the url is not a url', async () => {
-  const testScrap = 'lanacion';
-  const response = await scrappService.fetchUrl(testScrap);
-  expect(response).to.be.equal(`URL must be a string, not undefined`);
-});
+  it('fetchUrl should fails it the url is not a url', async () => {
+    const testScrap = 'lanacion';
+    const response = await scrappService.fetchUrl(testScrap);
+    expect(response).to.be.equal(`URL must be a string, not undefined`);
+  });
 
-it('fetchUrl should  fail if the url is empty', async () => {
-  const testScrap = '';
-  const response = await scrappService.fetchUrl(testScrap);
-  expect(response).to.be.equal('URL must be a string, not undefined');
-});
+  it('fetchUrl should  fail if the url is empty', async () => {
+    const testScrap = '';
+    const response = await scrappService.fetchUrl(testScrap);
+    expect(response).to.be.equal('URL must be a string, not undefined');
+  });
 
-
-it('checkInputContent should return bad request if it does not contain a valid url', () => {
-  const testScrap = {
-    url: '',
-    objectClass: '.class',
-  };
-  try {
-    scrappService.checkInputContent(testScrap.url, testScrap.objectClass);
-  } catch (error) {
-    expect(error.message).to.be.equal('bad request');
-    expect(error.statusCode).to.be.equal(400);
-  }
+  it('checkInputContent should return bad request if it does not contain a valid url', () => {
+    const testScrap = {
+      url: '',
+      objectClass: '.class',
+    };
+    try {
+      scrappService.checkInputContent(testScrap.url, testScrap.objectClass);
+    } catch (error) {
+      expect(error.message).to.be.equal('bad request');
+      expect(error.statusCode).to.be.equal(400);
+    }
+  });
 });
