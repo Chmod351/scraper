@@ -85,7 +85,6 @@ const scrappAction = async function Scrapper(req, res) {
   });
 };
 
-
 const scrappService = {
   scrappAction,
   checkInputContent,
