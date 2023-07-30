@@ -117,4 +117,15 @@ describe('Edge Cases : Unit Tests', () => {
     const response = await scrappService.fetchUrl(testScrap);
     expect(response).to.be.equal(`getaddrinfo ENOTFOUND ${testScrap}`);
   });
+  it('checkInputContent should return bad request if it does not contain a valid url', () => {
+    const testScrap = {
+      url: '',
+      objectClass: '.class',
+    };
+    const response = scrappService.checkInputContent(
+      testScrap.url,
+      testScrap.objectClass,
+    );
+    expect(response).to.be.equal("bad request");
+  });
 });

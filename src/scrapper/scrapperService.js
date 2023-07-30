@@ -67,7 +67,7 @@ const scrappAction = async function Scrapper(req, res) {
   const objectClass = req.body.objectClass;
   // obtiene el body de la pagina
   const bodyHtml = await fetchUrl(url);
-  // identifica a los articulos que contienen la lase
+  // identifica a los articulos que contienen la clase
   const articles = scrapeData(bodyHtml, objectClass);
   // limpia el texto contenido en los articulos para facilitar la lectura
   const cleanedArticles = cleanArticles(articles);
@@ -84,6 +84,7 @@ const scrappAction = async function Scrapper(req, res) {
     'found articles': filteredArticles,
   });
 };
+
 
 const scrappService = {
   scrappAction,
