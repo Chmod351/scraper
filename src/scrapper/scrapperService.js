@@ -2,9 +2,12 @@ import needle from 'needle';
 import cheerio from 'cheerio';
 import { BadRequestError } from '../helpers/errorHandler.js';
 
+const scrapperLoader = cheerio.load;
+const urlAnalyzer = needle;
+
 async function fetchUrl(url) {
   try {
-    const response = await needle(url);
+    const response = await urlAnalyzer(url);
     return response.body;
   } catch (error) {
     return error.message;
@@ -19,7 +22,7 @@ function checkInputContent(url, objectClass) {
 
 function scrapeData(bodyHtml, objectClass) {
   const articles = [];
-  const scrapeLoad = cheerio.load(bodyHtml);
+  const scrapeLoad = scrapperLoader(bodyHtml);
   scrapeLoad(objectClass, bodyHtml).each(function () {
     const title = scrapeLoad(this).text();
     const link = scrapeLoad(this).find('a').attr('href');
@@ -33,7 +36,7 @@ function scrapeData(bodyHtml, objectClass) {
 
 function removeSpecialChars(str) {
   const regex = /[\n\t]+/g;
-  return str.replace(regex, '');
+  return str.replace(regex, '  ');
 }
 
 function filterArticles(articles, filterFn) {
@@ -61,13 +64,12 @@ function cleanArticles(articles) {
 }
 
 const scrappAction = async function Scrapper(req, res) {
-  console.log('scrapeando');
   const keyword = req.body.keyWord;
   const url = req.body.url;
   const objectClass = req.body.objectClass;
   // obtiene el body de la pagina
   const bodyHtml = await fetchUrl(url);
-  // identifica a los articulos que contienen la lase
+  // identifica a los articulos que contienen la clase
   const articles = scrapeData(bodyHtml, objectClass);
   // limpia el texto contenido en los articulos para facilitar la lectura
   const cleanedArticles = cleanArticles(articles);

@@ -122,6 +122,10 @@
   text-decoration: none;
   color: #fff;
 }
+.features__cta:hover{
+  transition: ease-in 0.3s;
+  background-color: var(--grayish-blue);
+}
 
 @media (min-width: 768px) {
   /* features */

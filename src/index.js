@@ -1,6 +1,6 @@
 import express from 'express';
 import options from './config/swaggerConfig.js';
-import scrape from './routes/scraper.js';
+import scrape from './scrapper/scraperRoutes.js';
 import path from 'path';
 import swaggerJsdoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
@@ -15,7 +15,8 @@ const app = express();
 const middlewares = await importMiddlewares();
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const port = config.port;
-const enviroment = config.API_URL;
+const server = config.host;
+
 //MIDDLEWARES
 middlewares.forEach((middleware) => {
   app.use(middleware);
@@ -41,8 +42,8 @@ app.use((req, res, next) => {
 app.use(errorHandler);
 
 app.listen(port, function () {
-  console.log(`the aplication is running on ${enviroment}:${port} 
-   site is on ${enviroment}:${port}/public/html.html
-   swagger ${enviroment}:${port}/api/docs
+  console.log(`the aplication is running on ${server}:${port} 
+   site is on ${server}:${port}/public/html.html
+   swagger ${server}:${port}/api/docs
 `);
 });

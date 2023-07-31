@@ -73,7 +73,6 @@
   display: block;
   font-weight: 500;
 }
-
 .nav__link--last {
   border: 1px solid #fff;
   border-radius: 4px;
@@ -128,6 +127,10 @@
     padding: 0.6rem 1.5rem;
     background-color: var(--soft-red);
     box-shadow: -5px 2px 3px var(--grayish-blue);
+  }
+  .nav__link--last:hover {
+    transition: ease-in 0.3s;
+    background-color: var(--grayish-blue);
   }
 
   .nav__social {

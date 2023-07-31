@@ -1,4 +1,4 @@
-import scrappService from '../services/scrapper';
+import scrappService from '../scrapper/scrapperService.js';
 import { expect } from 'chai';
 
 describe('Normal Cases: Unit Tests', () => {
@@ -26,7 +26,14 @@ describe('Normal Cases: Unit Tests', () => {
         <a href="https://example.com/article1">Read more</a>
       </div>
       <div class="article">
+        <p>text description</p>
+        <a href="https://example.com/article2">Read more</a>
+      </div>
+      <div class="article">
+     <div>
         <h2>Title 2</h2>
+        <p>text description</p>
+     </div>
         <a href="https://example.com/article2">Read more</a>
       </div>
     `;
@@ -45,12 +52,19 @@ describe('Normal Cases: Unit Tests', () => {
 
     expect(normalizedResult).to.deep.equal([
       { title: 'Title 1 Read more', link: 'https://example.com/article1' },
-      { title: 'Title 2 Read more', link: 'https://example.com/article2' },
+      {
+        title: 'text description Read more',
+        link: 'https://example.com/article2',
+      },
+      {
+        title: 'Title 2 text description Read more',
+        link: 'https://example.com/article2',
+      },
     ]);
   });
   it('removeSpecialChars should remove specials chars in the string', () => {
     const input = 'Hello\n\tWorld!';
-    const expectedOutput = 'HelloWorld!';
+    const expectedOutput = 'Hello  World!';
     const result = scrappService.removeSpecialChars(input);
     expect(result).to.be.equal(expectedOutput);
   });
@@ -79,9 +93,9 @@ describe('Normal Cases: Unit Tests', () => {
     ];
 
     const expectedOutput = [
-      { title: 'Article 1', link: 'https://example.com/article1' },
-      { title: 'Article 2', link: 'https://example.com/article2' },
-      { title: 'Article 3', link: 'https://example.com/article3' },
+      { title: 'Article 1  ', link: 'https://example.com/article1' },
+      { title: 'Article 2  ', link: 'https://example.com/article2' },
+      { title: 'Article 3  ', link: 'https://example.com/article3' },
     ];
 
     const result = scrappService.cleanArticles(articles);
@@ -113,8 +127,33 @@ describe('Normal Cases: Unit Tests', () => {
 
 describe('Edge Cases : Unit Tests', () => {
   it('fetchUrl should fail if the url is not valid ', async () => {
-    const testScrap = 'wwww.lanacion';
+    const testScrap = 'www.lanacion';
     const response = await scrappService.fetchUrl(testScrap);
-    expect(response).to.be.equal(`getaddrinfo ENOTFOUND ${testScrap}`);
+    expect(response).to.be.equal(`getaddrinfo ENOTFOUND www.lanacion`);
+  });
+
+  it('fetchUrl should fails it the url is not a url', async () => {
+    const testScrap = 'lanacion';
+    const response = await scrappService.fetchUrl(testScrap);
+    expect(response).to.be.equal(`URL must be a string, not undefined`);
+  });
+
+  it('fetchUrl should  fail if the url is empty', async () => {
+    const testScrap = '';
+    const response = await scrappService.fetchUrl(testScrap);
+    expect(response).to.be.equal('URL must be a string, not undefined');
+  });
+
+  it('checkInputContent should return bad request if it does not contain a valid url', () => {
+    const testScrap = {
+      url: '',
+      objectClass: '.class',
+    };
+    try {
+      scrappService.checkInputContent(testScrap.url, testScrap.objectClass);
+    } catch (error) {
+      expect(error.message).to.be.equal('bad request');
+      expect(error.statusCode).to.be.equal(400);
+    }
   });
 });

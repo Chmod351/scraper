@@ -1,4 +1,4 @@
-import scrappService from '../services/scrapper.js';
+import scrappService from '../scrapper/scrapperService.js';
 import validUrl from 'valid-url';
 
 async function scrapperController(req, res, next) {

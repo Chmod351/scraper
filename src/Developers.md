@@ -23,10 +23,11 @@ create your .env file with this values:
 
 ```
 PORT=5000
-URL_DOCS=https://yourUrlHere/api/docs
-URL_SERVER=https://hostingServer.com
-URL_SCRAPPER=https://your-site-here.com
+URL_DOCS=https://url.com/api/docs
+URL_SERVER=https://url.com
+URL_SCRAPPER=https://url.com/api
 LIMIT=2000
+
 ```
 
 install dependencies with `npm i`
@@ -75,3 +76,9 @@ if the response is too big the api use [`compression`](https://www.npmjs.com/pac
 - Document your changes
 - Create your pull request with evidences
 - Code Styles are provided by [eslint](https://github.com/neoclide/coc-eslint) & [prettier](https://github.com/neoclide/coc-prettier)
+- Yours Pull Requests should follow the next structure (the repo has a boilerplate to do that):
+  - As (`Developer`)
+  - I want to (`Your changes`)
+  - To (`Feature`)
+  - Happy path (`succesfull case screenshoot`)
+  - Unhappy path (`unsuccesfull case screenshots , more than 1`)

@@ -97,13 +97,16 @@ body {
 
   box-shadow: -5px 2px 3px var(--grayish-blue-alpha);
 }
+.hero__button:hover {
+  transition: ease-in 0.3s;
+  color: white;
+  background-color: var(--grayish-blue);
+}
 
 .hero__button--white {
   background-color: #fff;
   color: var(--grayish-blue);
 }
-
-
 
 @media (min-width: 768px) {
   :root {
@@ -113,7 +116,6 @@ body {
   img {
     display: block;
   }
-
 
   /* Hero */
 
@@ -153,15 +155,12 @@ body {
     justify-content: flex-start;
   }
 
-
   /* article */
 
   .article__title {
     font-size: 2.5rem;
   }
-
 }
-
 
 @media (min-width: 1250px) {
   .hero__main {
@@ -188,4 +187,3 @@ body {
     grid-column: 1/-1;
   }
 }
-
