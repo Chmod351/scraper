@@ -128,6 +128,10 @@
     background-color: var(--soft-red);
     box-shadow: -5px 2px 3px var(--grayish-blue);
   }
+  .nav__link--last:hover {
+    transition: ease-in 0.3s;
+    background-color: var(--grayish-blue);
+  }
 
   .nav__social {
     display: none;
