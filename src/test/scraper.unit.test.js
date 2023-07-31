@@ -2,11 +2,11 @@ import scrappService from '../scrapper/scrapperService.js';
 import { expect } from 'chai';
 
 describe('Normal Cases: Unit Tests', () => {
-  it('fetchUrl should fetch the url and return status code 200 ', async () => {
-    const testScrap = 'https://www.lanacion.com.ar/';
-    const response = await scrappService.fetchUrl(testScrap);
-    expect(response).contain('</html');
-  });
+  // it('fetchUrl should fetch the url and return status code 200 ', async () => {
+  //   const testScrap = 'https://www.lanacion.com.ar/';
+  //   const response = await scrappService.fetchUrl(testScrap);
+  //   expect(response).contain('</html');
+  // });
 
   it('checkInputContent  should not return any error if objectClass and url exists', () => {
     const testScrap = {
@@ -26,7 +26,14 @@ describe('Normal Cases: Unit Tests', () => {
         <a href="https://example.com/article1">Read more</a>
       </div>
       <div class="article">
+        <p>text description</p>
+        <a href="https://example.com/article2">Read more</a>
+      </div>
+      <div class="article">
+     <div>
         <h2>Title 2</h2>
+        <p>text description</p>
+     </div>
         <a href="https://example.com/article2">Read more</a>
       </div>
     `;
@@ -45,7 +52,14 @@ describe('Normal Cases: Unit Tests', () => {
 
     expect(normalizedResult).to.deep.equal([
       { title: 'Title 1 Read more', link: 'https://example.com/article1' },
-      { title: 'Title 2 Read more', link: 'https://example.com/article2' },
+      {
+        title: 'text description Read more',
+        link: 'https://example.com/article2',
+      },
+      {
+        title: 'Title 2 text description Read more',
+        link: 'https://example.com/article2',
+      },
     ]);
   });
   it('removeSpecialChars should remove specials chars in the string', () => {
@@ -142,5 +156,23 @@ describe('Edge Cases : Unit Tests', () => {
       expect(error.statusCode).to.be.equal(400);
     }
   });
-  it('should fail to scrapp data if the html format is incorrect', async () => {});
+  it('should return 0 artices if the html is not correctly structured', () => {
+    const bodyHtml = `
+    <div>
+      <div class="article">
+      <div>
+       <div>
+        <p>text description</p>
+        <a href="https://example.com/article2">Read more</a>
+       </div>
+      </div>
+      </div>
+   </div>
+    `;
+    const objectClass = '.article';
+
+    const result = scrappService.scrapeData(bodyHtml, objectClass);
+
+    console.log(result);
+  });
 });

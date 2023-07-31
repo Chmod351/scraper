@@ -36,7 +36,7 @@ function scrapeData(bodyHtml, objectClass) {
 
 function removeSpecialChars(str) {
   const regex = /[\n\t]+/g;
-  return str.replace(regex, '');
+  return str.replace(regex, '  ');
 }
 
 function filterArticles(articles, filterFn) {
