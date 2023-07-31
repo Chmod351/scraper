@@ -76,3 +76,9 @@ if the response is too big the api use [`compression`](https://www.npmjs.com/pac
 - Document your changes
 - Create your pull request with evidences
 - Code Styles are provided by [eslint](https://github.com/neoclide/coc-eslint) & [prettier](https://github.com/neoclide/coc-prettier)
+- Yours Pull Requests should follow the next structure (the repo has a boilerplate to do that):
+  - As (`Developer`)
+  - I want to (`Your changes`)
+  - To (`Feature`)
+  - Happy path (`succesfull case screenshoot`)
+  - Unhappy path (`unsuccesfull case screenshots , more than 1`)
