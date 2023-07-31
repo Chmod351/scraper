@@ -142,4 +142,5 @@ describe('Edge Cases : Unit Tests', () => {
       expect(error.statusCode).to.be.equal(400);
     }
   });
+  it('should fail to scrapp data if the html format is incorrect', async () => {});
 });
