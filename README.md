@@ -4,7 +4,7 @@
 - [Developers Documentation](https://github.com/yamilt351/scraper/blob/master/src/Developers.md)
 - [License](https://github.com/yamilt351/scraper/blob/master/src/License.md)
 - [Demo](https://scraper-5ask.onrender.com/public/html.html)
-- [Contributions](#Contributions)
+
 
 ## Demo.
 
@@ -21,14 +21,7 @@ Then just choose what you want to search and put it in the keyword field, for ex
 Press the button to get the results:
 
 [Get Data From The Target Site](https://github.com/yamilt351/scraper/assets/88646148/f417499c-60aa-4df0-85b0-224f27e440b0)
+
 # Contributions
 contributions are welcome
-
-Clone Repo
-
-`git clone https://github.com/yamilt351/scrape`
-
-- Make your changes
-- Test your changes `npm run test`
-- Document your changes
-- Create your pull request with evidences
+[Read How to do that](https://github.com/yamilt351/scraper/blob/master/src/Developers.md)
