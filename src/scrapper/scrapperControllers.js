@@ -12,7 +12,18 @@ async function scrapperController(req, res, next) {
   }
 }
 
+async function getData(req, res, next) {
+
+  try {
+    const response = scrappService.getRelated();
+    res.json(response);
+  } catch (error) {
+    next(error);
+  }
+}
+
 const scrapper = {
   scrapperController,
+  getData,
 };
 export default scrapper;
