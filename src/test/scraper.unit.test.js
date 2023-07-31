@@ -2,11 +2,11 @@ import scrappService from '../scrapper/scrapperService.js';
 import { expect } from 'chai';
 
 describe('Normal Cases: Unit Tests', () => {
-  // it('fetchUrl should fetch the url and return status code 200 ', async () => {
-  //   const testScrap = 'https://www.lanacion.com.ar/';
-  //   const response = await scrappService.fetchUrl(testScrap);
-  //   expect(response).contain('</html');
-  // });
+  it('fetchUrl should fetch the url and return status code 200 ', async () => {
+    const testScrap = 'https://www.lanacion.com.ar/';
+    const response = await scrappService.fetchUrl(testScrap);
+    expect(response).contain('</html');
+  });
 
   it('checkInputContent  should not return any error if objectClass and url exists', () => {
     const testScrap = {
@@ -155,24 +155,5 @@ describe('Edge Cases : Unit Tests', () => {
       expect(error.message).to.be.equal('bad request');
       expect(error.statusCode).to.be.equal(400);
     }
-  });
-  it('should return 0 artices if the html is not correctly structured', () => {
-    const bodyHtml = `
-    <div>
-      <div class="article">
-      <div>
-       <div>
-        <p>text description</p>
-        <a href="https://example.com/article2">Read more</a>
-       </div>
-      </div>
-      </div>
-   </div>
-    `;
-    const objectClass = '.article';
-
-    const result = scrappService.scrapeData(bodyHtml, objectClass);
-
-    console.log(result);
   });
 });
