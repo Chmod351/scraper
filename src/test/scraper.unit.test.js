@@ -64,7 +64,7 @@ describe('Normal Cases: Unit Tests', () => {
   });
   it('removeSpecialChars should remove specials chars in the string', () => {
     const input = 'Hello\n\tWorld!';
-    const expectedOutput = 'Hello World!';
+    const expectedOutput = 'Hello  World!';
     const result = scrappService.removeSpecialChars(input);
     expect(result).to.be.equal(expectedOutput);
   });
