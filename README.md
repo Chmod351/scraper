@@ -5,7 +5,6 @@
 - [License](https://github.com/yamilt351/scraper/blob/master/src/License.md)
 - [Demo](https://scraper-5ask.onrender.com/public/html.html)
 
-
 ## Demo.
 
 This project is a highly versatile web scraper that allows users to extract data from any website by providing the URL link and CSS selector for scraping. With this tool, developers, analysts, and researchers can easily obtain specific information from different online sources for further analysis and processing. Powered by Node.js, the web scraper offers an efficient and flexible solution for fetching data from diverse web pages without limitations.
