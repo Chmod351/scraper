@@ -1,8 +1,8 @@
 import envConfig from './envConfig.js';
-const SERVER = envConfig.API_URL;
+const SERVER = envConfig.host;
 const PORT = envConfig.port;
 
-const demo = 'https://scraper-5ask.onrender.com/public/html.html';
+const demo = `${SERVER}/public/html.html`
 const documentation = 'https://github.com/yamilt351/scraper';
 
 const options = {
