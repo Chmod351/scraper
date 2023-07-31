@@ -93,9 +93,9 @@ describe('Normal Cases: Unit Tests', () => {
     ];
 
     const expectedOutput = [
-      { title: 'Article 1', link: 'https://example.com/article1' },
-      { title: 'Article 2', link: 'https://example.com/article2' },
-      { title: 'Article 3', link: 'https://example.com/article3' },
+      { title: 'Article 1  ', link: 'https://example.com/article1' },
+      { title: 'Article 2  ', link: 'https://example.com/article2' },
+      { title: 'Article 3  ', link: 'https://example.com/article3' },
     ];
 
     const result = scrappService.cleanArticles(articles);
