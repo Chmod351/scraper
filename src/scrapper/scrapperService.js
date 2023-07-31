@@ -3,10 +3,11 @@ import cheerio from 'cheerio';
 import { BadRequestError } from '../helpers/errorHandler.js';
 
 const scrapperLoader = cheerio.load;
+const urlAnalyzer = needle;
 
 async function fetchUrl(url) {
   try {
-    const response = await needle(url);
+    const response = await urlAnalyzer(url);
     return response.body;
   } catch (error) {
     return error.message;
