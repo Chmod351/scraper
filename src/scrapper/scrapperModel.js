@@ -1,13 +1,7 @@
 import { DataTypes } from 'sequelize';
-import server from '../config/serverConfig.js';
+import dbConfig from '../config/serverConfig.js';
 
-const ScrapedData = server.define('ScrapedData', {
-  requesterIP: {
-    type: DataTypes.STRING,
-  },
-  requesterBrowser: {
-    type: DataTypes.STRING,
-  },
+const ScrapedData = dbConfig.server.define('ScrapedData', {
   url: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -32,4 +26,4 @@ const ScrapedData = server.define('ScrapedData', {
   },
 });
 
-module.exports = ScrapedData;
+export default ScrapedData;
