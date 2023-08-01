@@ -6,7 +6,7 @@ import scrapper from '../scrapper/scrapperControllers.js';
 
 /**
  * @swagger
- *  /api/scrappe:
+*  /api/scrappe:
  *   post:
  *     summary: Extraer datos de un sitio web.
  *     description: Use this Api to scrape data from any site, first read our documentation before use it https://github.com/yamilt351/scraper!
@@ -17,7 +17,7 @@ import scrapper from '../scrapper/scrapperControllers.js';
  *         application/json:
  *           schema:
  *             $ref: '#/components/schemas/ScraperRequest'
- *     responses:
+ *      responses:
  *       200:
  *         description: Succesfull response.
  *         content:

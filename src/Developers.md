@@ -1,3 +1,11 @@
+# About this project
+
+First i recommend you [read Our FAQs](https://github.com/yamilt351/scraper/blob/master/src/FAQ.md)
+
+# Objetive.
+
+The objective of this web scraper is to obtain information from any website, just by using its URL and the target CSS class that you want to scrape. It doesn't have a predefined purpose, so you can use it to gather information from any site you like.
+
 # Documentation
 
 [Postman Documentation](https://www.postman.com/orange-trinity-332576/workspace/scrapper/request/21643141-9324c29a-d14b-44c0-9a4d-2bf51d823d54?ctx=documentation)
@@ -5,8 +13,6 @@
 ## Flow Chart
 
 ![image](https://github.com/yamilt351/scraper/assets/88646148/1a2e8fba-5c3b-4fc6-8c26-aa531f42853c)
-
-
 
 ## Custom use.
 
@@ -38,8 +44,8 @@ URL_DOCS=https://url.com/api/docs
 URL_SERVER=https://url.com
 URL_SCRAPPER=https://url.com/api
 LIMIT=2000
-POSGRESQL_USERNAME=username 
-POSGRESQL_PASSWORD=password 
+POSGRESQL_USERNAME=username
+POSGRESQL_PASSWORD=password
 POSGRESQL_DATABASE=database
 POSGRESQL_HOST=jdbc:postgresql://localhost:5432/postgres
 
