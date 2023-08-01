@@ -1,7 +1,7 @@
 import { DataTypes } from 'sequelize';
-import server from '../config/serverConfig.js';
+import dbConfig from '../config/serverConfig.js';
 
-const ScrapedData = server.define('ScrapedData', {
+const ScrapedData = dbConfig.server.define('ScrapedData', {
   url: {
     type: DataTypes.STRING,
     allowNull: false,

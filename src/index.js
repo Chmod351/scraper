@@ -8,6 +8,7 @@ import importMiddlewares from './config/middlewaresConfig.js';
 import { fileURLToPath } from 'url';
 import config from './config/envConfig.js';
 import { errorHandler } from './helpers/errorHandler.js';
+import dbConfig from './config/serverConfig.js';
 
 // CONFIG
 const specs = swaggerJsdoc(options);
@@ -39,11 +40,15 @@ app.use((req, res, next) => {
   }
 });
 
-app.use(errorHandler);
+app.use(errorHandler); 
 
+
+dbConfig.testDbConnection();
 app.listen(port, function () {
   console.log(`the aplication is running on ${server}:${port} 
    site is on ${server}:${port}/public/html.html
    swagger ${server}:${port}/api/docs
 `);
 });
+
+
