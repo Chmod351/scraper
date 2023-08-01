@@ -6,25 +6,55 @@
 
 ![image](https://github.com/yamilt351/scraper/assets/88646148/1a2e8fba-5c3b-4fc6-8c26-aa531f42853c)
 
-
-
 ## Custom use.
+The code makes a `POST` request to the `/api/scrappe` endpoint at `http://localhost:5000`. The request body should contain the following parameters:
 
-Select the Class container which contain the Link (<a> Element)
+- `keyWord` (string): The keyword to filter articles by (`optional`).
+- `url` (string): The URL of the web page to scrape (`mandatory`).
+- `objectClass` (string): The CSS class of the elements to scrape from the web page (`mandatory`).
 
-[How Stract Data From Any Site Example](https://github.com/yamilt351/scraper/assets/88646148/12168afa-3df0-4aa5-a473-57bf826754cb)
+The API endpoint responds with a JSON object containing the following properties:
+- `state`: A string indicating the state of the scraping process.
+- `objects found`: The number of objects found after filtering.
+- `key-word`: The keyword used for filtering.
+- `scanned webpage`: The URL of the webpage that was scraped.
+- `found articles`: An array of articles that match the filtering criteria.  
+if the response is too big the api use [`compression`](https://www.npmjs.com/package/compression) middleware to reduce the size.
 
-Then just choose what you want to search and put it in the keyword field, for example:
+## Body Example:
+```javascript
+{
+      "url":"https://www.url.com.ar",
+      "objectClass":".css-class-selector",
+      "keyWord":"keyword"
+}
+```
+## Response Example: 
 
-[Write the CSS Selector In The Form](https://github.com/yamilt351/scraper/assets/88646148/bcbba111-4fde-4cfc-b8bc-ef601d07645a)
-
-Press the button to get the results:
-
-[Get Data From The Target Site](https://github.com/yamilt351/scraper/assets/88646148/f417499c-60aa-4df0-85b0-224f27e440b0)
+```javascript
+{
+    "state": "succes",
+    "objects found": 2,
+    "key-word": "",
+    "scanned webpage": "https://www.url.com/",
+    "found articles": [
+        {
+            "title": "this a title",
+            "link": "/subject/url-parameters-to-find-the-article-that-you-get-with-the-scrapper/"
+        },
+        {
+            "title": " title",
+            "link": "/subjects/another-url-related-to-yours-results/"
+        },
+    ]
+}
+```
 
 ## Local Configuration.
 
-Nodejs v20 (check your node version with `node -v`)
+
+[Nodejs](https://nodejs.org/en) v20 (check your node version with `node -v`)
+
 create your .env file with this values:
 
 Install postgres :
@@ -56,23 +86,6 @@ The application was tested with [Jest](https://jestjs.io/docs/getting-started), 
 - to run the whole test:
   `npm run test`
 
-# Api
-
-if you want just [use our Public Api](https://scraper-5ask.onrender.com/api/scrappe) you have to send a `POST` request to this endpoint with :
-
-```
-{
-      "url":"https://www.url.com.ar",
-      "objectClass":".css-class-selector",
-      "keyWord":"keyword"
-}
-```
-
-for more [information click here](#Documentation)
-
-The keyword parameter is optional, but it is considered a best practice to include it. Without specifying a keyword, the web scraper may retrieve a large amount of data from the target site, potentially overloading it and leading to IP blocking. By providing a keyword, you can narrow down the data to only what is relevant, reducing the API's load and improving its performance, resulting in faster response times
-
-if the response is too big the api use [`compression`](https://www.npmjs.com/package/compression) middleware to reduce the size.
 
 ## Usage Limitations:
 
