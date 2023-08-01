@@ -2,8 +2,7 @@ import envConfig from './envConfig.js';
 const SERVER = envConfig.host;
 const PORT = envConfig.port;
 
-const demo = `${SERVER}/public/html.html`
-const documentation = 'https://github.com/yamilt351/scraper';
+const demo = `${SERVER}/public/html.html`;
 
 const options = {
   definition: {
@@ -11,12 +10,11 @@ const options = {
     info: {
       title: 'Web Scraper Documentation',
       version: '1.0.0',
-      description: `The project is a web scraper designed to extract specific information from websites. To use it, the user must provide the URL of the website they want to scraper. Using this web scraper requires some familiarity with inspecting elements in a web browser and a basic understanding of CSS classes. Please make sure to carefully follow the steps mentioned above to achieve the desired results. This web scraper is designed to simplify the process of extracting information from websites in a straightforward manner. However, it's essential to remember that its use should be responsible and respectful of the website's terms of service. Always obtain appropriate permission before scraping any website and avoid making excessive requests that could overload or negatively impact the target website. watch the demo ${demo} or just read or documentation ${documentation}`,
+      description: `The project is a web scraper designed to extract specific information from websites. To use it, the user must provide the URL of the website they want to scraper. Using this web scraper requires some familiarity with inspecting elements in a web browser and a basic understanding of CSS classes. Please make sure to carefully follow the steps mentioned above to achieve the desired results. This web scraper is designed to simplify the process of extracting information from websites in a straightforward manner. However, it's essential to remember that its use should be responsible and respectful of the website's terms of service. Always obtain appropriate permission before scraping any website and avoid making excessive requests that could overload or negatively impact the target website. watch the demo ${demo}`,
       license: {
-        name: 'Licence',
-        url: 'https://github.com/yamilt351/scraper/blob/master/src/License.md',
+        name: 'Documentation',
+        url: 'https://github.com/yamilt351/scraper',
       },
-      url: 'https://github.com/yamilt351/scraper',
     },
     servers: [
       {
@@ -53,7 +51,7 @@ const options = {
       },
     },
   },
-  apis: ['./routes/scraper.js'],
+  apis: ['../scrapper/scraperRoutes.js'],
 };
 
 export default options;

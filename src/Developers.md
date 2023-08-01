@@ -2,10 +2,6 @@
 
 First i recommend you [read Our FAQs](https://github.com/yamilt351/scraper/blob/master/src/FAQ.md)
 
-# Objetive.
-
-The objective of this web scraper is to obtain information from any website, just by using its URL and the target CSS class that you want to scrape. It doesn't have a predefined purpose, so you can use it to gather information from any site you like.
-
 # Documentation
 
 [Postman Documentation](https://www.postman.com/orange-trinity-332576/workspace/scrapper/request/21643141-9324c29a-d14b-44c0-9a4d-2bf51d823d54?ctx=documentation)
@@ -103,14 +99,11 @@ The application was tested with [Jest](https://jestjs.io/docs/getting-started), 
 
 # Contributions
 
-- Clone Repo
-
-`git clone https://github.com/yamilt351/scrape`
-
+- Fork this Repo
 - Make your changes
 - Test your changes `npm run test`
 - Document your changes
-- Create your pull request with evidences
+- Create your pull request with evidences at Development. 
 - Code Styles are provided by [eslint](https://github.com/neoclide/coc-eslint) & [prettier](https://github.com/neoclide/coc-prettier)
 - Yours Pull Requests should follow the next structure (the repo has a boilerplate to do that):
   - As (`Developer`)

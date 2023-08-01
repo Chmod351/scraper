@@ -7,5 +7,5 @@ export default {
   database: process.env.POSGRESQL_DATABASE,
   databaseUsername: process.env.POSGRESQL_USERNAME,
   databasePassword: process.env.POSGRESQL_PASSWORD,
-  dattabaseHost: process.env.POSGRESQL_URL,
+  dattabaseHost: process.env.POSGRESQL_URL, 
 };
