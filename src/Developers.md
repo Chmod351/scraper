@@ -34,7 +34,7 @@ if the response is too big the api use [`compression`](https://www.npmjs.com/pac
 ```javascript
 {
     "state": "succes",
-    "objects found": 112,
+    "objects found": 2,
     "key-word": "",
     "scanned webpage": "https://www.url.com/",
     "found articles": [
