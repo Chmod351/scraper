@@ -6,7 +6,7 @@ const server = new Sequelize(
   envConfig.databaseUsername,
   envConfig.databasePassword,
   {
-    host: envConfig.host,
+    host: envConfig.dattabaseHost,
     dialect: 'postgres',
   },
 );

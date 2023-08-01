@@ -24,8 +24,13 @@ Press the button to get the results:
 
 ## Local Configuration.
 
-Nodejs =< v16 (check your node version with `node -v`)
+Nodejs v20 (check your node version with `node -v`)
 create your .env file with this values:
+
+Install postgres :
+
+- [Ubuntu](https://ubuntu.com/server/docs/databases-postgresql)
+- [Arch (BTW)](https://wiki.archlinux.org/title/PostgreSQL)
 
 ```
 PORT=5000
@@ -36,11 +41,13 @@ LIMIT=2000
 POSGRESQL_USERNAME=username 
 POSGRESQL_PASSWORD=password 
 POSGRESQL_DATABASE=database
+POSGRESQL_HOST=jdbc:postgresql://localhost:5432/postgres
+
 ```
 
 install dependencies with `npm i`
 
-The application was tested with [Jest](https://jestjs.io/docs/getting-started) . [Chai](https://www.chaijs.com/) and [Supertest](https://github.com/visionmedia/supertest)
+The application was tested with [Jest](https://jestjs.io/docs/getting-started), [Chai](https://www.chaijs.com/) and [Supertest](https://github.com/visionmedia/supertest)
 
 - to run integration test:
   `npm run test:integration`
