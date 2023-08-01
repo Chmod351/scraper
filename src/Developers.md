@@ -52,7 +52,7 @@ if the response is too big the api use [`compression`](https://www.npmjs.com/pac
 
 ## Local Configuration.
 
-`[Nodejs](https://nodejs.org/en)` v20 (check your node version with `node -v`)
+[Nodejs](https://nodejs.org/en) v20 (check your node version with `node -v`)
 create your .env file with this values:
 
 ```
