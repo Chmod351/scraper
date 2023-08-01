@@ -3,7 +3,8 @@
 [Postman Documentation](https://www.postman.com/orange-trinity-332576/workspace/scrapper/request/21643141-9324c29a-d14b-44c0-9a4d-2bf51d823d54?ctx=documentation)
 
 ## Flow Chart
-![image](https://github.com/yamilt351/scraper/assets/88646148/bb496c44-edae-44aa-a6da-e3cfd1a225f2)
+![image](https://github.com/yamilt351/scraper/assets/88646148/33e2e7ee-f8e1-4748-80b6-ecc72271e998)
+
 
 
 
