@@ -22,7 +22,7 @@ The API endpoint responds with a JSON object containing the following properties
 if the response is too big the api use [`compression`](https://www.npmjs.com/package/compression) middleware to reduce the size.
 
 ## Body Example:
-```
+```javascript
 {
       "url":"https://www.url.com.ar",
       "objectClass":".css-class-selector",
@@ -31,7 +31,7 @@ if the response is too big the api use [`compression`](https://www.npmjs.com/pac
 ```
 ## Response Example: 
 
-```
+```javascript
 {
     "state": "succes",
     "objects found": 112,
