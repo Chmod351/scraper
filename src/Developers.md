@@ -9,16 +9,16 @@
 ## Custom use.
 The code makes a `POST` request to the `/api/scrappe` endpoint at `http://localhost:5000`. The request body should contain the following parameters:
 
-`keyWord` (string): The keyword to filter articles by (optional).
-`url` (string): The URL of the web page to scrape (mandatory).
-`objectClass` (string): The CSS class of the elements to scrape from the web page (mandatory).
+- `keyWord` (string): The keyword to filter articles by (optional).
+- `url` (string): The URL of the web page to scrape (mandatory).
+- `objectClass` (string): The CSS class of the elements to scrape from the web page (mandatory).
 
 The API endpoint responds with a JSON object containing the following properties:
-`state`: A string indicating the state of the scraping process.
-`objects found`: The number of objects found after filtering.
-`key-word`: The keyword used for filtering.
-`scanned webpage`: The URL of the webpage that was scraped.
-`found articles`: An array of articles that match the filtering criteria.  
+- `state`: A string indicating the state of the scraping process.
+- `objects found`: The number of objects found after filtering.
+- `key-word`: The keyword used for filtering.
+- `scanned webpage`: The URL of the webpage that was scraped.
+- `found articles`: An array of articles that match the filtering criteria.  
 if the response is too big the api use [`compression`](https://www.npmjs.com/package/compression) middleware to reduce the size.
 
 ## Body Example:
