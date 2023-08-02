@@ -1,22 +1,19 @@
-# Index
+
+## Index
 
 - [FAQ](https://github.com/yamilt351/scraper/blob/master/src/FAQ.md)
 - [License](https://github.com/yamilt351/scraper/blob/master/src/License.md)
 - [Demo](https://scraper-5ask.onrender.com/public/html.html)
 
-# Objetive.
+## Objetive.
 
 The objective of this web scraper is to obtain information from any website, just by using its URL and the target CSS class that you want to scrape. It doesn't have a predefined purpose, so you can use it to gather information from any site you like.                   
 
-# About this project
-
-First i recommend you [read Our FAQs](https://github.com/yamilt351/scraper/blob/master/src/FAQ.md)
-
-# Documentation
+## Documentation
 
 [Postman Documentation](https://www.postman.com/orange-trinity-332576/workspace/scrapper/request/21643141-9324c29a-d14b-44c0-9a4d-2bf51d823d54?ctx=documentation)
 
-## Custom use.
+### Custom use.
 The code makes a `POST` request to the `/api/scrappe` endpoint at `http://localhost:5000`. The request body should contain the following parameters:
 
 - `keyWord` (string): The keyword to filter articles by (`optional`).
@@ -31,7 +28,7 @@ The API endpoint responds with a JSON object containing the following properties
 - `found articles`: An array of articles that match the filtering criteria.  
 if the response is too big the api use [`compression`](https://www.npmjs.com/package/compression) middleware to reduce the size.
 
-## Body Example:
+### Body Example:
 ```javascript
 {
       "url":"https://www.url.com.ar",
@@ -39,7 +36,7 @@ if the response is too big the api use [`compression`](https://www.npmjs.com/pac
       "keyWord":"keyword"
 }
 ```
-## Response Example: 
+### Response Example: 
 
 ```javascript
 {
@@ -98,13 +95,13 @@ The application was tested with [Jest](https://jestjs.io/docs/getting-started), 
   `npm run test`
 
 
-## Usage Limitations:
+### Usage Limitations:
 
 - You can only send up to 15 requests per 10 minutes.
 - If the webpage has incorrect element nesting, the scraper will fail
 - before use this tool please read [FAQ](https://github.com/yamilt351/scraper/blob/master/src/FAQ.md)
 
-# Contributions
+### Contributions
 
 - Fork this Repo
 - Make your changes
