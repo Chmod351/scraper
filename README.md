@@ -77,12 +77,13 @@ if the response is too big the api use [`compression`](https://www.npmjs.com/pac
 
 [Nodejs](https://nodejs.org/en) v20 (check your node version with `node -v`)
 
-create your .env file with this values:
-
 Install postgres :
 
 - [Ubuntu](https://ubuntu.com/server/docs/databases-postgresql)
 - [Arch (BTW)](https://wiki.archlinux.org/title/PostgreSQL)
+
+
+create your .env file with these values:
 
 ```
 PORT=5000
