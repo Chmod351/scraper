@@ -29,7 +29,7 @@ window.addEventListener('DOMContentLoaded', () => {
           'found articles': foundArticles,
         } = data;
 
-        if (state === 'succes') {
+        if (state === 'success') {
           const articlesList = foundArticles
             .map(
               (article) =>
