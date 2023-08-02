@@ -79,7 +79,7 @@ const scrappAction = async function Scrapper(req, res) {
   const filteredArticles = filterArticles(cleanedArticles, filterFn);
   
   res.json({
-    state: 'succes',
+    state: 'success',
     'objects found': filteredArticles.length,
     'key-word': keyword,
     'scanned webpage': url,

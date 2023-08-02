@@ -1,3 +1,7 @@
+# About this project
+
+First i recommend you [read Our FAQs](https://github.com/yamilt351/scraper/blob/master/src/FAQ.md)
+
 # Documentation
 
 [Postman Documentation](https://www.postman.com/orange-trinity-332576/workspace/scrapper/request/21643141-9324c29a-d14b-44c0-9a4d-2bf51d823d54?ctx=documentation)
@@ -68,8 +72,8 @@ URL_DOCS=https://url.com/api/docs
 URL_SERVER=https://url.com
 URL_SCRAPPER=https://url.com/api
 LIMIT=2000
-POSGRESQL_USERNAME=username 
-POSGRESQL_PASSWORD=password 
+POSGRESQL_USERNAME=username
+POSGRESQL_PASSWORD=password
 POSGRESQL_DATABASE=database
 POSGRESQL_HOST=jdbc:postgresql://localhost:5432/postgres
 
@@ -95,14 +99,11 @@ The application was tested with [Jest](https://jestjs.io/docs/getting-started), 
 
 # Contributions
 
-- Clone Repo
-
-`git clone https://github.com/yamilt351/scrape`
-
+- Fork this Repo
 - Make your changes
 - Test your changes `npm run test`
 - Document your changes
-- Create your pull request with evidences
+- Create your pull request with evidences at Development. 
 - Code Styles are provided by [eslint](https://github.com/neoclide/coc-eslint) & [prettier](https://github.com/neoclide/coc-prettier)
 - Yours Pull Requests should follow the next structure (the repo has a boilerplate to do that):
   - As (`Developer`)

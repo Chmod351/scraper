@@ -14,7 +14,7 @@ async function scrapperController(req, res, next) {
 
 async function getData(req, res, next) {
   try {
-    const response = scrappService.getRelated();
+    const response = await scrappService.getRelated(req.body.keyWord);
     res.json(response);
   } catch (error) {
     next(error);

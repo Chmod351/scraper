@@ -4,22 +4,22 @@ const router = express.Router();
 import scrapper from '../scrapper/scrapperControllers.js';
 // let cache = apiCache.middleware;
 
-/**
+ /**
  * @swagger
  *  /api/scrappe:
  *   post:
  *     summary: Extraer datos de un sitio web.
- *     description: Use this Api to scrape data from any site, first read our documentation before use it https://github.com/yamilt351/scraper!
+ *     description: Use this API to scrape data from any site. First, read our documentation before using it: [Documentation](https://github.com/yamilt351/scraper)!
  *     requestBody:
  *       description: Required data.
- *       fromd: true
+ *       required: true
  *       content:
  *         application/json:
  *           schema:
  *             $ref: '#/components/schemas/ScraperRequest'
  *     responses:
  *       200:
- *         description: Succesfull response.
+ *         description: Successful response.
  *         content:
  *           application/json:
  *             schema:
@@ -27,7 +27,7 @@ import scrapper from '../scrapper/scrapperControllers.js';
  *               properties:
  *                 data:
  *                   type: string
- *                   description: Dato found.
+ *                   description: Data found.
  *       400:
  *         description: Bad request.
  */
