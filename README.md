@@ -1,3 +1,11 @@
+![Static Badge](https://img.shields.io/badge/Development-deployed)
+![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/yamilt351/scraper) ![GitHub issues](https://img.shields.io/github/issues/yamilt351/scraper)
+
+
+
+
+
+
 # Index
 
 - [FAQ](https://github.com/yamilt351/scraper/blob/master/src/FAQ.md)
