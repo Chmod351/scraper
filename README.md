@@ -87,9 +87,7 @@ create your .env file with these values:
 
 ```
 PORT=5000
-URL_DOCS=https://url.com/api/docs
 URL_SERVER=https://url.com
-URL_SCRAPPER=https://url.com/api
 LIMIT=2000
 POSGRESQL_USERNAME=username
 POSGRESQL_PASSWORD=password
