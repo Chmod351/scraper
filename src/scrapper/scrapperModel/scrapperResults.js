@@ -7,9 +7,13 @@ const Result = dbConfig.server.define('Results', {
     primaryKey: true,
     autoIncrement: true,
   },
-  content: {
-    type: DataTypes.ARRAY(DataTypes.STRING),
-    defaultValue: [],
+  title: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  link: {
+    type: DataTypes.STRING, 
+    allowNull: false,
   },
   createdAt: {
     type: DataTypes.DATE,

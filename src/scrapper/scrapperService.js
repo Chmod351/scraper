@@ -1,7 +1,10 @@
 import needle from 'needle';
 import cheerio from 'cheerio';
 import { BadRequestError } from '../helpers/errorHandler.js';
-import ScrapedData from './scrapperModel/scrapperTargetModel.js';
+import WebsiteTarget from './scrapperModel/scrapperTargetModel.js';
+import Result from './scrapperModel/scrapperResults.js';
+import ResultKeyword from './scrapperModel/scrapperResultsKeyword.js';
+import keyword from './scrapperModel/scrapperKeyword.js';
 
 const scrapperLoader = cheerio.load;
 const urlAnalyzer = needle;
@@ -64,14 +67,11 @@ function cleanArticles(articles) {
   });
 }
 
-async function callingFunctions(req, res) {
-  const keyword = req.body.keyWord;
-  const url = req.body.url;
-  const objectClass = req.body.objectClass;
+async function callingFunctions(url, cssClass, keyword) {
   // obtiene el body de la pagina
   const bodyHtml = await fetchUrl(url);
   // identifica a los articulos que contienen la clase
-  const articles = scrapeData(bodyHtml, objectClass);
+  const articles = scrapeData(bodyHtml, cssClass);
   // limpia el texto contenido en los articulos para facilitar la lectura
   const cleanedArticles = cleanArticles(articles);
   const filterFn = keyword ? withKeyword(keyword) : noKeyword();
@@ -80,18 +80,55 @@ async function callingFunctions(req, res) {
   return filteredArticles;
 }
 
+async function getOrCreateKeyword(keyword) {
+  if (!keyword) {
+    return null;
+  }
+
+  try {
+    const [resultKeyword, created] = await ResultKeyword.findOrCreate({
+      where: { keyword },
+      defaults: { scrapedTimes: 1 },
+    });
+    return resultKeyword;
+  } catch (error) {
+    throw error;
+  }
+}
+
 async function saveScrapedDataToDatabase(req, res) {
-  const arrayResultsScrapped = await callingFunctions(req, res);
   const url = req.body.url;
-  const containerClass = req.body.objectClass;
+  const cssClass = req.body.objectClass;
   const keyword = req.body.keyWord;
-  await ScrapedData.create({
-    url,
-    containerClass,
-    keyword,
-    scanDate: new Date(),
-    articles: arrayResultsScrapped.filteredArticles,
-  });
+
+  try {
+    const arrayResultsScrapped = await callingFunctions(url, cssClass, keyword);
+    const [websiteTarget, created] = await WebsiteTarget.findOrCreate({
+      where: { url, cssClass },
+      defaults: { scrapedTimes: 1 },
+    });
+
+    if (!created) {
+      websiteTarget.increment('scrapedTimes');
+    }
+
+    const resultKeyword = await getOrCreateKeyword(keyword);
+
+    for (const article of arrayResultsScrapped) {
+      const result = await Result.create({
+        title: article.title,
+        link: article.link,
+      });
+
+      await result.setWebsiteTarget(websiteTarget);
+
+      if (resultKeyword) {
+        await result.addResultKeyword(resultKeyword);
+      }
+    }
+  } catch (error) {
+    throw error;
+  }
 }
 
 const scrappActionResponse = function Scrapper(req, res) {
