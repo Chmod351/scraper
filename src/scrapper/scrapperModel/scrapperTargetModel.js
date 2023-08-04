@@ -1,7 +1,12 @@
 import dbConfig from '../../config/serverConfig.js';
 import { DataTypes } from 'sequelize';
 
-const WebsiteTarget = dbConfig.server.define("WebsiteTarget", {
+const WebsiteTarget = dbConfig.server.define('WebsiteTarget', {
+  id: {
+    type: DataTypes.INTEGER.UNSIGNED,
+    primaryKey: true,
+    autoIncrement: true,
+  },
   url: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -24,5 +29,8 @@ const WebsiteTarget = dbConfig.server.define("WebsiteTarget", {
   },
 });
 
+WebsiteTarget.hasMany(Result, {
+  foreignKey: 'websiteTargetId',
+});
 
 export default WebsiteTarget;
