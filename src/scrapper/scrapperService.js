@@ -1,7 +1,7 @@
 import needle from 'needle';
 import cheerio from 'cheerio';
 import { BadRequestError } from '../helpers/errorHandler.js';
-import ScrapedData from './scrapperModel.js';
+import ScrapedData from './scrapperModel/scrapperTargetModel.js';
 
 const scrapperLoader = cheerio.load;
 const urlAnalyzer = needle;
@@ -64,7 +64,7 @@ function cleanArticles(articles) {
   });
 }
 
-const scrappAction = async function Scrapper(req, res) {
+async function callingFunctions(req, res) {
   const keyword = req.body.keyWord;
   const url = req.body.url;
   const objectClass = req.body.objectClass;
@@ -77,18 +77,36 @@ const scrappAction = async function Scrapper(req, res) {
   const filterFn = keyword ? withKeyword(keyword) : noKeyword();
   // busca a los articulos por palabra clave si la hay sino llama a todos
   const filteredArticles = filterArticles(cleanedArticles, filterFn);
-  
+  return filteredArticles;
+}
+
+async function saveScrapedDataToDatabase(req, res) {
+  const arrayResultsScrapped = await callingFunctions(req, res);
+  const url = req.body.url;
+  const containerClass = req.body.objectClass;
+  const keyword = req.body.keyWord;
+  await ScrapedData.create({
+    url,
+    containerClass,
+    keyword,
+    scanDate: new Date(),
+    articles: arrayResultsScrapped.filteredArticles,
+  });
+}
+
+const scrappActionResponse = function Scrapper(req, res) {
+  const data = saveScrapedDataToDatabase(req, res);
   res.json({
     state: 'success',
-    'objects found': filteredArticles.length,
-    'key-word': keyword,
-    'scanned webpage': url,
-    'found articles': filteredArticles,
+    'objects found': data.length,
+    'key-word': data.keyword,
+    'scanned webpage': data.url,
+    'found articles': data.articles,
   });
 };
 
 const scrappService = {
-  scrappAction,
+  scrappActionResponse,
   checkInputContent,
   fetchUrl,
   scrapeData,

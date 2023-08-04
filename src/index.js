@@ -6,7 +6,7 @@ import swaggerUi from 'swagger-ui-express';
 import config from './config/envConfig.js';
 import dbConfig from './config/serverConfig.js';
 import options from './config/swaggerConfig.js';
-import scrape from './scrapper/scraperRoutes.js';
+import scrape from './routes.js';
 import { errorHandler } from './helpers/errorHandler.js';
 import importMiddlewares from './config/middlewaresConfig.js';
 

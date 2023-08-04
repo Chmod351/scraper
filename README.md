@@ -1,3 +1,8 @@
+![Screenshot_from_2023-08-02_14-38-24-removebg-preview](https://github.com/yamilt351/scraper/assets/88646148/ccf99b1d-f8b6-4cda-b5e6-4891b88add2b)
+
+
+![Static Badge](https://img.shields.io/badge/Development-deployed)
+![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/yamilt351/scraper) ![GitHub issues](https://img.shields.io/github/issues/yamilt351/scraper)
 
 ## Index
 
