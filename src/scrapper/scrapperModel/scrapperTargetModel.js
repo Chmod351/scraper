@@ -3,7 +3,7 @@ import { DataTypes } from 'sequelize';
 
 const WebsiteTarget = dbConfig.server.define('WebsiteTarget', {
   id: {
-    type: DataTypes.INTEGER.UNSIGNED,
+    type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
   },

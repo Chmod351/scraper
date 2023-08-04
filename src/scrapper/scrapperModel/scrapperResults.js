@@ -3,7 +3,7 @@ import { DataTypes } from 'sequelize';
 
 const Result = dbConfig.server.define('Results', {
   id: {
-    type: DataTypes.INTEGER.UNSIGNED,
+    type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
   },

@@ -3,7 +3,7 @@ import dbConfig from '../../config/serverConfig.js';
 
 const Keyword = dbConfig.server.define('Keyword', {
   id: {
-    type: DataTypes.INTEGER.UNSIGNED,
+    type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
   },
