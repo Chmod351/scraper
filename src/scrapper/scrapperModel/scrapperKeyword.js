@@ -1,5 +1,5 @@
 import { DataTypes } from 'sequelize';
-import dbConfig from '../config/serverConfig.js';
+import dbConfig from '../../config/serverConfig.js';
 
 const Keyword = dbConfig.server.define('Keyword', {
   id: {
@@ -24,11 +24,4 @@ const Keyword = dbConfig.server.define('Keyword', {
     defaultValue: DataTypes.NOW,
   },
 });
-
-Keyword.belongsToMany(ResultKeyword, {
-  through: 'ResultKeywordKeyword',
-  foreignKey: 'keywordId',
-  otherKey: 'resultKeywordId',
-});
-
 export default Keyword;

@@ -29,8 +29,4 @@ const WebsiteTarget = dbConfig.server.define('WebsiteTarget', {
   },
 });
 
-WebsiteTarget.hasMany(Result, {
-  foreignKey: 'websiteTargetId',
-});
-
 export default WebsiteTarget;

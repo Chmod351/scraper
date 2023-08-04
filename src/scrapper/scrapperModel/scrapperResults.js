@@ -20,15 +20,4 @@ const Result = dbConfig.server.define('Results', {
     defaultValue: DataTypes.NOW,
   },
 });
-
-Result.belongsTo(WebsiteTarget, {
-  foreignKey: 'websiteTargetId',
-});
-
-Result.belongsToMany(ResultKeyword, {
-  through: 'ResultResultKeyword',
-  foreignKey: 'resultId',
-  otherKey: 'resultKeywordId',
-});
-
 export default Result;
