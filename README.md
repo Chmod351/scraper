@@ -1,6 +1,5 @@
 ![Screenshot_from_2023-08-02_14-38-24-removebg-preview](https://github.com/yamilt351/scraper/assets/88646148/ccf99b1d-f8b6-4cda-b5e6-4891b88add2b)
 
-
 ![Static Badge](https://img.shields.io/badge/Development-deployed)
 ![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/yamilt351/scraper) ![GitHub issues](https://img.shields.io/github/issues/yamilt351/scraper)
 
@@ -12,13 +11,14 @@
 
 ## Objetive.
 
-The objective of this web scraper is to obtain information from any website, just by using its URL and the target CSS class that you want to scrape. It doesn't have a predefined purpose, so you can use it to gather information from any site you like.                   
+The objective of this web scraper is to obtain information from any website, just by using its URL and the target CSS class that you want to scrape. It doesn't have a predefined purpose, so you can use it to gather information from any site you like.
 
 ## Documentation
 
 [Postman Documentation](https://www.postman.com/orange-trinity-332576/workspace/scrapper/request/21643141-9324c29a-d14b-44c0-9a4d-2bf51d823d54?ctx=documentation)
 
 ### Custom use.
+
 The code makes a `POST` request to the `/api/scrappe` endpoint at `http://localhost:5000`. The request body should contain the following parameters:
 
 - `keyWord` (string): The keyword to filter articles by (`optional`).
@@ -26,14 +26,16 @@ The code makes a `POST` request to the `/api/scrappe` endpoint at `http://localh
 - `objectClass` (string): The CSS class of the elements to scrape from the web page (`mandatory`).
 
 The API endpoint responds with a JSON object containing the following properties:
+
 - `state`: A string indicating the state of the scraping process.
 - `objects found`: The number of objects found after filtering.
 - `key-word`: The keyword used for filtering.
 - `scanned webpage`: The URL of the webpage that was scraped.
 - `found articles`: An array of articles that match the filtering criteria.  
-if the response is too big the api use [`compression`](https://www.npmjs.com/package/compression) middleware to reduce the size.
+  if the response is too big the api use [`compression`](https://www.npmjs.com/package/compression) middleware to reduce the size.
 
 ### Body Example:
+
 ```javascript
 {
       "url":"https://www.url.com.ar",
@@ -41,7 +43,8 @@ if the response is too big the api use [`compression`](https://www.npmjs.com/pac
       "keyWord":"keyword"
 }
 ```
-### Response Example: 
+
+### Response Example:
 
 ```javascript
 {
@@ -64,14 +67,12 @@ if the response is too big the api use [`compression`](https://www.npmjs.com/pac
 
 ## Local Configuration.
 
-
 [Nodejs](https://nodejs.org/en) v20 (check your node version with `node -v`)
 
 Install postgres :
 
 - [Ubuntu](https://ubuntu.com/server/docs/databases-postgresql)
 - [Arch (BTW)](https://wiki.archlinux.org/title/PostgreSQL)
-
 
 create your .env file with these values:
 
@@ -99,6 +100,36 @@ The application was tested with [Jest](https://jestjs.io/docs/getting-started), 
 - to run the whole test:
   `npm run test`
 
+## Sequelize Config
+
+- First you have to create your config.json file with `sequelize init:config`
+- then you will see something like :
+
+```
+{
+  "development": {
+    "username": "postgres_username",
+    "password": "postgres_password",
+    "database":"postgres_databse",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+     "username": "postgres_username_test",
+    "password": "postgres_password_test",
+    "database":"postgres_databse_test",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+     "username": "postgres_username_prod",
+    "password": "postgres_password_prod",
+    "database":"postgres_databse_prod",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
+```
 
 ### Usage Limitations:
 
@@ -112,7 +143,7 @@ The application was tested with [Jest](https://jestjs.io/docs/getting-started), 
 - Make your changes
 - Test your changes `npm run test`
 - Document your changes
-- Create your pull request with evidences at Development. 
+- Create your pull request with evidences at Development.
 - Code Styles are provided by [eslint](https://github.com/neoclide/coc-eslint) & [prettier](https://github.com/neoclide/coc-prettier)
 - Yours Pull Requests should follow the next structure (the repo has a boilerplate to do that):
   - As (`Developer`)
