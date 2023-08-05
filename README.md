@@ -103,7 +103,7 @@ The application was tested with [Jest](https://jestjs.io/docs/getting-started), 
 ## Sequelize Config
 
 - First you have to create your config.json file with `sequelize init:config`
-- then you will see something like :
+- Once the command is executed, you'll find a config.json file in your project directory. It contains configurations for different environments like development, test, and production. Update the credentials and connection details accordingly for each environment
 
 ```
 {
@@ -130,6 +130,12 @@ The application was tested with [Jest](https://jestjs.io/docs/getting-started), 
   }
 }
 ```
+
+- Create migration files by running the command: `sequelize init:migrations`. This will generate a migrations folder in your project, where you can define your table structures and changes.
+- After setting up the migration files, you can run the migrations to create or update the database tables. Use the command: `sequelize db:migrate`.
+### Note:
+In some cases, you may encounter the error `"require() of ES Module not supported."` To resolve this, you can either rename your migration files to end with `.cjs`, change the requiring code to use dynamic import(), or change `"type": "module"` to `"type": "commonjs"` in your package.json.
+
 
 ### Usage Limitations:
 
