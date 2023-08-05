@@ -13,7 +13,6 @@
 # Index
 
 - [FAQ](https://github.com/yamilt351/scraper/blob/master/src/FAQ.md)
-- [License](https://github.com/yamilt351/scraper/blob/master/src/License.md)
 - [Demo](https://scraper-5ask.onrender.com/public/html.html)
 
 # Objetive.
