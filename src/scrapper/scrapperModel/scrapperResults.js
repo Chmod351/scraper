@@ -24,4 +24,9 @@ const Result = dbConfig.server.define('Results', {
     defaultValue: DataTypes.NOW,
   },
 });
+
+Result.prototype.setWebsiteTarget = async function(websiteTarget) {
+  this.websiteTargetId = websiteTarget.id;
+  await this.save();
+};
 export default Result;

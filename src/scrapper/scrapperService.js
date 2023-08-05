@@ -3,8 +3,7 @@ import cheerio from 'cheerio';
 import { BadRequestError } from '../helpers/errorHandler.js';
 import WebsiteTarget from './scrapperModel/scrapperTargetModel.js';
 import Result from './scrapperModel/scrapperResults.js';
-import ResultKeyword from './scrapperModel/scrapperResultsKeyword.js';
-import keyword from './scrapperModel/scrapperKeyword.js';
+import Keyword from './scrapperModel/scrapperKeyword.js';
 
 const scrapperLoader = cheerio.load;
 const urlAnalyzer = needle;
@@ -86,9 +85,9 @@ async function getOrCreateKeyword(keyword) {
   }
 
   try {
-    const [resultKeyword, created] = await ResultKeyword.findOrCreate({
+    const [resultKeyword, created] = await Keyword.findOrCreate({
       where: { keyword },
-      defaults: { scrapedTimes: 1 },
+      defaults: { usedTimes: 1 },
     });
     return resultKeyword;
   } catch (error) {
@@ -120,6 +119,7 @@ async function saveScrapedDataToDatabase(req, res) {
         link: article.link,
       });
 
+      console.log(result);
       await result.setWebsiteTarget(websiteTarget);
 
       if (resultKeyword) {
