@@ -24,4 +24,9 @@ const ResultKeyword = dbConfig.server.define('ResultKeyword', {
     defaultValue: DataTypes.NOW,
   },
 });
+
+ResultKeyword.prototype.addResultKeyword = async function(resultKeyword) {
+  this.resultKeywordId = resultKeyword.id;
+  await this.save();
+};
 export default ResultKeyword;

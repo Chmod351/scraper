@@ -29,4 +29,9 @@ Result.prototype.setWebsiteTarget = async function(websiteTarget) {
   this.websiteTargetId = websiteTarget.id;
   await this.save();
 };
+
+Result.prototype.addResultKeyword = async function(resultKeyword) {
+  this.resultKeywordId = resultKeyword.id;
+  await this.save();
+};
 export default Result;

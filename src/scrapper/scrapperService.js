@@ -67,14 +67,14 @@ function cleanArticles(articles) {
 }
 
 async function callingFunctions(url, cssClass, keyword) {
-  // obtiene el body de la pagina
+  // get body
   const bodyHtml = await fetchUrl(url);
-  // identifica a los articulos que contienen la clase
+  // id articles
   const articles = scrapeData(bodyHtml, cssClass);
-  // limpia el texto contenido en los articulos para facilitar la lectura
+  // clean texts
   const cleanedArticles = cleanArticles(articles);
   const filterFn = keyword ? withKeyword(keyword) : noKeyword();
-  // busca a los articulos por palabra clave si la hay sino llama a todos
+  // search by keyword or
   const filteredArticles = filterArticles(cleanedArticles, filterFn);
   return filteredArticles;
 }
@@ -119,7 +119,6 @@ async function saveScrapedDataToDatabase(req, res) {
         link: article.link,
       });
 
-      console.log(result);
       await result.setWebsiteTarget(websiteTarget);
 
       if (resultKeyword) {
@@ -131,8 +130,9 @@ async function saveScrapedDataToDatabase(req, res) {
   }
 }
 
-const scrappActionResponse = function Scrapper(req, res) {
-  const data = saveScrapedDataToDatabase(req, res);
+const scrappActionResponse = async function Scrapper(req, res) {
+  const data = await saveScrapedDataToDatabase(req, res);
+  console.log(data + '  data');
   res.json({
     state: 'success',
     'objects found': data.length,
