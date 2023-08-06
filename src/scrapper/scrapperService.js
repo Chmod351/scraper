@@ -125,6 +125,14 @@ async function saveScrapedDataToDatabase(req, res) {
         await result.addResultKeyword(resultKeyword);
       }
     }
+    const data = {
+      length: arrayResultsScrapped.length,
+      keyword: keyword,
+      url: url,
+      articles: arrayResultsScrapped,
+    };
+
+    return data;
   } catch (error) {
     throw error;
   }
