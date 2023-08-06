@@ -140,7 +140,6 @@ async function saveScrapedDataToDatabase(req, res) {
 
 const scrappActionResponse = async function Scrapper(req, res) {
   const data = await saveScrapedDataToDatabase(req, res);
-  console.log(data + '  data');
   res.json({
     state: 'success',
     'objects found': data.length,
@@ -160,6 +159,9 @@ const scrappService = {
   noKeyword,
   withKeyword,
   cleanArticles,
+  callingFunctions,
+  scrappActionResponse,
+  saveScrapedDataToDatabase,
 };
 
 export default scrappService;
