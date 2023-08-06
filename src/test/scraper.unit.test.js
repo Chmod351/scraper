@@ -123,6 +123,17 @@ describe('Normal Cases: Unit Tests', () => {
     expect(resultWithKeyword).to.equal(true);
     expect(resultNoKeyword).to.equal(false);
   });
+  it('should return an array of articles when given a valid HTML', async () => {
+  const url = 'https://www.example.com/';
+  const objectClass = '.article';
+
+  const result = await scrappService.callingFunctions(url, objectClass, 'keyword');
+
+  expect(result).to.be.an('array');
+
+  expect(result[0]).to.have.property('title');
+  expect(result[0]).to.have.property('link');
+});
 });
 
 describe('Edge Cases : Unit Tests', () => {
