@@ -136,8 +136,6 @@ The application was tested with [Jest](https://jestjs.io/docs/getting-started), 
 ### Note:
 In some cases, you may encounter the error `"require() of ES Module not supported."` To resolve this, you can either rename your migration files to end with `.cjs`, change the requiring code to use dynamic import(), or change `"type": "module"` to `"type": "commonjs"` in your package.json.
 
-If you change the model schema dont forget to update yours migrations with `sequelize migration:create` then `sequelize db:migrate`
-
 ### Usage Limitations:
 
 - You can only send up to 15 requests per 10 minutes.
