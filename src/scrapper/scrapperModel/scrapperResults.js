@@ -8,11 +8,11 @@ const Result = dbConfig.server.define('Results', {
     autoIncrement: true,
   },
   title: {
-    type: DataTypes.STRING,
+    type: DataTypes.TEXT,
     allowNull: false,
   },
   link: {
-    type: DataTypes.STRING, 
+    type: DataTypes.TEXT, 
     allowNull: false,
   },
   createdAt: {
