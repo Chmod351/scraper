@@ -31,5 +31,4 @@ import scrapper from './scrapper/scrapperControllers.js';
  */
 
 router.post('/scrappe', scrapper.scrapperController);
-router.get('/scrappe', scrapper.getData);
 export default router;
