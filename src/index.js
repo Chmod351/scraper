@@ -11,7 +11,7 @@ import importMiddlewares from './config/middlewaresConfig.js';
 const app = express();
 const middlewares = await importMiddlewares();
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-
+const version = 'v1';
 const port = config.port;
 const server = config.host;
 
@@ -23,7 +23,7 @@ middlewares.forEach((middleware) => {
 //ROUTES
 app.use('/public', express.static(path.join(__dirname, 'public')));
 app.use('/assets', express.static(path.join(__dirname, 'assests')));
-app.use('/api/v1', scrape);
+app.use(`/api/${version}`, scrape);
 
 //redirect all routes to the public route
 app.use((req, res, next) => {
@@ -34,15 +34,12 @@ app.use((req, res, next) => {
   }
 });
 
-app.use(errorHandler); 
-
+app.use(errorHandler);
 
 dbConfig.testDbConnection();
 app.listen(port, function () {
-  console.log(`the aplication is running on ${server}:${port} 
+  console.log(`the api is running on ${server}:${port}/api/${version}
    site is on ${server}:${port}/public/html.html
-   swagger ${server}:${port}/api/docs
+   swagger ${server}:${port}/api/${version}/docs
 `);
 });
-
-
