@@ -110,16 +110,20 @@ async function createArticles(
   websiteTarget,
   resultKeyword,
 ) {
-  for (const article of arrayResultsScrapped) {
-    const result = await Result.create({
-      title: article.title,
-      link: article.link,
-    });
-    await result.setWebsiteTarget(websiteTarget);
+  try {
+    for (const article of arrayResultsScrapped) {
+      const result = await Result.create({
+        title: article.title,
+        link: article.link,
+      });
+      await result.setWebsiteTarget(websiteTarget);
 
-    if (resultKeyword) {
-      await result.addResultKeyword(resultKeyword);
+      if (resultKeyword) {
+        await result.addResultKeyword(resultKeyword);
+      }
     }
+  } catch (error) {
+    return error.message;
   }
 }
 
@@ -128,20 +132,28 @@ async function saveScrapedDataToDatabase(req, res) {
   const cssClass = req.body.objectClass;
   const keyword = req.body.keyWord;
 
-  const arrayResultsScrapped = await callScrappingFunctions(url, cssClass, keyword);
-
+  const arrayResultsScrapped = await callScrappingFunctions(
+    url,
+    cssClass,
+    keyword,
+  );
   const websiteTarget = await createWebsiteTarget(url, cssClass);
 
   const resultKeyword = await getOrCreateKeyword(keyword);
 
-  await createArticles(arrayResultsScrapped, websiteTarget, resultKeyword);
-  return({
+  const articles = await createArticles(
+    arrayResultsScrapped,
+    websiteTarget,
+    resultKeyword,
+  );
+
+  return {
     state: 'success',
     'objects found': arrayResultsScrapped.length,
     'key-word': keyword,
     'scanned webpage': url,
     'found articles': arrayResultsScrapped,
-  });
+  };
 }
 
 const scrappService = {
