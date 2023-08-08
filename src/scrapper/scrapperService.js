@@ -1,6 +1,9 @@
 import needle from 'needle';
 import cheerio from 'cheerio';
-import { BadRequestError } from '../helpers/errorHandler.js';
+import {
+  BadRequestError,
+  SomethingWentWrong,
+} from '../helpers/errorHandler.js';
 import WebsiteTarget from './scrapperModel/scrapperTargetModel.js';
 import Result from './scrapperModel/scrapperResults.js';
 import Keyword from './scrapperModel/scrapperKeyword.js';
@@ -69,7 +72,7 @@ function cleanArticles(articles) {
   });
 }
 
-async function callScrappingFunctions(url, cssClass, keyword) {
+async function scrapeAndCleanData(url, cssClass, keyword) {
   // get body
   const bodyHtml = await fetchUrl(url);
   // id articles
@@ -123,7 +126,9 @@ async function createArticles(
       }
     }
   } catch (error) {
-    return error.message;
+    throw new SomethingWentWrong(
+      `something went wrong creating articles ${error.message}`,
+    );
   }
 }
 
@@ -132,7 +137,7 @@ async function saveScrapedDataToDatabase(req, res) {
   const cssClass = req.body.objectClass;
   const keyword = req.body.keyWord;
 
-  const arrayResultsScrapped = await callScrappingFunctions(
+  const arrayResultsScrapped = await scrapeAndCleanData(
     url,
     cssClass,
     keyword,
@@ -141,7 +146,7 @@ async function saveScrapedDataToDatabase(req, res) {
 
   const resultKeyword = await getOrCreateKeyword(keyword);
 
-  const articles = await createArticles(
+  const saveArticlesToDb = await createArticles(
     arrayResultsScrapped,
     websiteTarget,
     resultKeyword,
@@ -165,7 +170,7 @@ const scrappService = {
   noKeyword,
   withKeyword,
   cleanArticles,
-  callScrappingFunctions,
+  scrapeAndCleanData,
   saveScrapedDataToDatabase,
 };
 
