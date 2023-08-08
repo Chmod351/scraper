@@ -26,6 +26,7 @@ function checkInputContent(url, objectClass) {
 function scrapeData(bodyHtml, objectClass) {
   const articles = [];
   const scrapeLoad = scrapperLoader(bodyHtml);
+
   scrapeLoad(objectClass, bodyHtml).each(function () {
     const title = scrapeLoad(this).text();
     const link = scrapeLoad(this).find('a').attr('href');
@@ -39,6 +40,7 @@ function scrapeData(bodyHtml, objectClass) {
 
 function removeSpecialChars(str) {
   const regex = /[\n\t]+/g;
+
   return str.replace(regex, '  ');
 }
 
@@ -55,6 +57,7 @@ function noKeyword() {
 function withKeyword(keyWord) {
   return function (article) {
     const convertToLowerCase = article.title.toLowerCase();
+
     return convertToLowerCase.includes(keyWord);
   };
 }
@@ -66,7 +69,7 @@ function cleanArticles(articles) {
   });
 }
 
-async function callingFunctions(url, cssClass, keyword) {
+async function callScrappingFunctions(url, cssClass, keyword) {
   // get body
   const bodyHtml = await fetchUrl(url);
   // id articles
@@ -84,14 +87,39 @@ async function getOrCreateKeyword(keyword) {
     return null;
   }
 
-  try {
-    const [resultKeyword, created] = await Keyword.findOrCreate({
-      where: { keyword },
-      defaults: { usedTimes: 1 },
+  const [resultKeyword, created] = await Keyword.findOrCreate({
+    where: { keyword },
+    defaults: { usedTimes: 1 },
+  });
+  return resultKeyword;
+}
+
+async function createWebsiteTarget(url, cssClass) {
+  const [websiteTarget, created] = await WebsiteTarget.findOrCreate({
+    where: { url, cssClass },
+    defaults: { scrapedTimes: 1 },
+  });
+
+  if (!created) {
+    websiteTarget.increment('scrapedTimes');
+  }
+}
+
+async function createArticles(
+  arrayResultsScrapped,
+  websiteTarget,
+  resultKeyword,
+) {
+  for (const article of arrayResultsScrapped) {
+    const result = await Result.create({
+      title: article.title,
+      link: article.link,
     });
-    return resultKeyword;
-  } catch (error) {
-    throw error;
+    await result.setWebsiteTarget(websiteTarget);
+
+    if (resultKeyword) {
+      await result.addResultKeyword(resultKeyword);
+    }
   }
 }
 
@@ -100,57 +128,23 @@ async function saveScrapedDataToDatabase(req, res) {
   const cssClass = req.body.objectClass;
   const keyword = req.body.keyWord;
 
-  try {
-    const arrayResultsScrapped = await callingFunctions(url, cssClass, keyword);
-    const [websiteTarget, created] = await WebsiteTarget.findOrCreate({
-      where: { url, cssClass },
-      defaults: { scrapedTimes: 1 },
-    });
+  const arrayResultsScrapped = await callScrappingFunctions(url, cssClass, keyword);
 
-    if (!created) {
-      websiteTarget.increment('scrapedTimes');
-    }
+  const websiteTarget = await createWebsiteTarget(url, cssClass);
 
-    const resultKeyword = await getOrCreateKeyword(keyword);
+  const resultKeyword = await getOrCreateKeyword(keyword);
 
-    for (const article of arrayResultsScrapped) {
-      const result = await Result.create({
-        title: article.title,
-        link: article.link,
-      });
-
-      await result.setWebsiteTarget(websiteTarget);
-
-      if (resultKeyword) {
-        await result.addResultKeyword(resultKeyword);
-      }
-    }
-    const data = {
-      length: arrayResultsScrapped.length,
-      keyword: keyword,
-      url: url,
-      articles: arrayResultsScrapped,
-    };
-
-    return data;
-  } catch (error) {
-    throw error;
-  }
+  await createArticles(arrayResultsScrapped, websiteTarget, resultKeyword);
+  return({
+    state: 'success',
+    'objects found': arrayResultsScrapped.length,
+    'key-word': keyword,
+    'scanned webpage': url,
+    'found articles': arrayResultsScrapped,
+  });
 }
 
-const scrappActionResponse = async function Scrapper(req, res) {
-  const data = await saveScrapedDataToDatabase(req, res);
-  res.json({
-    state: 'success',
-    'objects found': data.length,
-    'key-word': data.keyword,
-    'scanned webpage': data.url,
-    'found articles': data.articles,
-  });
-};
-
 const scrappService = {
-  scrappActionResponse,
   checkInputContent,
   fetchUrl,
   scrapeData,
@@ -159,8 +153,7 @@ const scrappService = {
   noKeyword,
   withKeyword,
   cleanArticles,
-  callingFunctions,
-  scrappActionResponse,
+  callScrappingFunctions,
   saveScrapedDataToDatabase,
 };
 
