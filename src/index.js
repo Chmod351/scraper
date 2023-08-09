@@ -36,8 +36,8 @@ app.use((req, res, next) => {
 
 app.use(errorHandler);
 
-dbConfig.testDbConnection();
 app.listen(port, function () {
+ dbConfig()
   console.log(`the api is running on ${server}:${port}/api/${version}
    site is on ${server}:${port}/public/html.html
    swagger ${server}:${port}/api/${version}/docs

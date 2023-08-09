@@ -81,10 +81,7 @@ create your .env file with these values:
 PORT=5000
 URL_SERVER=https://url.com
 LIMIT=2000
-POSGRESQL_USERNAME=username
-POSGRESQL_PASSWORD=password
-POSGRESQL_DATABASE=database
-POSGRESQL_HOST=jdbc:postgresql://localhost:5432/postgres
+MONGOOSE_USER=mongodb+srv://{USER}:{PASSWORD}@cluster0.4g3ly.mongodb.net/?retryWrites=true&w=majority
 
 ```
 

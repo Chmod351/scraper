@@ -22,20 +22,19 @@
     "express": "^4.18.2",
     "express-rate-limit": "^6.7.0",
     "http-errors": "^2.0.0",
+    "mongoose": "^7.4.2",
+    "mongoose-findorcreate": "^4.0.0",
     "morgan": "^1.10.0",
     "needle": "^3.2.0",
-    "pg": "^8.11.1",
-    "pg-hstore": "^2.3.4",
-    "sequelize": "^6.32.1",
     "valid-url": "^1.0.9"
   },
   "devDependencies": {
+    "chai": "^4.3.7",
+    "jest": "^29.4.1",
     "nodemon": "^2.0.20",
+    "supertest": "^6.3.3",
     "swagger": "^0.7.5",
     "swagger-jsdoc": "^6.2.8",
-    "swagger-ui-express": "^4.6.0",
-    "jest": "^29.4.1",
-    "chai": "^4.3.7",
-    "supertest": "^6.3.3"
+    "swagger-ui-express": "^4.6.0"
   }
 }

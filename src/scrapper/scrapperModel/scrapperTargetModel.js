@@ -1,32 +1,25 @@
-import dbConfig from '../../config/serverConfig.js';
-import { DataTypes } from 'sequelize';
+import mongoose from 'mongoose';
+import findOrCreate from 'mongoose-findorcreate'
+const WebsiteTargetSchema = new mongoose.Schema(
+  {
+    url: {
+      type: String,
+      required: true,
+    },
 
-const WebsiteTarget = dbConfig.server.define('WebsiteTarget', {
-  id: {
-    type: DataTypes.INTEGER,
-    primaryKey: true,
-    autoIncrement: true,
+    cssClass: {
+      type: String,
+      required: true,
+    },
+    scrapedTimes: {
+      type: Number,
+      default: 1,
+    },
   },
-  url: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  cssClass: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  createdAt: {
-    type: DataTypes.DATE,
-    defaultValue: DataTypes.NOW,
-  },
-  updatedAt: {
-    type: DataTypes.DATE,
-    defaultValue: DataTypes.NOW,
-  },
-  scrapedTimes: {
-    type: DataTypes.INTEGER,
-    defaultValue: 0,
-  },
-});
+  { timestamps: true },
+  { autoIndex: false },
+);
+WebsiteTargetSchema.plugin(findOrCreate)
+const WebsiteTarget = mongoose.model('WebsiteTarget', WebsiteTargetSchema);
 
 export default WebsiteTarget;

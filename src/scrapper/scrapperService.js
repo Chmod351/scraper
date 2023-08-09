@@ -1,9 +1,6 @@
 import needle from 'needle';
 import cheerio from 'cheerio';
-import {
-  BadRequestError,
-  SomethingWentWrong,
-} from '../helpers/errorHandler.js';
+import { BadRequestError } from '../helpers/errorHandler.js';
 import WebsiteTarget from './scrapperModel/scrapperTargetModel.js';
 import Result from './scrapperModel/scrapperResults.js';
 import Keyword from './scrapperModel/scrapperKeyword.js';
@@ -89,7 +86,6 @@ async function getOrCreateKeyword(keyword) {
   if (!keyword) {
     return null;
   }
-
   const [resultKeyword, created] = await Keyword.findOrCreate({
     where: { keyword },
     defaults: { usedTimes: 1 },
@@ -98,13 +94,17 @@ async function getOrCreateKeyword(keyword) {
 }
 
 async function createWebsiteTarget(url, cssClass) {
-  const [websiteTarget, created] = await WebsiteTarget.findOrCreate({
-    where: { url, cssClass },
-    defaults: { scrapedTimes: 1 },
-  });
+  try {
+    const websiteTarget = await WebsiteTarget.findOrCreate(
+      { url, cssClass },
+      { $inc: { scrapedTimes: 1 } },
+      { upsert: true, new: true, setDefaultsOnInsert: true },
+    );
 
-  if (!created) {
-    websiteTarget.increment('scrapedTimes');
+    console.log(websiteTarget);
+    return websiteTarget;
+  } catch (error) {
+    throw error;
   }
 }
 
@@ -113,45 +113,44 @@ async function createArticles(
   websiteTarget,
   resultKeyword,
 ) {
+  const results = [];
   try {
     for (const article of arrayResultsScrapped) {
-      const result = await Result.create({
+      const result = await Result.findOrCreate({
+        websiteTarget: websiteTarget._id,
         title: article.title,
         link: article.link,
       });
-      await result.setWebsiteTarget(websiteTarget);
+
+      results.push(result);
 
       if (resultKeyword) {
-        await result.addResultKeyword(resultKeyword);
+        if (!result.keywords.includes(resultKeyword)) {
+          result.keywords.push(resultKeyword);
+          await result.save();
+        }
       }
     }
+    return results;
   } catch (error) {
-    throw new SomethingWentWrong(
-      `something went wrong creating articles ${error.message}`,
-    );
+    throw error;
   }
 }
 
-async function saveScrapedDataToDatabase(req, res) {
+async function saveScrapedDataToDatabase(req) {
+  console.log('saving');
   const url = req.body.url;
   const cssClass = req.body.objectClass;
   const keyword = req.body.keyWord;
 
-  const arrayResultsScrapped = await scrapeAndCleanData(
-    url,
-    cssClass,
-    keyword,
-  );
+  const arrayResultsScrapped = await scrapeAndCleanData(url, cssClass, keyword);
   const websiteTarget = await createWebsiteTarget(url, cssClass);
-
   const resultKeyword = await getOrCreateKeyword(keyword);
-
   const saveArticlesToDb = await createArticles(
     arrayResultsScrapped,
     websiteTarget,
     resultKeyword,
   );
-
   return {
     state: 'success',
     'objects found': arrayResultsScrapped.length,

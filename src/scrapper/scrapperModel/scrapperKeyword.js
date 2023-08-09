@@ -1,27 +1,20 @@
-import { DataTypes } from 'sequelize';
-import dbConfig from '../../config/serverConfig.js';
+import mongoose from 'mongoose';
+import findOrCreate from 'mongoose-findorcreate';
+const KeywordSchema = new mongoose.Schema(
+  {
+    keyword: {
+      type: String,
+      required: false,
+    },
+    usedTimes: {
+      type: Number,
+      defaultValue: 0,
+    },
+  },
+  { timestamps: true },
+  { autoIndex: false },
+);
+KeywordSchema.plugin(findOrCreate);
+const Keyword = mongoose.model('Keyword', KeywordSchema);
 
-const Keyword = dbConfig.server.define('Keyword', {
-  id: {
-    type: DataTypes.INTEGER,
-    primaryKey: true,
-    autoIncrement: true,
-  },
-  keyword: {
-    type: DataTypes.STRING,
-    allowNull: true,
-  },
-  usedTimes: {
-    type: DataTypes.INTEGER,
-    defaultValue: 0,
-  },
-  createdAt: {
-    type: DataTypes.DATE,
-    defaultValue: DataTypes.NOW,
-  },
-  updatedAt: {
-    type: DataTypes.DATE,
-    defaultValue: DataTypes.NOW,
-  },
-});
 export default Keyword;
