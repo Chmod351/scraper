@@ -83,13 +83,15 @@ async function scrapeAndCleanData(url, cssClass, keyword) {
 }
 
 async function getOrCreateKeyword(keyword) {
+  console.log('keyword');
   if (!keyword) {
     return null;
   }
-  const [resultKeyword, created] = await Keyword.findOrCreate({
-    where: { keyword },
-    defaults: { usedTimes: 1 },
-  });
+  const resultKeyword = await Keyword.findOrCreate(
+    { keyword },
+    { $inc: { usedTimes: 1 } },
+    { upsert: true, new: true, setDefaultsOnInsert: true },
+  );
   return resultKeyword;
 }
 
@@ -100,8 +102,6 @@ async function createWebsiteTarget(url, cssClass) {
       { $inc: { scrapedTimes: 1 } },
       { upsert: true, new: true, setDefaultsOnInsert: true },
     );
-
-    console.log(websiteTarget);
     return websiteTarget;
   } catch (error) {
     throw error;
@@ -138,7 +138,6 @@ async function createArticles(
 }
 
 async function saveScrapedDataToDatabase(req) {
-  console.log('saving');
   const url = req.body.url;
   const cssClass = req.body.objectClass;
   const keyword = req.body.keyWord;
@@ -149,7 +148,7 @@ async function saveScrapedDataToDatabase(req) {
   const saveArticlesToDb = await createArticles(
     arrayResultsScrapped,
     websiteTarget,
-    resultKeyword,
+    resultKeyword.keyword,
   );
   return {
     state: 'success',
