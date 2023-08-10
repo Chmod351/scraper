@@ -7,24 +7,24 @@
 
 - [FAQ](https://github.com/yamilt351/scraper/blob/master/src/FAQ.md)
 - [Demo](https://scraper-5ask.onrender.com/public/html.html)
-- [Objetive](##Objetive)
-- [Documentation](##Documentation)
-  - [Custom Usage](###Custom-Usage)
-  - [Body Example](###Body-Example)
-  - [Response Example](###Response-Example)
-- [Local Configuration](##Local-Configuration)
-- [Usage Limitations](##Usage-Limitations)
-- [Contributions](##Contributions)
+- [Objetive](#Objetive)
+- [Documentation](#Documentation)
+  - [Custom Usage](#Custom-Usage)
+  - [Body Example](#Body-Example)
+  - [Response Example](#Response-Example)
+- [Local Configuration](#Local-Configuration)
+- [Usage Limitations](#Usage-Limitations)
+- [Contributions](#Contributions)
 
-## Objetive.
+# Objetive
 
 The objective of this web scraper is to obtain information from any website, just by using its URL and the target CSS class that you want to scrape. It doesn't have a predefined purpose, so you can use it to gather information from any site you like.
 
-## Documentation
+# Documentation
 
 [Postman Documentation](https://www.postman.com/orange-trinity-332576/workspace/scrapper/request/21643141-9324c29a-d14b-44c0-9a4d-2bf51d823d54?ctx=documentation)
 
-### Custom Usage.
+# Custom Usage
 
 The code makes a `POST` request to the `/api/v1/scrappe` endpoint at `http://localhost:5000`. The request body should contain the following parameters:
 
@@ -42,7 +42,7 @@ The API endpoint responds with a JSON object containing the following properties
   if the response is too big the api use [`compression`](https://www.npmjs.com/package/compression) middleware to reduce the size.
 - implementing [`findOrCreate`](https://www.npmjs.com/package/mongoose-findorcreate) method for mongoose is a powerful tool to ensure that the scraping of websites doesn't lead to duplicated results in the database.
 
-### Body Example:
+# Body Example
 
 ```javascript
 {
@@ -52,7 +52,7 @@ The API endpoint responds with a JSON object containing the following properties
 }
 ```
 
-### Response Example:
+# Response Example
 
 ```javascript
 
@@ -97,7 +97,7 @@ The API endpoint responds with a JSON object containing the following properties
 
 ```
 
-## Local Configuration.
+# Local Configuration
 
 [Nodejs](https://nodejs.org/en) v20 (check your node version with `node -v`)
 
@@ -124,13 +124,13 @@ The application was tested with [Jest](https://jestjs.io/docs/getting-started), 
 
 
 
-## Usage Limitations:
+# Usage Limitations
 
 - You can only send up to 100 requests per 10 minutes.
 - If the webpage has incorrect element nesting, the scraper will fail
 - before use this tool please read [FAQ](https://github.com/yamilt351/scraper/blob/master/src/FAQ.md)
 
-## Contributions
+# Contributions
 
 - Fork this Repo
 - Make your changes
