@@ -1,64 +1,80 @@
 window.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('scraper-form');
   const responseContainer = document.getElementById('response');
+  const articlesListContainer = createArticleListContainer();
 
-  form.addEventListener('submit', (event) => {
+  form.addEventListener('submit', async (event) => {
     event.preventDefault();
     const url = document.getElementById('url').value;
     const objectClass = document.getElementById('objectClass').value;
     const keyWord = document.getElementById('keyWord').value;
 
-    fetch('/api/scrappe', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        url,
-        objectClass,
-        keyWord,
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        const {
-          state,
-          'objects found': objectsFound,
-          'key-word': keyWord,
-          'scanned webpage': scannedWebpage,
-          'found articles': foundArticles,
-        } = data;
-
-        if (state === 'success') {
-          const articlesList = foundArticles
-            .map(
-              (article) =>
-                `<li class="scrapped-list">
-          <a href=${scannedWebpage}${article.link} role="link" class="text-scrapped">
-          <p>${article.title}</p>
-          </a>
-            </li>`,
-            )
-            .join('');
-          responseContainer.innerHTML = `
-          <section class="scrapped-results">
-          <p class="text-scrapped">Matchs: ${objectsFound}</p>
-          <p class="text-scrapped">Key Word: ${keyWord}</p>
-          <p class="text-scrapped">Target: ${scannedWebpage}</p>
-          </section>
-          <h3 class="big-title">Found Articles:</h3>
-          <div class="links-scrapped">
-          <ul>${articlesList}</ul>
-          </div>
-         `;
-        } else {
-          responseContainer.innerHTML = `<p>Error: ${data.message}</p>`;
-        }
-      })
-      .catch((error) => {
-        responseContainer.innerHTML = `<p>Error: ${error.message}</p>`;
+    try {
+      const response = await fetch('/api/v1/scrappe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          url,
+          objectClass,
+          keyWord,
+        }),
       });
+      const data = await response.json();
+
+      if (data.state === 'success') {
+        updateArticlesList(articlesListContainer, data['found articles']);
+
+        const scrappedResults = createScrappedResults(data, keyWord);
+        responseContainer.innerHTML = '';
+        responseContainer.appendChild(scrappedResults);
+        responseContainer.appendChild(
+          document.createElement('h3'),
+        ).textContent = 'Found Articles:';
+        responseContainer.appendChild(articlesListContainer);
+      } else {
+        responseContainer.textContent = `Error: ${data.message}`;
+      }
+    } catch (error) {
+      console.error(error);
+      responseContainer.textContent = `Error: ${error.message}`;
+    }
   });
 });
+
+function createArticleListContainer() {
+  const ul = document.createElement('ul');
+  ul.className = 'links-scrapped';
+  return ul;
+}
+
+function updateArticlesList(container, articles) {
+  container.innerHTML = '';
+  articles.forEach((article) => {
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    const p = document.createElement('p');
+
+    a.href = article.link; // Use the correct key to access the link
+    a.className = 'text-scrapped';
+    p.textContent = article.title;
+
+    a.appendChild(p);
+    li.appendChild(a);
+    container.appendChild(li);
+  });
+}
+
+function createScrappedResults(data, keyWord) {
+  const scrappedResults = document.createElement('section');
+  scrappedResults.className = 'scrapped-results';
+  scrappedResults.innerHTML = `
+    <p class="text-scrapped">Matches: ${data['objects found']}</p>
+    <p class="text-scrapped">Key Word: ${keyWord}</p>
+    <p class="text-scrapped">Target: ${data['scanned webpage'].url}</p>
+  `;
+  return scrappedResults;
+}
 
 AOS.init();
