@@ -128,12 +128,12 @@ async function createArticles(arrayResultsScrapped, websiteTarget) {
 async function addKeywordsToArticles(results, resultKeyword) {
   try {
     const updatedResults = [];
-    console.log(resultKeyword.doc.keyword);
     if (resultKeyword) {
-      const keyword = resultKeyword.doc.keyword; // get site keyword
+      const keyword = resultKeyword.doc; // get site keyword
       for (const result of results) {
         if (!result.keywords.includes(keyword)) {
           result.keywords.push(keyword); // save keyword
+          console.log(result);
           await result.save();
         }
         updatedResults.push(result);

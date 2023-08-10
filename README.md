@@ -48,22 +48,60 @@ The API endpoint responds with a JSON object containing the following properties
 ### Response Example:
 
 ```javascript
+
 {
-    "state": "succes",
+    "state": "success",
     "objects found": 2,
-    "key-word": "",
-    "scanned webpage": "https://www.url.com/",
+    "key-word": {
+        "doc": {
+            "_id": "64d40fa677d90019c57302ed",
+            "keyword": "argentina",
+            "createdAt": "2023-08-09T22:13:58.108Z",
+            "updatedAt": "2023-08-10T17:08:08.459Z",
+            "__v": 0,
+            "usedTimes": 28
+        },
+        "created": false
+    },
+    "scanned webpage": {
+        "_id": "64d3e3459686e7f4087acfdb",
+        "cssClass": ".ln-card",
+        "url": "https://www.lanacion.com.ar/",
+        "__v": 0,
+        "createdAt": "2023-08-09T19:04:37.137Z",
+        "scrapedTimes": 69,
+        "updatedAt": "2023-08-10T17:08:08.328Z"
+    },
     "found articles": [
         {
-            "title": "this a title",
-            "link": "/subject/url-parameters-to-find-the-article-that-you-get-with-the-scrapper/"
+            "_id": "64d4fcf821aef9f1dd17bbb8",
+            "websiteTarget": "64d3e3459686e7f4087acfdb",
+            "keywords": [
+                null,
+                "64d40fa677d90019c57302ed"
+            ],
+            "title": "Comparación. Gustavo Grobocopatel: “En 10 años Brasil creció el 100%, la Argentina 0″Por Belkis Martínez",
+            "link": "/economia/campo/gustavo-grobocopatel-en-10-anos-brasil-crecio-el-100-la-argentina-0-nid09082023/",
+            "createdAt": "2023-08-10T15:06:32.535Z",
+            "updatedAt": "2023-08-10T17:08:08.643Z",
+            "__v": 2
         },
         {
-            "title": " title",
-            "link": "/subjects/another-url-related-to-yours-results/"
-        },
+            "_id": "64d4fcf821aef9f1dd17bbbb",
+            "websiteTarget": "64d3e3459686e7f4087acfdb",
+            "keywords": [
+                null,
+                "64d40fa677d90019c57302ed"
+            ],
+            "title": "Raíces de la crisis. Tres debates para pensar la Argentina electoralPor Mario Riorda",
+            "link": "/politica/tres-debates-para-pensar-la-argentina-electoral-nid10082023/",
+            "createdAt": "2023-08-10T15:06:32.635Z",
+            "updatedAt": "2023-08-10T17:08:08.728Z",
+            "__v": 2
+        }
     ]
 }
+
 ```
 
 ## Local Configuration.
