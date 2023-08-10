@@ -7,15 +7,14 @@
 
 - [FAQ](https://github.com/yamilt351/scraper/blob/master/src/FAQ.md)
 - [Demo](https://scraper-5ask.onrender.com/public/html.html)
-- [Objetive](#Objetive)
-- [Documentation](#Documentation)
-  - [Custom Usage](#Custom-Usage)
-  - [Body Example](#Body-Example)
-  - [Response Example](#Response-Example)
-- [Local Configuration](#Local-Configuration)
-- [Note](#Note)
-- [Usage Limitations](#Usage-Limitations)
-- [Contributions](#Contributions)
+- [Objetive](Objetive)
+- [Documentation](Documentation)
+  - [Custom Usage](Custom-Usage)
+  - [Body Example](Body-Example)
+  - [Response Example](Response-Example)
+- [Local Configuration](Local-Configuration)
+- [Usage Limitations](Usage-Limitations)
+- [Contributions](Contributions)
 
 ## Objetive.
 
@@ -123,9 +122,7 @@ The application was tested with [Jest](https://jestjs.io/docs/getting-started), 
 - to run the whole test:
   `npm run test`
 
-## Note:
 
-In some cases, you may encounter the error `"require() of ES Module not supported."` To resolve this, you can either rename your migration files to end with `.cjs`, change the requiring code to use dynamic import(), or change `"type": "module"` to `"type": "commonjs"` in your package.json.
 
 ## Usage Limitations:
 
