@@ -155,14 +155,20 @@ async function saveScrapedDataToDatabase(req) {
 
   const resultKeyword = await getOrCreateKeyword(keyword);
   const results = await createArticles(arrayResultsScrapped, websiteTarget);
-  const updatedResults = await addKeywordsToArticles(results, resultKeyword);
+
+  let finalResults;
+  if (keyword) {
+    finalResults = await addKeywordsToArticles(results, resultKeyword);
+  } else {
+    finalResults = results;
+  }
 
   return {
     state: 'success',
     'objects found': arrayResultsScrapped.length,
     'key-word': resultKeyword,
     'scanned webpage': websiteTarget,
-    'found articles': updatedResults,
+    'found articles': finalResults,
   };
 }
 
