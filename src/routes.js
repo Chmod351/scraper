@@ -1,10 +1,12 @@
 import express from 'express';
 const router = express.Router();
-// import apiCache from 'apicache';
-import scrapper from '../scrapper/scrapperControllers.js';
-// let cache = apiCache.middleware;
+import swaggerJsdoc from 'swagger-jsdoc';
+import swaggerUi from 'swagger-ui-express';
+import options from './config/swaggerConfig.js';
+import scrapper from './scrapper/scrapperControllers.js';
 
- /**
+const specs = swaggerJsdoc(options);
+/**
  * @swagger
  *  /api/scrappe:
  *   post:
@@ -31,7 +33,6 @@ import scrapper from '../scrapper/scrapperControllers.js';
  *       400:
  *         description: Bad request.
  */
-
+router.get('/docs', swaggerUi.serve, swaggerUi.setup(specs));
 router.post('/scrappe', scrapper.scrapperController);
-router.get('/scrappe', scrapper.getData);
 export default router;

@@ -14,6 +14,14 @@ class BadRequestError extends Error {
   }
 }
 
+class SomethingWentWrong extends Error {
+  constructor(message) {
+    super(message);
+    this.name = 'SomethingWentWrong';
+    this.statusCode = 500;
+  }
+}
+
 function errorHandler(error, req, res, next) {
   if (error.statusCode) {
     res.status(error.statusCode).json({ error: error.message });
@@ -21,4 +29,4 @@ function errorHandler(error, req, res, next) {
   next();
 }
 
-export { errorHandler, BadRequestError, NotFoundError };
+export { errorHandler, BadRequestError, NotFoundError,SomethingWentWrong };

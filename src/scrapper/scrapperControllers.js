@@ -5,16 +5,11 @@ async function scrapperController(req, res, next) {
   try {
     scrappService.checkInputContent(req.body.url, req.body.objectClass);
     validUrl.isHttpsUri(req.body.url);
-    const response = await scrappService.scrappAction(req, res, next);
-    res.json(response);
-  } catch (error) {
-    next(error);
-  }
-}
-
-async function getData(req, res, next) {
-  try {
-    const response = await scrappService.getRelated(req.body.keyWord);
+    const response = await scrappService.saveScrapedDataToDatabase(
+      req,
+      res,
+      next,
+    );
     res.json(response);
   } catch (error) {
     next(error);
@@ -23,6 +18,5 @@ async function getData(req, res, next) {
 
 const scrapper = {
   scrapperController,
-  getData,
 };
 export default scrapper;

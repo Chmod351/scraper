@@ -4,8 +4,5 @@ export default {
   port: process.env.PORT,
   host: process.env.URL_SERVER,
   requestLimit: process.env.LIMIT,
-  database: process.env.POSGRESQL_DATABASE,
-  databaseUsername: process.env.POSGRESQL_USERNAME,
-  databasePassword: process.env.POSGRESQL_PASSWORD,
-  dattabaseHost: process.env.POSGRESQL_URL, 
+  database: process.env.MONGOOSE_USER,
 };
