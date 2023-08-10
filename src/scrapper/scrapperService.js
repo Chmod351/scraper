@@ -57,7 +57,6 @@ function noKeyword() {
 function withKeyword(keyWord) {
   return function (article) {
     const convertToLowerCase = article.title.toLowerCase();
-
     return convertToLowerCase.includes(keyWord);
   };
 }
@@ -83,7 +82,6 @@ async function scrapeAndCleanData(url, cssClass, keyword) {
 }
 
 async function getOrCreateKeyword(keyword) {
-  console.log('keyword');
   if (!keyword) {
     return null;
   }
@@ -97,41 +95,51 @@ async function getOrCreateKeyword(keyword) {
 
 async function createWebsiteTarget(url, cssClass) {
   try {
-    const websiteTarget = await WebsiteTarget.findOrCreate(
+    const resultPromise = await WebsiteTarget.findOrCreate(
       { url, cssClass },
       { $inc: { scrapedTimes: 1 } },
       { upsert: true, new: true, setDefaultsOnInsert: true },
     );
-    return websiteTarget;
+    const { doc, created } = await resultPromise;
+    return doc;
   } catch (error) {
     throw error;
   }
 }
 
-async function createArticles(
-  arrayResultsScrapped,
-  websiteTarget,
-  resultKeyword,
-) {
+async function createArticles(arrayResultsScrapped, websiteTarget) {
   const results = [];
   try {
     for (const article of arrayResultsScrapped) {
-      const result = await Result.findOrCreate({
+      const resultPromise = Result.findOrCreate({
         websiteTarget: websiteTarget._id,
         title: article.title,
         link: article.link,
       });
-
-      results.push(result);
-
-      if (resultKeyword) {
-        if (!result.keywords.includes(resultKeyword)) {
-          result.keywords.push(resultKeyword);
-          await result.save();
-        }
-      }
+      const { doc, created } = await resultPromise;
+      results.push(doc);
     }
     return results;
+  } catch (error) {
+    throw error;
+  }
+}
+
+async function addKeywordsToArticles(results, resultKeyword) {
+  try {
+    const updatedResults = [];
+    console.log(resultKeyword.doc.keyword);
+    if (resultKeyword) {
+      const keyword = resultKeyword.doc.keyword; // get site keyword
+      for (const result of results) {
+        if (!result.keywords.includes(keyword)) {
+          result.keywords.push(keyword); // save keyword
+          await result.save();
+        }
+        updatedResults.push(result);
+      }
+    }
+    return updatedResults;
   } catch (error) {
     throw error;
   }
@@ -144,18 +152,17 @@ async function saveScrapedDataToDatabase(req) {
 
   const arrayResultsScrapped = await scrapeAndCleanData(url, cssClass, keyword);
   const websiteTarget = await createWebsiteTarget(url, cssClass);
+
   const resultKeyword = await getOrCreateKeyword(keyword);
-  const saveArticlesToDb = await createArticles(
-    arrayResultsScrapped,
-    websiteTarget,
-    resultKeyword.keyword,
-  );
+  const results = await createArticles(arrayResultsScrapped, websiteTarget);
+  const updatedResults = await addKeywordsToArticles(results, resultKeyword);
+
   return {
     state: 'success',
     'objects found': arrayResultsScrapped.length,
-    'key-word': keyword,
-    'scanned webpage': url,
-    'found articles': arrayResultsScrapped,
+    'key-word': resultKeyword,
+    'scanned webpage': websiteTarget,
+    'found articles': updatedResults,
   };
 }
 
