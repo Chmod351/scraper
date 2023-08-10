@@ -13,7 +13,6 @@
   - [Body Example](#Body-Example)
   - [Response Example](#Response-Example)
 - [Local Configuration](#Local-Configuration)
-- [Note](#Note)
 - [Usage Limitations](#Usage-Limitations)
 - [Contributions](#Contributions)
 
@@ -123,9 +122,7 @@ The application was tested with [Jest](https://jestjs.io/docs/getting-started), 
 - to run the whole test:
   `npm run test`
 
-## Note:
 
-In some cases, you may encounter the error `"require() of ES Module not supported."` To resolve this, you can either rename your migration files to end with `.cjs`, change the requiring code to use dynamic import(), or change `"type": "module"` to `"type": "commonjs"` in your package.json.
 
 ## Usage Limitations:
 
