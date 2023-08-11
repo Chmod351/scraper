@@ -17,7 +17,7 @@ const limit = rateLimit({
 });
 const url = express.urlencoded({ extended: true });
 const expressJsonMiddleware = express.json();
-
+const compress = compression();
 const morganConfig = morgan('dev');
 
 // middlewares
@@ -26,6 +26,6 @@ export default function configureMiddlewares(app) {
   app.use(expressJsonMiddleware);
   app.use(url);
   app.use(limit);
-  app.use(compression());
+  app.use(compress);
   app.use(morganConfig);
 }
