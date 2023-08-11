@@ -25,7 +25,7 @@ app.use(`/api/${version}`, scrape);
 //redirect all routes to the public route
 app.use((req, res, next) => {
   if (!req.route) {
-    res.redirect('/public/html.html');
+    res.redirect('/public/scrapper.html');
   } else {
     next();
   }
@@ -36,7 +36,7 @@ app.use(errorHandler);
 app.listen(port, function () {
   dbConfig();
   console.log(`the api is running on ${server}:${port}/api/${version}
-   site is on ${server}:${port}/public/html.html
+   site is on ${server}:${port}/public/scrapper.html
    swagger ${server}:${port}/api/${version}/docs
 `);
 });
