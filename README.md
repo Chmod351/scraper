@@ -7,6 +7,7 @@
 
 - [FAQ](https://github.com/yamilt351/scraper/blob/master/src/FAQ.md)
 - [Demo](https://scraper-5ask.onrender.com/public/html.html)
+- [UMLs](https://github.com/yamilt351/scraper/blob/master/UML.md)
 - [Objetive](#Objetive)
 - [Documentation](#Documentation)
   - [Custom Usage](#Custom-Usage)
