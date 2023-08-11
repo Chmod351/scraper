@@ -1,6 +1,8 @@
 ER DB
 
-![image](https://github.com/yamilt351/scraper/assets/88646148/55839a15-7436-4f18-b49e-e48837146810)
+![image](https://github.com/yamilt351/scraper/assets/88646148/718e7429-e192-434f-97fa-f040b66e4bf3)
+
+
 
 Flow Chart
 
