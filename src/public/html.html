@@ -25,6 +25,10 @@
       rel="stylesheet"
     />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
   </head>
   <body>
     <header class="hero">
@@ -383,7 +387,10 @@
             /><br />
 
             <div class="cta">
-              <input type="submit" class="joined__submit" value="Get started" />
+              <button class="buttonload joined__submit" type="submit">
+                <i id="loading" class="fa fa-spinner fa-spin hide"></i>
+                <i class="info">Start Scrapping</i>
+              </button>
             </div>
           </form>
           <!--scrapping results -->

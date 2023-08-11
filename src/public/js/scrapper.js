@@ -8,6 +8,11 @@ window.addEventListener('DOMContentLoaded', () => {
     const url = document.getElementById('url').value;
     const objectClass = document.getElementById('objectClass').value;
     const keyWord = document.getElementById('keyWord').value;
+    const button = document.getElementById('loading');
+    const infoSubmit = document.querySelector('.info');
+
+    button.classList.add('show');
+    infoSubmit.classList.add('hide');
 
     try {
       const response = await fetch('/api/v1/scrappe', {
@@ -21,7 +26,11 @@ window.addEventListener('DOMContentLoaded', () => {
           keyWord,
         }),
       });
+
       const data = await response.json();
+
+      button.classList.remove('show');
+      infoSubmit.classList.add('show');
 
       if (data.state === 'success') {
         updateArticlesList(articlesListContainer, data['found articles']);
