@@ -25,6 +25,10 @@
       rel="stylesheet"
     />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
   </head>
   <body>
     <header class="hero">
@@ -335,18 +339,17 @@
             </div>
           </article>
         </div>
-
         <a
           href="https://github.com/yamilt351/scraper/blob/master/src/FAQ.md"
           class="features__cta"
           >More Info</a
         >
       </section>
-
+      <!-- scrapping form section -->
       <section class="joined" id="product">
         <div class="joined__container container">
           <p class="joined__paragraph">35,000+ active users!</p>
-          <h2 class="joined__title">Use your FREE TRY NOW!</h2>
+          <h2 class="joined__title">Use your FREE DEMO NOW!</h2>
           <form id="scraper-form" class="joined__form">
             <label class="joined__text" for="url">Target URL:</label><br />
             <input
@@ -384,7 +387,10 @@
             /><br />
 
             <div class="cta">
-              <input type="submit" class="joined__submit" value="Get started" />
+              <button class="buttonload joined__submit" type="submit">
+                <i id="loading" class="fa fa-spinner fa-spin hide"></i>
+                <i class="info">Start Scrapping</i>
+              </button>
             </div>
           </form>
           <!--scrapping results -->

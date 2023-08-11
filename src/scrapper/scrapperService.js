@@ -133,7 +133,6 @@ async function addKeywordsToArticles(results, resultKeyword) {
       for (const result of results) {
         if (!result.keywords.includes(keyword)) {
           result.keywords.push(keyword); // save keyword
-          console.log(result);
           await result.save();
         }
         updatedResults.push(result);

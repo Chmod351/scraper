@@ -40,3 +40,16 @@
 .links-scrapped {
   margin: auto;
 }
+
+.buttonload {
+  background-color: #04aa6d; /* Green background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  padding: 12px 16px; /* Some padding */
+}
+button .hide {
+  display: none;
+}
+button .show {
+  display: block;
+}

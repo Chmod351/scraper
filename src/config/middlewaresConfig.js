@@ -13,7 +13,6 @@ const importMiddlewares = async () => {
   const middlewareArray = [];
 
   for (const file of middlewareFiles) {
-    console.log(`./server/middlewares/${file}`);
     const middleware = await import(`../middlewares/${file}`);
     middlewareArray.push(middleware.default);
   }
