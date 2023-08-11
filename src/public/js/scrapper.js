@@ -33,7 +33,11 @@ window.addEventListener('DOMContentLoaded', () => {
       infoSubmit.classList.add('show');
 
       if (data.state === 'success') {
-        updateArticlesList(articlesListContainer, data['found articles']);
+        updateArticlesList(
+          articlesListContainer,
+          data['found articles'],
+          data['scanned webpage'].url,
+        );
 
         const scrappedResults = createScrappedResults(data, keyWord);
         responseContainer.innerHTML = '';
@@ -58,14 +62,15 @@ function createArticleListContainer() {
   return ul;
 }
 
-function updateArticlesList(container, articles) {
+function updateArticlesList(container, articles, webpage) {
   container.innerHTML = '';
   articles.forEach((article) => {
     const li = document.createElement('li');
     const a = document.createElement('a');
     const p = document.createElement('p');
 
-    a.href = article.link; // Use the correct key to access the link
+    const dinamicUrl = checkUrl(webpage, article.link);
+    a.href = dinamicUrl;
     a.className = 'text-scrapped';
     p.textContent = article.title;
 
@@ -84,6 +89,14 @@ function createScrappedResults(data, keyWord) {
     <p class="text-scrapped">Target: ${data['scanned webpage'].url}</p>
   `;
   return scrappedResults;
+}
+
+function checkUrl(webpage, url) {
+  if (url.startsWith('https://www.')) {
+    return url;
+  } else {
+    return webpage + url;
+  }
 }
 
 AOS.init();
