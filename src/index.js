@@ -5,20 +5,17 @@ import config from './config/envConfig.js';
 import dbConfig from './config/serverConfig.js';
 import scrape from './routes.js';
 import { errorHandler } from './helpers/errorHandler.js';
-import importMiddlewares from './config/middlewaresConfig.js';
+import configureMiddlewares from './middlewares/middlewares.js';
 
 // CONFIG
 const app = express();
-const middlewares = await importMiddlewares();
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const version = 'v1';
 const port = config.port;
 const server = config.host;
 
 //MIDDLEWARES
-middlewares.forEach((middleware) => {
-  app.use(middleware);
-});
+configureMiddlewares(app);
 
 //ROUTES
 app.use('/public', express.static(path.join(__dirname, 'public')));
@@ -37,7 +34,7 @@ app.use((req, res, next) => {
 app.use(errorHandler);
 
 app.listen(port, function () {
- dbConfig()
+  dbConfig();
   console.log(`the api is running on ${server}:${port}/api/${version}
    site is on ${server}:${port}/public/html.html
    swagger ${server}:${port}/api/${version}/docs
