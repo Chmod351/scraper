@@ -35,7 +35,7 @@ describe('Edge Cases: Integration Tests', () => {
     const response = await myRequest.post('/scrappe').send(testScrap);
     expect(response.text).to.be.equal('{"error":"bad request"}');
   });
-  it('should redirect to /public/html.html if the route does not exists', async () => {
+  it('should redirect to /public/scrapper.html if the route does not exists', async () => {
     const myRequest = Request(baseUrl);
     const testScrap = {
       url: 'https://www.random.com/',
@@ -44,7 +44,7 @@ describe('Edge Cases: Integration Tests', () => {
     };
     const response = await myRequest.post('/scrape').send(testScrap);
     expect(response.text).to.be.equal(
-      'Found. Redirecting to /public/html.html',
+      'Found. Redirecting to /public/scrapper.html',
     );
   });
 });

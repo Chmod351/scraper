@@ -2,7 +2,7 @@ import envConfig from './envConfig.js';
 const SERVER = envConfig.host;
 const PORT = envConfig.port;
 
-const demo = `${SERVER}/public/html.html`;
+const demo = `${SERVER}/public/scrapper.html`;
 
 const options = {
   definition: {
