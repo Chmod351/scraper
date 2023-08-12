@@ -99,6 +99,9 @@ The API endpoint responds with a JSON object containing the following properties
 ```
 ## Export data to xlsx
 - Make a `Post` request to `/api/v1/export/to-excel`
+- The request body should contain the following parameters:
+- `scanned webpage` (Object): Response for `/api/v1/scrappe` (`mandatory`)
+- `found articles` (Objects Array):  Response for `/api/v1/scrappe` (`mandatory`).
 
 body example:
 ```Javascript
@@ -129,31 +132,6 @@ body example:
 }
 ```
 [Documentation](https://www.postman.com/orange-trinity-332576/workspace/scrapper/request/21643141-9324c29a-d14b-44c0-9a4d-2bf51d823d54?ctx=documentation)
-
-## Local Configuration 🔧 <a name="Local-Configuration"></a>
-
-[Nodejs](https://nodejs.org/en) v20 (check your node version with `node -v`)
-
-create your .env file with these values:
-
-```
-PORT=5000
-URL_SERVER=https://url.com
-LIMIT=2000
-MONGOOSE_USER=mongodb+srv://{USER}:{PASSWORD}@cluster0.4g3ly.mongodb.net/?retryWrites=true&w=majority
-
-```
-
-install dependencies with `npm i`
-
-The application was tested with [Jest](https://jestjs.io/docs/getting-started), [Chai](https://www.chaijs.com/) and [Supertest](https://github.com/visionmedia/supertest)
-
-- to run integration test:
-  `npm run test:integration`
-- to run unit tests:
-  `npm run test:unit`
-- to run the whole test:
-  `npm run test`
 
 # Usage Limitations <a name="Usage-Limitations"></a>
 
