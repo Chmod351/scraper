@@ -143,6 +143,8 @@ body example:
 Especial thanks to:
 - [@Robertw8](https://github.com/Robertw8)
 - [@conorvenus](https://github.com/conorvenus)
+- [@sudeepmahato16 ](https://github.com/sudeepmahato16)
+  
 # Contributions 📈 <a name="Contributions"></a>
 
 - Contributions are welcome! please read our [guidelines](https://github.com/yamilt351/scraper/edit/master/CONTRIBUTING.md)
