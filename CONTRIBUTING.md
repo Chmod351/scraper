@@ -1,3 +1,5 @@
+![Screenshot_from_2023-08-02_14-38-24-removebg-preview](https://github.com/yamilt351/scraper/assets/88646148/9788c6da-e1f1-4110-b75a-1748b5f7af23)
+
 # Contributing Guidelines
 
 Thank you for considering contributing to this project! We appreciate your time and effort. Please take a moment to review the following guidelines to ensure a smooth and effective collaboration.
