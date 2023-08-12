@@ -4,22 +4,37 @@
 
 Thank you for considering contributing to this project! We appreciate your time and effort. Please take a moment to review the following guidelines to ensure a smooth and effective collaboration.
 
-## How to Contribute
+## Local Configuration 🔧 <a name="Local-Configuration"></a>
 
-1. Fork the repository and clone it to your local machine.
-2. Set up the development environment [following](https://github.com/yamilt351/scraper/blob/master/README.md) the provided instructions.
+[Nodejs](https://nodejs.org/en) v20 (check your node version with `node -v`)
+
+create your .env file with these values:
 
 ```
- PORT=5000
+PORT=5000
 URL_SERVER=https://url.com
 LIMIT=2000
 MONGOOSE_USER=mongodb+srv://{USER}:{PASSWORD}@cluster0.4g3ly.mongodb.net/?retryWrites=true&w=majority
 
 ```
 
-3. Create a new branch for your contribution.
-4. Make your changes, commit them with clear and descriptive messages, and push the branch to your forked repository.
-5. Submit a pull request, explaining the purpose and details of your contribution.
+install dependencies with `npm i`
+
+The application was tested with [Jest](https://jestjs.io/docs/getting-started), [Chai](https://www.chaijs.com/) and [Supertest](https://github.com/visionmedia/supertest)
+
+- to run integration test:
+  `npm run test:integration`
+- to run unit tests:
+  `npm run test:unit`
+- to run the whole test:
+  `npm run test`
+  
+## How to Contribute
+
+1. Fork the repository and clone it to your local machine.
+2. Create a new branch for your contribution.
+3. Make your changes, commit them with clear and descriptive messages, and push the branch to your forked repository.
+4. Submit a pull request, explaining the purpose and details of your contribution.
 
 - Yours Pull Requests should follow the next structure (the repo has a boilerplate to do that):
   - As (`Developer`)
