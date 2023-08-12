@@ -31,17 +31,28 @@
     />
   </head>
   <body>
-    <header class="hero">
+    <header class="hero" role="heading">
       <nav class="nav container">
         <figure class="nav__figure">
-          <img src="./images/logo-bookmark.svg" class="nav__logo" />
+          <img
+            src="./images/logo-bookmark.svg"
+            class="nav__logo"
+            role="img"
+            alt="logo"
+            aria-label="web scrapper logo"
+            title="web scrapper"
+          />
         </figure>
 
-        <div class="nav__hamburguer">
-          <img src="./images/icon-hamburger.svg" class="nav__button" />
+        <div class="nav__hamburguer" role="menuitem">
+          <img
+            src="./images/icon-hamburger.svg"
+            class="nav__button"
+            alt="menu"
+          />
         </div>
 
-        <div class="nav__container">
+        <div class="nav__container" role="navigation">
           <ul class="nav__list container">
             <li class="nav__element">
               <a href="#faq" class="nav__link">FAQS</a>
@@ -66,25 +77,51 @@
             </li>
 
             <li class="nav__element">
-              <a href="#product" class="nav__link nav__link--last">TRY NOW</a>
+              <a href="#product" class="nav__link nav__link--last" role="button"
+                >TRY NOW</a
+              >
             </li>
           </ul>
 
           <div class="nav__social">
-            <a href="#" class="nav__media" target="_blank">
-              <img src="./images/icon-facebook.svg" class="nav__socialme" />
+            <a
+              href="https://www.linkedin.com/in/yamil-tauil/"
+              class="nav__media"
+              target="_blank"
+              title="Linkedin"
+            >
+              <img
+                src="./images/icon-linkedin.svg"
+                class="nav__socialme"
+                alt="linkedin"
+                aria-label="link to linkedin"
+              />
             </a>
 
-            <a href="#" class="nav__media" target="_blank">
-              <img src="./images/icon-twitter.svg" class="nav__socialme" />
+            <a
+              href="https://github.com/yamilt351/scraper"
+              class="nav__media"
+              target="_blank"
+              title="Github"
+            >
+              <img
+                src="./images/icon-github.svg"
+                class="nav__socialme"
+                alt="github"
+                aria-label="link to github"
+              />
             </a>
           </div>
         </div>
       </nav>
 
-      <section class="hero__main container">
+      <section class="hero__main container" role="heading" aria-level="1">
         <figure class="hero__figure">
-          <img src="./images/illustration-hero.svg" class="hero__img" />
+          <img
+            src="./images/illustration-hero.svg"
+            class="hero__img"
+            alt="computer surfing the web "
+          />
         </figure>
 
         <article class="hero__texts" data-aos="fade-right">
@@ -150,6 +187,7 @@
               <img
                 src="./images/illustration-features-tab-1.svg"
                 class="features__img"
+                alt="inspecting web page"
               />
             </figure>
 
@@ -173,6 +211,7 @@
               <img
                 src="./images/illustration-features-tab-2.svg"
                 class="features__img"
+                alt="empowering search results"
               />
             </figure>
 
@@ -191,6 +230,7 @@
               <img
                 src="./images/illustration-features-tab-3.svg"
                 class="features__img"
+                alt="user with his privacy protected"
               />
             </figure>
 
@@ -200,7 +240,7 @@
                 We take our users' privacy very seriously, which is why we do
                 not store any information related to how you use this tool.
               </p>
-              <a href="#product" class="features__cta">More Info</a>
+              <a href="#product" class="features__cta"> More Info </a>
             </div>
           </article>
         </div>
@@ -222,7 +262,11 @@
             data-aos-duration="1300"
           >
             <figure class="download__figure">
-              <img src="./images/libreOffice.png" class="download__img" />
+              <img
+                src="./images/libreOffice.png"
+                class="download__img"
+                alt="libreOffice"
+              />
             </figure>
 
             <h3 class="download__browser">LibreOffice</h3>
@@ -237,7 +281,11 @@
             data-aos-duration="1600"
           >
             <figure class="download__figure">
-              <img src="./images/MicOffice.webp" class="download__img" />
+              <img
+                src="./images/MicOffice.webp"
+                class="download__img"
+                alt="Microsoft Office"
+              />
             </figure>
 
             <h3 class="download__browser">MsOffice</h3>
@@ -252,7 +300,11 @@
             data-aos-duration="1800"
           >
             <figure class="download__figure">
-              <img src="./images/gSheets.webp" class="download__img" />
+              <img
+                src="./images/gSheets.webp"
+                class="download__img"
+                alt="Google Sheets"
+              />
             </figure>
 
             <h3 class="download__browser">Google Sheets</h3>
@@ -272,7 +324,11 @@
         <div class="article__container">
           <h3 class="article__question">
             What is Web Scraping?
-            <img src="./images/icon-arrow.svg" class="article__arrow" />
+            <img
+              src="./images/icon-arrow.svg"
+              class="article__arrow"
+              alt="down arrow"
+            />
           </h3>
 
           <article class="article__content">
@@ -289,7 +345,11 @@
 
           <h3 class="article__question">
             Is Web Scraping legal?
-            <img src="./images/icon-arrow.svg" class="article__arrow" />
+            <img
+              src="./images/icon-arrow.svg"
+              class="article__arrow"
+              alt="down arrow"
+            />
           </h3>
 
           <article class="article__content">
@@ -307,7 +367,11 @@
 
           <h3 class="article__question">
             What types of data can be extracted with Web Scraping?
-            <img src="./images/icon-arrow.svg" class="article__arrow" />
+            <img
+              src="./images/icon-arrow.svg"
+              class="article__arrow"
+              alt="down arrow"
+            />
           </h3>
 
           <article class="article__content">
@@ -325,7 +389,11 @@
 
           <h3 class="article__question">
             What are the challenges of Web Scraping?
-            <img src="./images/icon-arrow.svg" class="article__arrow" />
+            <img
+              src="./images/icon-arrow.svg"
+              class="article__arrow"
+              alt="down arrow"
+            />
           </h3>
 
           <article class="article__content">
@@ -402,7 +470,11 @@
     <footer class="footer">
       <div class="footer__container container">
         <figure class="footer__figure">
-          <img src="./images/logo-bookmark-footer.svg" class="footer__logo" />
+          <img
+            src="./images/logo-bookmark-footer.svg"
+            class="footer__logo"
+            alt="logo"
+          />
         </figure>
 
         <ul class="footer__list">
@@ -431,13 +503,21 @@
             href="https://www.linkedin.com/in/yamil-tauil/"
             class="footer__social"
           >
-            <img src="./images/icon-linkedin.svg" class="footer__icon" />
+            <img
+              src="./images/icon-linkedin.svg"
+              class="footer__icon"
+              alt="linkedin"
+            />
           </a>
           <a
             href="https://github.com/yamilt351/scraper/tree/master"
             class="footer__social"
           >
-            <img src="./images/icon-github.svg" class="footer__icon" />
+            <img
+              src="./images/icon-github.svg"
+              class="footer__icon"
+              alt="github"
+            />
           </a>
         </div>
       </div>
