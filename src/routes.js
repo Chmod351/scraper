@@ -3,7 +3,7 @@ const router = express.Router();
 import swaggerJsdoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
 import options from './config/swaggerConfig.js';
-import scrapper from './scrapper/scrapperControllers.js';
+import scrapper from './scrapper/scrapping/scrapperControllers.js';
 import convertToExcel from './scrapper/xlsx/xlsxController.js';
 const specs = swaggerJsdoc(options);
 /**
