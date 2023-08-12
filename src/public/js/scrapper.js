@@ -1,11 +1,3 @@
-const url = document.getElementById('url').value;
-const objectClass = document.getElementById('objectClass').value;
-const keyWord = document.getElementById('keyWord').value;
-const button = document.getElementById('loading');
-const infoSubmit = document.querySelector('.info');
-const responseContainer = document.getElementById('response');
-const articlesListContainer = createArticleListContainer();
-
 // scrapper.js
 async function fetchData(url, objectClass, keyWord) {
   const response = await fetch('/api/v1/scrappe', {
@@ -71,16 +63,26 @@ function checkUrl(webpage, url) {
 }
 
 async function handleFormSubmit(event) {
+  const url = document.getElementById('url').value;
+  const objectClass = document.getElementById('objectClass').value;
+  const button = document.getElementById('loading');
+  const infoSubmit = document.querySelector('.info');
+  const responseContainer = document.getElementById('response');
+  const articlesListContainer = createArticleListContainer();
+  const keyWord = document.getElementById('keyWord').value;
   event.preventDefault();
 
-  button.classList.add('show');
+  infoSubmit.classList.remove('show');
   infoSubmit.classList.add('hide');
+
+  button.classList.add('show');
 
   try {
     const data = await fetchData(url, objectClass, keyWord);
 
     button.classList.remove('show');
     infoSubmit.classList.add('show');
+    infoSubmit.classList.remove('hide');
 
     if (data.state === 'success') {
       updateArticlesList(
