@@ -46,11 +46,13 @@ function createScrappedResults(data, keyWord) {
     <p class="text-scrapped">Matches: ${data['objects found']}</p>
     <p class="text-scrapped">Key Word: ${keyWord}</p>
     <p class="text-scrapped">Target: ${data['scanned webpage'].url}</p>
-    <h2 class="text-scrapped" id="exportToExcel">Export To Excel</h2>
+    <p class="text-scrapped" id="exportToExcel">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA40lEQVRIS9WW/Q2CQAzFuQl0A9lARmAUnEw2kVFgAzc43zOHIXi25aB/eEkTkqP99eM1ECrnE5zjV1+AGGML6B1WK/A+hHDTEswBRjhdNMd0r0JygGgIzsxZJY8IKQKgNQGt7CyQYgBTt0B2ASyQ3YA1hO1bzrAIIIng7wBLub4LO7SCJNcGcQfYyQWQhnxOkOvmCtYO0oCxF9xqLuDnqCpyB1gkiczZoges2dwiDYDgHDKDE3KsihDPV6a56iwtes6altrz424CoNZU1OKFHmb9qs3xJjx0AAwioCBr0cX9r+IFyyqEGeikBTsAAAAASUVORK5CYII="/>
+Export Results To Excel
+</p>
   `;
   return scrappedResults;
 }
-
 function checkUrl(webpage, url) {
   if (url.startsWith('https://www.')) {
     return url;
