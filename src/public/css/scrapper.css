@@ -4,9 +4,10 @@
 .scrapped-results p {
   color: white;
   display: flex;
+  margin-top: 1rem;
   justify-content: start;
 }
-.scrapped-list {
+.links-scrapped li {
   border-radius: 10px;
   height: auto;
   width: 90%;
@@ -23,7 +24,7 @@
   background-size: 200% auto;
   transition: 0.5s;
 }
-.scrapped-list:hover {
+.links-scrapped:hover {
   transition: ease-in 0.5s;
   color: black;
 
@@ -33,7 +34,7 @@
 .text-scrapped {
   color: black;
 }
-.text-scrapped:hover {
+.text-scrapped li:hover {
   transition: ease-in 0.5s;
 }
 
@@ -42,10 +43,10 @@
 }
 
 .buttonload {
-  background-color: #04aa6d; /* Green background */
-  border: none; /* Remove borders */
-  color: white; /* White text */
-  padding: 12px 16px; /* Some padding */
+  background-color: var(--soft-red);
+  border: none; 
+  color: white;
+  padding: 12px 16px; 
 }
 button .hide {
   display: none;
@@ -56,7 +57,6 @@ button .show {
 
 #exportToExcel {
   display: flex;
-  justify-content: center;
   align-items: center;
   margin-top: 1.2rem;
   cursor: pointer;

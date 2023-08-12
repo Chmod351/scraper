@@ -34,17 +34,29 @@
     <div class="progress-container">
       <div class="progress-bar" id="myBar"></div>
     </div>
-    <header class="hero">
+    <header class="hero" role="heading">
       <nav class="nav container">
+                                
         <figure class="nav__figure">
-          <img src="./images/logo-bookmark.svg" class="nav__logo" />
+          <img
+            src="./images/logo-bookmark.svg"
+            class="nav__logo"
+            role="img"
+            alt="logo"
+            aria-label="web scrapper logo"
+            title="web scrapper"
+          />
         </figure>
 
-        <div class="nav__hamburguer">
-          <img src="./images/icon-hamburger.svg" class="nav__button" />
+        <div class="nav__hamburguer" role="menuitem">
+          <img
+            src="./images/icon-hamburger.svg"
+            class="nav__button"
+            alt="menu"
+          />
         </div>
 
-        <div class="nav__container">
+        <div class="nav__container" role="navigation">
           <ul class="nav__list container">
             <li class="nav__element">
               <a href="#faq" class="nav__link">FAQS</a>
@@ -69,25 +81,51 @@
             </li>
 
             <li class="nav__element">
-              <a href="#product" class="nav__link nav__link--last">TRY NOW</a>
+              <a href="#product" class="nav__link nav__link--last" role="button"
+                >TRY NOW</a
+              >
             </li>
           </ul>
 
           <div class="nav__social">
-            <a href="#" class="nav__media" target="_blank">
-              <img src="./images/icon-facebook.svg" class="nav__socialme" />
+            <a
+              href="https://www.linkedin.com/in/yamil-tauil/"
+              class="nav__media"
+              target="_blank"
+              title="Linkedin"
+            >
+              <img
+                src="./images/icon-linkedin.svg"
+                class="nav__socialme"
+                alt="linkedin"
+                aria-label="link to linkedin"
+              />
             </a>
 
-            <a href="#" class="nav__media" target="_blank">
-              <img src="./images/icon-twitter.svg" class="nav__socialme" />
+            <a
+              href="https://github.com/yamilt351/scraper"
+              class="nav__media"
+              target="_blank"
+              title="Github"
+            >
+              <img
+                src="./images/icon-github.svg"
+                class="nav__socialme"
+                alt="github"
+                aria-label="link to github"
+              />
             </a>
           </div>
         </div>
       </nav>
 
-      <section class="hero__main container">
+      <section class="hero__main container" role="heading" aria-level="1">
         <figure class="hero__figure">
-          <img src="./images/illustration-hero.svg" class="hero__img" />
+          <img
+            src="./images/illustration-hero.svg"
+            class="hero__img"
+            alt="computer surfing the web "
+          />
         </figure>
 
         <article class="hero__texts" data-aos="fade-right">
@@ -153,6 +191,7 @@
               <img
                 src="./images/illustration-features-tab-1.svg"
                 class="features__img"
+                alt="inspecting web page"
               />
             </figure>
 
@@ -176,6 +215,7 @@
               <img
                 src="./images/illustration-features-tab-2.svg"
                 class="features__img"
+                alt="empowering search results"
               />
             </figure>
 
@@ -194,6 +234,7 @@
               <img
                 src="./images/illustration-features-tab-3.svg"
                 class="features__img"
+                alt="user with his privacy protected"
               />
             </figure>
 
@@ -203,67 +244,79 @@
                 We take our users' privacy very seriously, which is why we do
                 not store any information related to how you use this tool.
               </p>
-              <a href="#product" class="features__cta">More Info</a>
+              <a href="#product" class="features__cta"> More Info </a>
             </div>
           </article>
         </div>
       </section>
 
-      <!-- <!-1- web extensions -1-> -->
-      <!-- <section class="download container"> -->
-      <!--   <h2 class="download__title">Download the extension</h2> -->
-      <!--   <p class="download__paragraph"> -->
-      <!--     We’ve got more browsers in the pipeline. Please do let us know if -->
-      <!--     you’ve got a favourite you’d like us to prioritize. -->
-      <!--   </p> -->
+      <!-- export feature -->
+      <section class="download container">
+        <h2 class="download__title">Download your Results</h2>
+        <p class="download__paragraph">
+          To facilitate API creation or information analysis, we provide the
+          option to export your results in a cross-platform compatible format.
+        </p>
 
-      <!--   <div class="download__container"> -->
-      <!--     <article -->
-      <!--       class="download__item" -->
-      <!--       data-aos="fade-down" -->
-      <!--       data-aos-easing="linear" -->
-      <!--       data-aos-duration="1300" -->
-      <!--     > -->
-      <!--       <figure class="download__figure"> -->
-      <!--         <img src="./images/logo-chrome.svg" class="download__img" /> -->
-      <!--       </figure> -->
+        <div class="download__container">
+          <article
+            class="download__item"
+            data-aos="fade-down"
+            data-aos-easing="linear"
+            data-aos-duration="1300"
+          >
+            <figure class="download__figure">
+              <img
+                src="./images/libreOffice.png"
+                class="download__img"
+                alt="libreOffice"
+              />
+            </figure>
 
-      <!--       <h3 class="download__browser">Add to Chrome</h3> -->
-      <!--       <p class="download__version">Minimum version 62</p> -->
-      <!--       <a href="#" class="download__extension">Add & Install Extension</a> -->
-      <!--     </article> -->
+            <h3 class="download__browser">LibreOffice</h3>
+            <p class="download__version">version 7.5.5</p>
+            <a href="#product" class="download__extension">Export Data</a>
+          </article>
 
-      <!--     <article -->
-      <!--       class="download__item" -->
-      <!--       data-aos="fade-down" -->
-      <!--       data-aos-easing="linear" -->
-      <!--       data-aos-duration="1600" -->
-      <!--     > -->
-      <!--       <figure class="download__figure"> -->
-      <!--         <img src="./images/logo-firefox.svg" class="download__img" /> -->
-      <!--       </figure> -->
+          <article
+            class="download__item"
+            data-aos="fade-down"
+            data-aos-easing="linear"
+            data-aos-duration="1600"
+          >
+            <figure class="download__figure">
+              <img
+                src="./images/MicOffice.webp"
+                class="download__img"
+                alt="Microsoft Office"
+              />
+            </figure>
 
-      <!--       <h3 class="download__browser">Add to Firefox</h3> -->
-      <!--       <p class="download__version">Minimum version 55</p> -->
-      <!--       <a href="#" class="download__extension">Add & Install Extension</a> -->
-      <!--     </article> -->
+            <h3 class="download__browser">MsOffice</h3>
+            <p class="download__version">Office 2021</p>
+            <a href="#product" class="download__extension">Export Data</a>
+          </article>
 
-      <!--     <article -->
-      <!--       class="download__item" -->
-      <!--       data-aos="fade-down" -->
-      <!--       data-aos-easing="linear" -->
-      <!--       data-aos-duration="1800" -->
-      <!--     > -->
-      <!--       <figure class="download__figure"> -->
-      <!--         <img src="./images/logo-opera.svg" class="download__img" /> -->
-      <!--       </figure> -->
+          <article
+            class="download__item"
+            data-aos="fade-down"
+            data-aos-easing="linear"
+            data-aos-duration="1800"
+          >
+            <figure class="download__figure">
+              <img
+                src="./images/gSheets.webp"
+                class="download__img"
+                alt="Google Sheets"
+              />
+            </figure>
 
-      <!--       <h3 class="download__browser">Add to Opera</h3> -->
-      <!--       <p class="download__version">Minimum version 46</p> -->
-      <!--       <a href="#" class="download__extension">Add & Install Extension</a> -->
-      <!--     </article> -->
-      <!--   </div> -->
-      <!-- </section> -->
+            <h3 class="download__browser">Google Sheets</h3>
+            <p class="download__version">Google Sheets</p>
+            <a href="#product" class="download__extension">Export Data</a>
+          </article>
+        </div>
+      </section>
 
       <section class="article container" id="faq">
         <h2 class="article__title">Frequently Asked Questions</h2>
@@ -275,7 +328,11 @@
         <div class="article__container">
           <h3 class="article__question">
             What is Web Scraping?
-            <img src="./images/icon-arrow.svg" class="article__arrow" />
+            <img
+              src="./images/icon-arrow.svg"
+              class="article__arrow"
+              alt="down arrow"
+            />
           </h3>
 
           <article class="article__content">
@@ -292,7 +349,11 @@
 
           <h3 class="article__question">
             Is Web Scraping legal?
-            <img src="./images/icon-arrow.svg" class="article__arrow" />
+            <img
+              src="./images/icon-arrow.svg"
+              class="article__arrow"
+              alt="down arrow"
+            />
           </h3>
 
           <article class="article__content">
@@ -310,7 +371,11 @@
 
           <h3 class="article__question">
             What types of data can be extracted with Web Scraping?
-            <img src="./images/icon-arrow.svg" class="article__arrow" />
+            <img
+              src="./images/icon-arrow.svg"
+              class="article__arrow"
+              alt="down arrow"
+            />
           </h3>
 
           <article class="article__content">
@@ -328,7 +393,11 @@
 
           <h3 class="article__question">
             What are the challenges of Web Scraping?
-            <img src="./images/icon-arrow.svg" class="article__arrow" />
+            <img
+              src="./images/icon-arrow.svg"
+              class="article__arrow"
+              alt="down arrow"
+            />
           </h3>
 
           <article class="article__content">
@@ -405,7 +474,11 @@
     <footer class="footer">
       <div class="footer__container container">
         <figure class="footer__figure">
-          <img src="./images/logo-bookmark-footer.svg" class="footer__logo" />
+          <img
+            src="./images/logo-bookmark-footer.svg"
+            class="footer__logo"
+            alt="web scrapper logo"
+          />
         </figure>
 
         <ul class="footer__list">
@@ -434,13 +507,21 @@
             href="https://www.linkedin.com/in/yamil-tauil/"
             class="footer__social"
           >
-            <img src="./images/icon-facebook.svg" class="footer__icon" />
+            <img
+              src="./images/icon-linkedin.svg"
+              class="footer__icon"
+              alt="linkedin"
+            />
           </a>
           <a
             href="https://github.com/yamilt351/scraper/tree/master"
             class="footer__social"
           >
-            <img src="./images/icon-twitter.svg" class="footer__icon" />
+            <img
+              src="./images/icon-github.svg"
+              class="footer__icon"
+              alt="github"
+            />
           </a>
         </div>
       </div>

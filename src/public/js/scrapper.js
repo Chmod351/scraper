@@ -46,13 +46,14 @@ function createScrappedResults(data, keyWord) {
     <p class="text-scrapped">Matches: ${data['objects found']}</p>
     <p class="text-scrapped">Key Word: ${keyWord}</p>
     <p class="text-scrapped">Target: ${data['scanned webpage'].url}</p>
-    <p class="text-scrapped" id="exportToExcel">
+    <p class="text-scrapped" id="exportToExcel" title="Export Results">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA40lEQVRIS9WW/Q2CQAzFuQl0A9lARmAUnEw2kVFgAzc43zOHIXi25aB/eEkTkqP99eM1ECrnE5zjV1+AGGML6B1WK/A+hHDTEswBRjhdNMd0r0JygGgIzsxZJY8IKQKgNQGt7CyQYgBTt0B2ASyQ3YA1hO1bzrAIIIng7wBLub4LO7SCJNcGcQfYyQWQhnxOkOvmCtYO0oCxF9xqLuDnqCpyB1gkiczZoges2dwiDYDgHDKDE3KsihDPV6a56iwtes6altrz424CoNZU1OKFHmb9qs3xJjx0AAwioCBr0cX9r+IFyyqEGeikBTsAAAAASUVORK5CYII="/>
 Export Results To Excel
 </p>
   `;
   return scrappedResults;
 }
+
 function checkUrl(webpage, url) {
   if (url.startsWith('https://www.')) {
     return url;
@@ -62,23 +63,26 @@ function checkUrl(webpage, url) {
 }
 
 async function handleFormSubmit(event) {
-  event.preventDefault();
   const url = document.getElementById('url').value;
   const objectClass = document.getElementById('objectClass').value;
-  const keyWord = document.getElementById('keyWord').value;
   const button = document.getElementById('loading');
   const infoSubmit = document.querySelector('.info');
   const responseContainer = document.getElementById('response');
   const articlesListContainer = createArticleListContainer();
+  const keyWord = document.getElementById('keyWord').value;
+  event.preventDefault();
+
+  infoSubmit.classList.remove('show');
+  infoSubmit.classList.add('hide');
 
   button.classList.add('show');
-  infoSubmit.classList.add('hide');
 
   try {
     const data = await fetchData(url, objectClass, keyWord);
 
     button.classList.remove('show');
     infoSubmit.classList.add('show');
+    infoSubmit.classList.remove('hide');
 
     if (data.state === 'success') {
       updateArticlesList(
@@ -93,7 +97,6 @@ async function handleFormSubmit(event) {
       responseContainer.appendChild(document.createElement('h3')).textContent =
         'Found Articles:';
       responseContainer.appendChild(articlesListContainer);
-
       const exportToExcel = document.getElementById('exportToExcel');
       exportToExcel.addEventListener('click', () => {
         createExport(data['scanned webpage'], data['found articles']);

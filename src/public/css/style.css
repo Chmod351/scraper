@@ -3,10 +3,14 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   --soft-blue: hsl(231, 69%, 60%);
   --soft-red: hsl(0, 94%, 66%);
-  --grayish-blue: hsl(229, 8%, 60%);
+  --grayish-blue: hsl(229, 31%, 21%, 0.8);
   --very-dark-blue: hsl(229, 31%, 21%);
 
   --grayish-blue-alpha: hsl(229, 8%, 60%, 0.5);
