@@ -6,7 +6,7 @@
   display: flex;
   justify-content: start;
 }
-.scrapped-list {
+.links-scrapped li {
   border-radius: 10px;
   height: auto;
   width: 90%;
@@ -23,7 +23,7 @@
   background-size: 200% auto;
   transition: 0.5s;
 }
-.scrapped-list:hover {
+.links-scrapped li:hover {
   transition: ease-in 0.5s;
   color: black;
 
