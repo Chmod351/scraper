@@ -128,7 +128,9 @@ The application was tested with [Jest](https://jestjs.io/docs/getting-started), 
 - You can only send up to 100 requests per 10 minutes.
 - If the webpage has incorrect element nesting, the scraper will fail
 - before use this tool please read [FAQ](https://github.com/yamilt351/scraper/blob/master/src/FAQ.md)
-
+# Contributors
+Especial thanks to:
+- @Robertw8
 # Contributions <a name="Contributions"></a>
 
 - Fork this Repo
