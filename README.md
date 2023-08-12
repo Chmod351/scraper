@@ -138,20 +138,10 @@ body example:
 - You can only send up to 100 requests per 10 minutes.
 - If the webpage has incorrect element nesting, the scraper will fail
 - before use this tool please read [FAQ](https://github.com/yamilt351/scraper/blob/master/src/FAQ.md)
+  
 # Contributors ❤️
 Especial thanks to:
 - @Robertw8
 # Contributions 📈 <a name="Contributions"></a>
 
-- Fork this Repo
-- Make your changes
-- Test your changes `npm run test`
-- Document your changes
-- Create your pull request with evidences at Development.
-- Code Styles are provided by [eslint](https://github.com/neoclide/coc-eslint) & [prettier](https://github.com/neoclide/coc-prettier)
-- Yours Pull Requests should follow the next structure (the repo has a boilerplate to do that):
-  - As (`Developer`)
-  - I want to (`Your changes`)
-  - To (`Feature`)
-  - Happy path (`succesfull case screenshoot`)
-  - Unhappy path (`unsuccesfull case screenshots , more than 1`)
+- Contributions are welcome! please read our [guidelines](https://github.com/yamilt351/scraper/edit/master/CONTRIBUTING.md)
