@@ -1,6 +1,6 @@
 import needle from 'needle';
 import cheerio from 'cheerio';
-import { BadRequestError } from '../helpers/errorHandler.js';
+import { BadRequestError } from '../../helpers/errorHandler.js';
 import WebsiteTarget from './scrapperModel/scrapperTargetModel.js';
 import Result from './scrapperModel/scrapperResults.js';
 import Keyword from './scrapperModel/scrapperKeyword.js';
