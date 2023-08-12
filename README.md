@@ -147,4 +147,4 @@ Especial thanks to:
   
 # Contributions 📈 <a name="Contributions"></a>
 
-- Contributions are welcome! please read our [guidelines](https://github.com/yamilt351/scraper/edit/master/CONTRIBUTING.md)
+- Contributions are welcome! please read our [guidelines](https://github.com/yamilt351/scraper/blob/master/CONTRIBUTING.md)
