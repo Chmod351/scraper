@@ -53,3 +53,11 @@ button .hide {
 button .show {
   display: block;
 }
+
+#exportToExcel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.2rem;
+  cursor: pointer;
+}
