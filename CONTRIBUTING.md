@@ -30,7 +30,7 @@ MONGOOSE_USER=mongodb+srv://{USER}:{PASSWORD}@cluster0.4g3ly.mongodb.net/?retryW
 
 Please follow the commit message structure below:
 
-- `type:`: The type of the commit (e.g., feature, bug fix, documentation).
+- `type:`: The type of the commit (e.g., feature, bug fix, documentation, resolve, etc)
 - `description`: A concise description of the changes made.(optional)
 - `[#issue]`: Related issue to that task.
 
