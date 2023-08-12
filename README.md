@@ -97,6 +97,38 @@ The API endpoint responds with a JSON object containing the following properties
 }
 
 ```
+## Export data to xlsx
+- Make a `Post` request to `/api/v1/export/to-excel`
+
+body example:
+```Javascript
+{
+    "scanned webpage": {
+      "_id": "64d3e3459686e7f4087acfdb",
+        "cssClass": ".css-class-selector",
+        "url": "https://www.url.com.ar",
+        "__v": 0,
+        "createdAt": "2023-08-09T19:04:37.137Z",
+        "scrapedTimes": 69,
+        "updatedAt": "2023-08-10T17:08:08.328Z"
+    },
+    "found articles":[
+        {
+           "_id": "64d4fcf821aef9f1dd17bbb8",
+            "websiteTarget": "64d3e3459686e7f4087acfdb",
+            "keywords": [
+                "64d40fa677d90019c57302ed"
+            ],
+            "title": "Some Title",
+            "link": "/some/link/related/to/the/article",
+            "createdAt": "2023-08-10T15:06:32.535Z",
+            "updatedAt": "2023-08-10T17:08:08.643Z",
+            "__v": 2
+        }
+     ]
+}
+```
+[Documentation](https://www.postman.com/orange-trinity-332576/workspace/scrapper/request/21643141-9324c29a-d14b-44c0-9a4d-2bf51d823d54?ctx=documentation)
 
 ## Local Configuration 🔧 <a name="Local-Configuration"></a>
 
