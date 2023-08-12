@@ -3,7 +3,7 @@
 ![Static Badge](https://img.shields.io/badge/Development-deployed) ![](https://img.shields.io/website-up-down-green-red/https/scraper-5ask.onrender.com/public/html.html.svg)
 ![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/yamilt351/scraper?color=green) ![GitHub issues](https://img.shields.io/github/issues/yamilt351/scraper?color=red) ![GitHub last commit (by committer)](https://img.shields.io/github/last-commit/yamilt351/scraper) ![GitHub top language](https://img.shields.io/github/languages/top/yamilt351/scraper?color=blue) ![](https://img.shields.io/github/license/yamilt351/scraper.svg)
 
-## Index
+## Index 🔖
 
 - [FAQ](https://github.com/yamilt351/scraper/blob/master/src/FAQ.md)
 - [Demo](https://scraper-5ask.onrender.com/public/html.html)
@@ -17,15 +17,15 @@
 - [Usage Limitations](#Usage-Limitations)
 - [Contributions](#Contributions)
 
-# Objetive <a name="Objetive"></a>
+# Objetive ⭐ <a name="Objetive"></a>
 
 The objective of this web scraper is to obtain information from any website, just by using its URL and the target CSS class that you want to scrape. It doesn't have a predefined purpose, so you can use it to gather information from any site you like.
 
-# Documentation <a name="Documentation"></a>
+# Documentation 📖 <a name="Documentation"></a>
 
 [Postman Documentation](https://www.postman.com/orange-trinity-332576/workspace/scrapper/request/21643141-9324c29a-d14b-44c0-9a4d-2bf51d823d54?ctx=documentation)
 
-# Custom Usage <a name="Custom-Usage"></a>
+# Custom Usage ⚙️ <a name="Custom-Usage"></a> 
 
 The code makes a `POST` request to the `/api/v1/scrappe` endpoint at `http://localhost:5000`. The request body should contain the following parameters:
 
@@ -98,7 +98,7 @@ The API endpoint responds with a JSON object containing the following properties
 
 ```
 
-## Local Configuration <a name="Local-Configuration"></a>
+## Local Configuration 🔧 <a name="Local-Configuration"></a>
 
 [Nodejs](https://nodejs.org/en) v20 (check your node version with `node -v`)
 
@@ -128,10 +128,10 @@ The application was tested with [Jest](https://jestjs.io/docs/getting-started), 
 - You can only send up to 100 requests per 10 minutes.
 - If the webpage has incorrect element nesting, the scraper will fail
 - before use this tool please read [FAQ](https://github.com/yamilt351/scraper/blob/master/src/FAQ.md)
-# Contributors
+# Contributors ❤️
 Especial thanks to:
 - @Robertw8
-# Contributions <a name="Contributions"></a>
+# Contributions 📈 <a name="Contributions"></a>
 
 - Fork this Repo
 - Make your changes
