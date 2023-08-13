@@ -20,12 +20,12 @@ img {
 }
 
 body {
-  font-family: "Rubik", sans-serif;
+  font-family: 'Rubik', sans-serif;
 }
 
 /* Hero */
 .container {
-  max-width: 100%;
+  max-width: 1280px;
   overflow: hidden;
   margin: 0 auto;
   padding: var(--padding-container);
@@ -33,7 +33,7 @@ body {
 
 .hero__main {
   width: 100%;
-  --padding-container: 80px 0 60px;
+  --padding-container: 40px 0 60px;
 
   display: grid;
   grid-template-columns: 5% 1fr 5%;
@@ -46,7 +46,7 @@ body {
 }
 
 .hero__figure::before {
-  content: "";
+  content: '';
   position: absolute;
   background-color: var(--soft-blue);
   width: 60%;
