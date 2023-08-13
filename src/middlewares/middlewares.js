@@ -4,6 +4,7 @@ import compression from 'compression';
 import rateLimit from 'express-rate-limit';
 import envConfig from '../config/envConfig.js';
 import express from 'express';
+import helmet from 'helmet';
 
 // config
 //
@@ -33,4 +34,5 @@ export default function configureMiddlewares(app) {
   app.use(limit);
   app.use(compress);
   app.use(morganConfig);
+  app.use(helmet());
 }
