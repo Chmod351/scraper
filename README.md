@@ -17,15 +17,17 @@
 - [Usage Limitations](#Usage-Limitations)
 - [Contributions](#Contributions)
 
-# Objetive ⭐ <a name="Objetive"></a>
+## Enjoying this project? Please consider giving it a star ⭐️. Your support means a lot to us!
 
-The objective of this web scraper is to obtain information from any website, just by using its URL and the target CSS class that you want to scrape. It doesn't have a predefined purpose, so you can use it to gather information from any site you like.
+## Objetive ⭐ <a name="Objetive"></a>
 
-# Documentation 📖 <a name="Documentation"></a>
+This application not only allows you to `automate API creation`, `analyze and compare` various websites, and generate insightful reports, but also enables you to `export` the obtained information in `Excel format` and retrieve specific results using keywords. The main goal of this web scraper is to gather information from `any website` by utilizing its URL and the designated target CSS class. Its adaptable design empowers you to collect data from your preferred sites without being constrained by predefined limits."
+
+## Documentation 📖 <a name="Documentation"></a>
 
 [Postman Documentation](https://www.postman.com/orange-trinity-332576/workspace/scrapper/request/21643141-9324c29a-d14b-44c0-9a4d-2bf51d823d54?ctx=documentation)
 
-# Custom Usage ⚙️ <a name="Custom-Usage"></a> 
+## Custom Usage ⚙️ <a name="Custom-Usage"></a> 
 
 The code makes a `POST` request to the `/api/v1/scrappe` endpoint at `http://localhost:5000`. The request body should contain the following parameters:
 
@@ -43,7 +45,7 @@ The API endpoint responds with a JSON object containing the following properties
   if the response is too big the api use [`compression`](https://www.npmjs.com/package/compression) middleware to reduce the size.
 - implementing [`findOrCreate`](https://www.npmjs.com/package/mongoose-findorcreate) method for mongoose is a powerful tool to ensure that the scraping of websites doesn't lead to duplicated results in the database.
 
-## Body Example <a name="Body-Example"></a>
+### Body Example <a name="Body-Example"></a>
 
 ```javascript
 {
@@ -53,7 +55,7 @@ The API endpoint responds with a JSON object containing the following properties
 }
 ```
 
-## Response Example <a name="Response-Example"></a>
+### Response Example <a name="Response-Example"></a>
 
 ```javascript
 
@@ -97,7 +99,7 @@ The API endpoint responds with a JSON object containing the following properties
 }
 
 ```
-## Export data to xlsx
+### Export data to xlsx
 - Make a `Post` request to `/api/v1/export/to-excel`
 - The request body should contain the following parameters:
 - `scanned webpage` (Object): Response for `/api/v1/scrappe` (`mandatory`)
@@ -133,18 +135,19 @@ body example:
 ```
 [Documentation](https://www.postman.com/orange-trinity-332576/workspace/scrapper/request/21643141-9324c29a-d14b-44c0-9a4d-2bf51d823d54?ctx=documentation)
 
-# Usage Limitations <a name="Usage-Limitations"></a>
+## Usage Limitations <a name="Usage-Limitations"></a>
 
 - You can only send up to 100 requests per 10 minutes.
 - If the webpage has incorrect element nesting, the scraper will fail
 - before use this tool please read [FAQ](https://github.com/yamilt351/scraper/blob/master/src/FAQ.md)
   
-# Contributors ❤️
+## Contributors ❤️
 Especial thanks to:
 - [@Robertw8](https://github.com/Robertw8)
 - [@conorvenus](https://github.com/conorvenus)
 - [@sudeepmahato16 ](https://github.com/sudeepmahato16)
+- [@2div](https://github.com/2div)
   
-# Contributions 📈 <a name="Contributions"></a>
+## Contributions 📈 <a name="Contributions"></a>
 
 - Contributions are welcome! please read our [guidelines](https://github.com/yamilt351/scraper/blob/master/CONTRIBUTING.md)
