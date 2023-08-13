@@ -48,15 +48,15 @@ The application was tested with [Jest](https://jestjs.io/docs/getting-started), 
 1. Fork the repository and clone it to your local machine.
 2. Create a new branch for your contribution.
 3. Make your changes, commit them with clear and descriptive messages, and push the branch to your forked repository.
-4. Test your changes `npm run test`
-5. Submit a pull request with evidences at Development, explaining the purpose and details of your contribution.
-6. Code Styles are provided by [eslint](https://github.com/neoclide/coc-eslint) & [prettier](https://github.com/neoclide/coc-prettier)
+4. Test your changes `npm run test` (only if your commit has backend stuff).
+6. Submit a pull request with evidences at Development, explaining the purpose and details of your contribution.
+7. Code Styles are provided by [eslint](https://github.com/neoclide/coc-eslint) & [prettier](https://github.com/neoclide/coc-prettier)
 - Yours Pull Requests should follow the next structure (the repo has a boilerplate to do that):
   - As (`Developer`)
   - I want to (`Your changes`)
   - To (`Feature`)
   - Happy path (`succesfull case screenshoot`)
-  - Unhappy path (`unsuccesfull case screenshots , more than 1`)
+  - Unhappy path (`unsuccesfull case screenshots , more than 1 if applies`)
   
 ## Commit Message Structure 📝
 
