@@ -1,9 +1,24 @@
 ![Screenshot_from_2023-08-02_14-38-24-removebg-preview](https://github.com/yamilt351/scraper/assets/88646148/9788c6da-e1f1-4110-b75a-1748b5f7af23)
 
-# Contributing Guidelines 📌
+## Non-Code Contributions 👍
+
+We believe that open-source projects thrive not only through code contributions but also through a diverse range of non-code contributions. Your involvement and expertise in various areas can greatly enhance the project and its community. Here are some ways you can contribute beyond writing code:
+
+- **Documentation:** Improve, expand project documentation to make it more comprehensive and accessible.
+- **Design and User Experience:** Help create an intuitive user interface, design graphics, or enhance the overall user experience.
+- **Quality Assurance:** Assist in testing the software, identifying bugs, and ensuring the project functions correctly across different environments.
+- **Issue Management:** Help categorize issues, organize feature requests, track pending tasks, and maintain an up-to-date task list.
+- **Performance Optimization:** Collaborate on improving code performance and optimization to make the project faster and more efficient.
+- **Accessibility Improvement:** Work on making the project more accessible to individuals with disabilities, ensuring it adheres to web accessibility standards.
+- **Art and Graphics:** Contribute illustrations, graphics, icons, or other visual elements that can enhance the overall presentation of the project.
+
+We appreciate your commitment to making this project a success, and we welcome your contributions in all forms. Your involvement helps create a vibrant and inclusive open-source community.
+
+Thank you for being part of our journey!
+
+# Code Contributing Guidelines 📌
 
 Thank you for considering contributing to this project! We appreciate your time and effort. Please take a moment to review the following guidelines to ensure a smooth and effective collaboration.
-
 ## Local Configuration 🔧 <a name="Local-Configuration"></a>
 
 [Nodejs](https://nodejs.org/en) v20 (check your node version with `node -v`)
