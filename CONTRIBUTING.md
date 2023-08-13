@@ -36,7 +36,7 @@ MONGOOSE_USER=mongodb+srv://{YOUR_USER}:{YOUR_PASSWORD}@cluster0.4g3ly.mongodb.n
 
 4. Install dependencies with `npm i`
 5. Create a new branch for your contribution.
-6. Make your changes, [commit](#Commit-Message-Structure) them with clear and descriptive messages, and push the branch to your forked repository
+6. Make your changes, [Commit Message Structure](#Commit-Message-Structure) them with clear and descriptive messages, and push the branch to your forked repository
 7. Test your changes `npm run test` (only if your commit has backend stuff).
 8. Submit a pull request with evidences at Development, explaining the purpose and details of your contribution.
 9. Code Styles are provided by [eslint](https://github.com/neoclide/coc-eslint) & [prettier](https://github.com/neoclide/coc-prettier)
