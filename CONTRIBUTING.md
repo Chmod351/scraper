@@ -59,7 +59,7 @@ The application was tested with [Jest](https://jestjs.io/docs/getting-started), 
   
 
   
-## Commit Message Structure 📝 <a href="Commit-Message-Structure"></a>
+## Commit Message Structure 📝 <a name="Commit-Message-Structure"></a>
 
 Please follow the commit message structure below:
 
