@@ -27,7 +27,7 @@ This application not only allows you to `automate API creation`, `analyze and co
 
 [Postman Documentation](https://www.postman.com/orange-trinity-332576/workspace/scrapper/request/21643141-9324c29a-d14b-44c0-9a4d-2bf51d823d54?ctx=documentation)
 
-## Custom Usage ⚙️ <a name="Custom-Usage"></a> 
+## Custom Usage ⚙️ <a name="Custom-Usage"></a>
 
 The code makes a `POST` request to the `/api/v1/scrappe` endpoint at `http://localhost:5000`. The request body should contain the following parameters:
 
@@ -99,13 +99,16 @@ The API endpoint responds with a JSON object containing the following properties
 }
 
 ```
+
 ### Export data to xlsx
+
 - Make a `Post` request to `/api/v1/export/to-excel`
 - The request body should contain the following parameters:
 - `scanned webpage` (Object): Response for `/api/v1/scrappe` (`mandatory`)
-- `found articles` (Objects Array):  Response for `/api/v1/scrappe` (`mandatory`).
+- `found articles` (Objects Array): Response for `/api/v1/scrappe` (`mandatory`).
 
 body example:
+
 ```Javascript
 {
     "scanned webpage": {
@@ -133,6 +136,7 @@ body example:
      ]
 }
 ```
+
 [Documentation](https://www.postman.com/orange-trinity-332576/workspace/scrapper/request/21643141-9324c29a-d14b-44c0-9a4d-2bf51d823d54?ctx=documentation)
 
 ## Usage Limitations <a name="Usage-Limitations"></a>
@@ -140,14 +144,17 @@ body example:
 - You can only send up to 100 requests per 10 minutes.
 - If the webpage has incorrect element nesting, the scraper will fail
 - before use this tool please read [FAQ](https://github.com/yamilt351/scraper/blob/master/src/FAQ.md)
-  
+
 ## Contributors ❤️
+
 Especial thanks to:
+
 - [@Robertw8](https://github.com/Robertw8)
 - [@conorvenus](https://github.com/conorvenus)
 - [@sudeepmahato16 ](https://github.com/sudeepmahato16)
 - [@2div](https://github.com/2div)
-  
+- [@PraveenShinde3](https://github.com/PraveenShinde3)
+
 ## Contributions 📈 <a name="Contributions"></a>
 
 - Contributions are welcome! please read our [guidelines](https://github.com/yamilt351/scraper/blob/master/CONTRIBUTING.md)
