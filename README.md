@@ -146,6 +146,7 @@ Especial thanks to:
 - [@Robertw8](https://github.com/Robertw8)
 - [@conorvenus](https://github.com/conorvenus)
 - [@sudeepmahato16 ](https://github.com/sudeepmahato16)
+- [@2div](https://github.com/2div)
   
 ## Contributions 📈 <a name="Contributions"></a>
 
