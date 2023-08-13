@@ -13,9 +13,10 @@
   - [Custom Usage](#Custom-Usage)
   - [Body Example](#Body-Example)
   - [Response Example](#Response-Example)
-- [Local Configuration](#Local-Configuration)
 - [Usage Limitations](#Usage-Limitations)
 - [Contributions](#Contributions)
+- [Contributing Guidelines](https://github.com/yamilt351/scraper/blob/master/CONTRIBUTING.md)
+- [Code Of Conduct](#https://github.com/yamilt351/scraper/blob/master/CODE_OF_CONDUCT.md)
 
 ## Enjoying this project? Please consider giving it a star ⭐️. Your support means a lot to us!
 
