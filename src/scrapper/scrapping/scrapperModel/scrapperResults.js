@@ -20,6 +20,6 @@ const ResultSchema = new mongoose.Schema(
   { autoIndex: false },
 );
 ResultSchema.plugin(findOrCreate)
-ResultSchema.index({ keywords: 1 });
+ResultSchema.index({ keywords: 'text' });
 const Result = mongoose.model('Result', ResultSchema);
 export default Result;
