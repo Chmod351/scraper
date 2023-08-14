@@ -12,6 +12,7 @@
   background-color: #fff;
   transform: translate(-50%, 0);
   --padding-container: 0;
+  box-shadow: 0px 0px 8px  rgba(99, 99, 99, 0.2);
 }
 .nav__wrapper {
   display: flex;
