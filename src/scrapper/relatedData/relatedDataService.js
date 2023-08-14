@@ -1,5 +1,5 @@
 import Result from '../scrapping/scrapperModel/scrapperResults.js';
-import mongoose from 'mongoose';
+import Keyword from '../scrapping/scrapperModel/scrapperKeyword.js';
 
 Result.collection
   .getIndexes({ full: true })
@@ -8,13 +8,22 @@ Result.collection
   })
   .catch(console.error);
 
+async function searchKeyword(keyword) {
+    const result = await Keyword.findOne({ keyword });
+    return result;
+}
+
+async function getDataByKeyword(keywordId) {
+  const results = await Result.find({ keywords: keywordId }).exec();
+  return results;
+}
+
 async function sendQuery(keyword) {
   try {
-    const keywordObjectId = new mongoose.Types.ObjectId(keyword);
-    const results = await Result.find({ keywords: keywordObjectId }).exec();
+    const foundKeyword = await searchKeyword(keyword);
+    const results = await getDataByKeyword(foundKeyword._id);
     return results;
   } catch (error) {
-    console.log(error);
     throw error;
   }
 }
