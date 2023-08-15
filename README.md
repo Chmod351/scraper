@@ -156,6 +156,7 @@ Especial thanks to:
 - [@2div](https://github.com/2div)
 - [@PraveenShinde3](https://github.com/PraveenShinde3)
 - [@Rayen-Allaya](https://github.com/Rayen-Allaya)
+- [@Piyush-Desmukh](https://github.com/Piyush-Deshmukh)
 
 ## Contributions 📈 <a name="Contributions"></a>
 
