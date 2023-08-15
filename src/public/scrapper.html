@@ -35,14 +35,16 @@
       <nav class="nav container-nav">
         <div class="nav__wrapper">
           <figure class="nav__figure">
-            <img
-              src="./images/logo-bookmark.svg"
-              class="nav__logo"
-              role="img"
-              alt="logo"
-              aria-label="web scrapper logo"
-              title="web scrapper"
-            />
+            <a href="#Home">
+              <img
+                src="./images/logo-bookmark.svg"
+                class="nav__logo"
+                role="img"
+                alt="logo"
+                aria-label="web scrapper logo"
+                title="web scrapper"
+              />
+            </a>
           </figure>
 
           <div class="nav__hamburguer" role="menuitem">
@@ -56,7 +58,7 @@
           <div class="nav__container" role="navigation">
             <ul class="nav__list container">
               <li class="nav__element">
-                <a href="#faq" class="nav__link">FAQS</a>
+                <a href="#FAQ" class="nav__link">FAQS</a>
               </li>
 
               <li class="nav__element">
@@ -69,16 +71,12 @@
               </li>
 
               <li class="nav__element">
-                <a
-                  href="#features__container"
-                  class="nav__link"
-                  >Features</a
-                >
+                <a href="#Features" class="nav__link">Features</a>
               </li>
 
               <li class="nav__element">
                 <a
-                  href="#product"
+                  href="#Product"
                   class="nav__link nav__link--last"
                   role="button"
                   >TRY NOW</a
@@ -121,7 +119,12 @@
       <div class="progress-container">
         <div class="progress-bar" id="myBar"></div>
       </div>
-      <section class="hero__main container" role="heading" aria-level="1">
+      <section
+        class="hero__main container"
+        role="heading"
+        aria-level="1"
+        id="Home"
+      >
         <figure class="hero__figure">
           <img
             src="./images/illustration-hero.svg"
@@ -155,7 +158,7 @@
     </header>
 
     <main class="main">
-      <section class="features container" id="features__container">
+      <section class="features container" id="Features">
         <div class="features__content">
           <h2 class="features__title" data-aos="fade-left">Features</h2>
           <p class="features__paragraph">
@@ -166,7 +169,7 @@
           <ul class="features__list">
             <li class="features__element">
               <a
-                href="#"
+                href="https://github.com/yamilt351/scraper/blob/master/README.md#Contributions"
                 class="features__tab features__tab--active"
                 data-article="1"
                 >How it's Works?</a
@@ -174,13 +177,13 @@
             </li>
 
             <li class="features__element">
-              <a href="#" class="features__tab" data-article="2"
+              <a href="#Product" class="features__tab" data-article="2"
                 >Speedy Searching
               </a>
             </li>
 
             <li class="features__element">
-              <a href="#" class="features__tab" data-article="3"
+              <a href="#Product" class="features__tab" data-article="3"
                 >Privacy Policy
               </a>
             </li>
@@ -253,7 +256,7 @@
       </section>
 
       <!-- export feature -->
-      <section class="download container">
+      <section class="download container" id="Export">
         <h2 class="download__title" data-aos="fade-right">
           Download your Results
         </h2>
@@ -322,7 +325,7 @@
         </div>
       </section>
 
-      <section class="article container" id="faq">
+      <section class="article container" id="FAQ">
         <h2 class="article__title" data-aos="fade-left">
           Frequently Asked Questions
         </h2>
@@ -424,7 +427,7 @@
         >
       </section>
       <!-- scrapping form section -->
-      <section class="joined" id="product">
+      <section class="joined" id="Product">
         <div class="joined__container container">
           <p class="joined__paragraph">35,000+ active users!</p>
           <h2 class="joined__title">Use your FREE DEMO NOW!</h2>
@@ -489,7 +492,7 @@
 
         <ul class="footer__list">
           <li class="footer__item">
-            <a href="#faq" class="footer__link"> FAQs</a>
+            <a href="#FAQ" class="footer__link"> FAQs</a>
           </li>
           <li class="footer__item">
             <a
@@ -499,12 +502,7 @@
             >
           </li>
           <li class="footer__item">
-            <a
-              href="#features__container"
-              class="footer__link"
-            >
-              Features</a
-            >
+            <a href="#Features" class="footer__link"> Features</a>
           </li>
         </ul>
 
