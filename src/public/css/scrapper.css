@@ -1,52 +1,40 @@
+.scrapp-container {
+  background-color: var(--soft-blue);
+}
 .scrapped-results {
-  margin: 2rem 0;
+  max-width: 400px;
 }
 .scrapped-results p {
   color: white;
-  display: flex;
+
   margin-top: 1rem;
-  justify-content: start;
+}
+.links-scrapped {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: auto auto auto -2rem;
 }
 .links-scrapped li {
   border-radius: 10px;
   height: auto;
-  width: 90%;
-  margin: 1rem 0;
+  width: 25%;
+  margin: 1rem;
   padding: 0.5rem;
   list-style: none;
-  color: white;
-  background-image: linear-gradient(
-    to right,
-    #fff 0%,
-    #f1f1f1f1 51%,
-    #f3f3f3f3 100%
-  );
-  background-size: 200% auto;
-  transition: 0.5s;
-}
-.links-scrapped:hover {
-  transition: ease-in 0.5s;
-  color: black;
-
-  background-position: right center;
+  background-color: var(--soft-card-view);
 }
 
 .text-scrapped {
-  color: black;
-}
-.text-scrapped li:hover {
-  transition: ease-in 0.5s;
-}
-
-.links-scrapped {
-  margin: auto;
+  text-decoration: none;
+  color: var(--grayish-blue);
 }
 
 .buttonload {
   background-color: var(--soft-red);
-  border: none; 
+  border: none;
   color: white;
-  padding: 12px 16px; 
+  padding: 12px 16px;
 }
 button .hide {
   display: none;
@@ -54,10 +42,34 @@ button .hide {
 button .show {
   display: block;
 }
-
 #exportToExcel {
-  display: flex;
-  align-items: center;
-  margin-top: 1.2rem;
   cursor: pointer;
+}
+
+#scrapped {
+  display: flex;
+  flex-direction: row;
+}
+.detail {
+  background-color: var(--soft-card-view);
+  padding: 0.5rem;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+@media (max-width: 900px) {
+  #scrapped {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .scrapped-results {
+    width: 90%;
+    margin: auto;
+  }
+  .links-scrapped li {
+    width: 100%;
+    margin: 0.5rem;
+    padding: 1rem;
+  }
 }
