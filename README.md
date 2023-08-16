@@ -149,15 +149,16 @@ body example:
 ## Contributors ❤️
 
 Especial thanks to:
-
-- [@Robertw8](https://github.com/Robertw8)
-- [@conorvenus](https://github.com/conorvenus)
-- [@sudeepmahato16 ](https://github.com/sudeepmahato16)
-- [@2div](https://github.com/2div)
-- [@PraveenShinde3](https://github.com/PraveenShinde3)
-- [@Rayen-Allaya](https://github.com/Rayen-Allaya)
-- [@Piyush-Desmukh](https://github.com/Piyush-Deshmukh)
-- [@LorenaGambarrota](https://github.com/LorenaGambarrota)
+  |📌 Frontend | 📌 Designers | 
+  |------------|-------------|
+  |[@Robertw8](https://github.com/Robertw8)| [@LorenaGambarrota](https://github.com/LorenaGambarrota)|
+| [@conorvenus](https://github.com/conorvenus)|  |
+| [@sudeepmahato16 ](https://github.com/sudeepmahato16)| |
+| [@2div](https://github.com/2div) |  |
+| [@PraveenShinde3](https://github.com/PraveenShinde3) |  |
+| [@Rayen-Allaya](https://github.com/Rayen-Allaya) |  |
+| [@Piyush-Desmukh](https://github.com/Piyush-Deshmukh) | |
+ 
 
 ## Contributions 📈 <a name="Contributions"></a>
 
