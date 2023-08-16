@@ -1,32 +1,28 @@
+.scrapp-container {
+  background-color: var(--soft-blue);
+}
 .scrapped-results {
-  margin: 2rem 0;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  margin: auto;
-  justify-content: space-between;
-  align-items: center;
-  text-align: center;
+  max-width: 400px;
 }
 .scrapped-results p {
-  color: black;
+  color: white;
+
   margin-top: 1rem;
 }
 .links-scrapped {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin: auto;
+  margin: auto auto auto -2rem;
 }
 .links-scrapped li {
   border-radius: 10px;
   height: auto;
-  width: 30%;
+  width: 25%;
   margin: 1rem;
   padding: 0.5rem;
   list-style: none;
-  color: white;
-  background-color: #a9b3ef;
+  background-color: var(--soft-card-view);
 }
 
 .text-scrapped {
@@ -48,4 +44,32 @@ button .show {
 }
 #exportToExcel {
   cursor: pointer;
+}
+
+#scrapped {
+  display: flex;
+  flex-direction: row;
+}
+.detail {
+  background-color: var(--soft-card-view);
+  padding: 0.5rem;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+@media (max-width: 900px) {
+  #scrapped {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .scrapped-results {
+    width: 90%;
+    margin: auto;
+  }
+  .links-scrapped li {
+    width: 100%;
+    margin: 0.5rem;
+    padding: 1rem;
+  }
 }

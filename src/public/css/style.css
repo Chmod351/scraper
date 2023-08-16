@@ -15,6 +15,7 @@ html {
 
   --grayish-blue-alpha: hsl(229, 8%, 60%, 0.5);
   --very-dark-blue-alpha: hsl(229, 31%, 21%, 0.8);
+  --soft-card-view: #a9b3ef;
 
   --padding-container: 60px 0;
 }
