@@ -157,6 +157,7 @@ Especial thanks to:
 - [@PraveenShinde3](https://github.com/PraveenShinde3)
 - [@Rayen-Allaya](https://github.com/Rayen-Allaya)
 - [@Piyush-Desmukh](https://github.com/Piyush-Deshmukh)
+- [@LorenaGambarrota](https://github.com/LorenaGambarrota)
 
 ## Contributions 📈 <a name="Contributions"></a>
 
