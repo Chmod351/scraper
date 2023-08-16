@@ -133,14 +133,14 @@
           />
         </figure>
 
-        <article class="hero__texts" data-aos="fade-right">
+        <article class="hero__texts">
           <h1 class="hero__title">A Powerfull Web Scrapper</h1>
           <p class="hero__paragraph">
-            This project is a highly versatile web scraper that allows users to
-            extract data from any website by providing the URL link and CSS
-            selector for scraping. With this tool, developers, analysts, and
-            researchers can easily obtain specific information from different
-            online sources for further analysis and processing.
+            Unleash your creativity with our free application! With our Web
+            Scraper, you can effortlessly automate API creation. By consuming
+            our public API, you gain the flexibility to tailor our Scraper's
+            functionality to your specific needs. Start crafting and customizing
+            your APIs today to elevate your projects to the next level!
           </p>
 
           <div class="hero__buttons">
@@ -160,7 +160,7 @@
     <main class="main">
       <section class="features container" id="Features">
         <div class="features__content">
-          <h2 class="features__title" data-aos="fade-left">Features</h2>
+          <h2 class="features__title">Features</h2>
           <p class="features__paragraph">
             Our aim is to make it quick and easy for you to access your required
             data.
@@ -227,8 +227,12 @@
             <div class="features__texts">
               <h3 class="features__subtitle">Intelligent search</h3>
               <p class="features__copy">
-                Accelerate the retrieval of results using keywords, filter out
-                all unnecessary results, and save your time!
+                By utilizing specific keywords, not only can you swiftly access
+                related data stored in the database, but you can also enhance
+                the efficiency of your scraping process. These keywords enable
+                you to filter and refine the results obtained during the
+                scraping process, ensuring that you accelerate result retrieval,
+                filter out unnecessary information, and save valuable time.
               </p>
               <a href="#Product" class="features__cta">Start Now</a>
             </div>
@@ -257,21 +261,14 @@
 
       <!-- export feature -->
       <section class="download container" id="Export">
-        <h2 class="download__title" data-aos="fade-right">
-          Download your Results
-        </h2>
+        <h2 class="download__title">Download your Results</h2>
         <p class="download__paragraph">
           To facilitate API creation or information analysis, we provide the
           option to export your results in a cross-platform compatible format.
         </p>
 
         <div class="download__container">
-          <article
-            class="download__item"
-            data-aos="fade-down"
-            data-aos-easing="linear"
-            data-aos-duration="1300"
-          >
+          <article class="download__item">
             <figure class="download__figure">
               <img
                 src="./images/libreOffice.png"
@@ -285,12 +282,7 @@
             <a href="#Product" class="download__extension">Export Data</a>
           </article>
 
-          <article
-            class="download__item"
-            data-aos="fade-down"
-            data-aos-easing="linear"
-            data-aos-duration="1600"
-          >
+          <article class="download__item">
             <figure class="download__figure">
               <img
                 src="./images/MicOffice.webp"
@@ -304,12 +296,7 @@
             <a href="#Product" class="download__extension">Export Data</a>
           </article>
 
-          <article
-            class="download__item"
-            data-aos="fade-down"
-            data-aos-easing="linear"
-            data-aos-duration="1800"
-          >
+          <article class="download__item">
             <figure class="download__figure">
               <img
                 src="./images/gSheets.webp"
@@ -326,9 +313,7 @@
       </section>
 
       <section class="article container" id="FAQ">
-        <h2 class="article__title" data-aos="fade-left">
-          Frequently Asked Questions
-        </h2>
+        <h2 class="article__title">Frequently Asked Questions</h2>
         <p class="article__paragraph">
           Here are some of our FAQs. If you have any other questions you’d like
           answered please feel free to email us.
@@ -430,9 +415,11 @@
       <section class="joined" id="Product">
         <div class="joined__container container">
           <p class="joined__paragraph">35,000+ active users!</p>
-          <h2 class="joined__title">Use your FREE DEMO NOW!</h2>
+          <h2 class="joined__title">TRY IT NOW!</h2>
           <form id="scraper-form" class="joined__form">
-            <label class="joined__text" for="url">Target URL:</label><br />
+            <label class="joined__text" for="url"
+              >Website Target to Scrappe :</label
+            ><br />
             <input
               title="target site URL"
               class="joined__input"
@@ -444,7 +431,7 @@
               placeholder="site url"
             /><br />
             <label class="joined__text" for="objectClass"
-              >Css Object Class:</label
+              >Container CSS Class:</label
             ><br />
             <input
               title="article css Class"
@@ -456,7 +443,8 @@
               required
               placeholder="css class"
             /><br />
-            <label class="joined__text" for="keyWord">Keyword To Search:</label
+            <label class="joined__text" for="keyWord"
+              >Keyword To Filter Results & Get Related Data:</label
             ><br />
             <input
               title="keyword to search (optional)"
@@ -474,10 +462,10 @@
               </button>
             </div>
           </form>
-          <!--scrapping results -->
-          <div id="response" class="scrapp-container" data-aos="fade-up"></div>
         </div>
       </section>
+      <!--scrapping results -->
+      <section id="Response" class="scrapp-container"></section>
     </main>
 
     <footer class="footer">

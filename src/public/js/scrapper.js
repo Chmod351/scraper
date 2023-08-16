@@ -17,7 +17,7 @@ async function fetchData(url, objectClass, keyWord) {
 
 function createArticleListContainer() {
   const ul = document.createElement('ul');
-  ul.className = 'links-scrapped';
+  ul.className = 'links-scrapped container';
   return ul;
 }
 
@@ -41,14 +41,13 @@ function updateArticlesList(container, articles, webpage) {
 
 function createScrappedResults(data, keyWord) {
   const scrappedResults = document.createElement('section');
-  scrappedResults.className = 'scrapped-results';
+  scrappedResults.className = 'scrapped-results container';
   scrappedResults.innerHTML = `
     <p class="text-scrapped">Matches: ${data['objects found']}</p>
     <p class="text-scrapped">Key Word: ${keyWord}</p>
     <p class="text-scrapped">Target: ${data['scanned webpage'].url}</p>
     <p class="text-scrapped" id="exportToExcel" title="Export Results">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA40lEQVRIS9WW/Q2CQAzFuQl0A9lARmAUnEw2kVFgAzc43zOHIXi25aB/eEkTkqP99eM1ECrnE5zjV1+AGGML6B1WK/A+hHDTEswBRjhdNMd0r0JygGgIzsxZJY8IKQKgNQGt7CyQYgBTt0B2ASyQ3YA1hO1bzrAIIIng7wBLub4LO7SCJNcGcQfYyQWQhnxOkOvmCtYO0oCxF9xqLuDnqCpyB1gkiczZoges2dwiDYDgHDKDE3KsihDPV6a56iwtes6altrz424CoNZU1OKFHmb9qs3xJjx0AAwioCBr0cX9r+IFyyqEGeikBTsAAAAASUVORK5CYII="/>
-Export Results To Excel
 </p>
   `;
   return scrappedResults;
@@ -67,7 +66,7 @@ async function handleFormSubmit(event) {
   const objectClass = document.getElementById('objectClass').value;
   const button = document.getElementById('loading');
   const infoSubmit = document.querySelector('.info');
-  const responseContainer = document.getElementById('response');
+  const responseContainer = document.getElementById('Response');
   const articlesListContainer = createArticleListContainer();
   const keyWord = document.getElementById('keyWord').value;
   event.preventDefault();
