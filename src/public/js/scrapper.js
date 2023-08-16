@@ -30,6 +30,7 @@ function updateArticlesList(container, articles, webpage) {
 
     const dinamicUrl = checkUrl(webpage, article.link);
     a.href = dinamicUrl;
+    a.target = '_blank';
     a.className = 'text-scrapped';
     p.textContent = article.title;
 
