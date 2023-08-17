@@ -33,6 +33,7 @@ function updateArticlesList(container, articles, webpage) {
     a.target = '_blank';
     a.className = 'text-scrapped';
     p.textContent = article.title;
+    li.title = article.title;
 
     a.appendChild(p);
     li.appendChild(a);
@@ -40,15 +41,26 @@ function updateArticlesList(container, articles, webpage) {
   });
 }
 
-function createScrappedResults(data, keyWord) {
+function createScrappedResults(data) {
   const scrappedResults = document.createElement('section');
+  const objFound = `Matches: ${data['objects found']}`;
+  const keyword = `Keyword: ${data['key-word'].keyword}`;
+  const usedKeyword = `Used Times: ${data['key-word'].usedTimes}`;
+  const webpage = `${data['scanned webpage'].url}`;
+  const scrappedTimes = `Scrapped Times: ${data['scanned webpage'].scrapedTimes}`;
+  const update = `Last update: ${data['scanned webpage'].updatedAt}`;
+
   scrappedResults.className = 'scrapped-results';
   scrappedResults.innerHTML = `
-    <p class="text-scrapped detail">Matches: ${data['objects found']}</p>
-    <p class="text-scrapped detail">Key Word: ${keyWord}</p>
-    <p class="text-scrapped detail">${data['scanned webpage'].url}</p>
-    <p class="text-scrapped detail" id="exportToExcel" title="Export Results">
+    <p class="text-scrapped detail" title="${objFound}" aria-label="${objFound}">${objFound}</p>
+    <p class="text-scrapped detail" title="${keyword}" aria-label="${keyword}">${keyword}</p>
+    <p class="text-scrapped detail" title="${usedKeyword}" aria-label="${usedKeyword}">${usedKeyword}</p>
+    <p class="text-scrapped detail" title="${webpage}" aria-label="${webpage}">${webpage}</p>
+    <p class="text-scrapped detail" title="${scrappedTimes}" aria-label="${scrappedTimes}">${scrappedTimes}</p>
+    <p class="text-scrapped detail" title="${update}" aria-label=${update}>${update}</p> 
+    <p class="text-scrapped detail red" id="exportToExcel" title="Export Results">
 Export to Excel</p>
+  
   `;
   return scrappedResults;
 }
@@ -111,5 +123,3 @@ window.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('scraper-form');
   form.addEventListener('submit', handleFormSubmit);
 });
-
-AOS.init();
