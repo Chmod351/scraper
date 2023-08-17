@@ -30,7 +30,7 @@ This application not only allows you to `automate API creation`, `analyze and co
 
 ## Custom Usage ⚙️ <a name="Custom-Usage"></a>
 
-The code makes a `POST` request to the `/api/v1/scrappe` endpoint at `http://localhost:5000`. The request body should contain the following parameters:
+The code makes a `POST` request to the `/scrappe` endpoint at `https://scraper-5ask.onrender.com/api/v1`. The request body should contain the following parameters:
 
 - `keyWord` (string): The keyword to filter articles by (`optional`).
 - `url` (string): The URL of the web page to scrape (`mandatory`).
@@ -103,10 +103,10 @@ The API endpoint responds with a JSON object containing the following properties
 
 ### Export data to xlsx
 
-- Make a `Post` request to `/api/v1/export/to-excel`
+- Make a `Post` request to `/export/to-excel`
 - The request body should contain the following parameters:
-- `scanned webpage` (Object): Response for `/api/v1/scrappe` (`mandatory`)
-- `found articles` (Objects Array): Response for `/api/v1/scrappe` (`mandatory`).
+- `scanned webpage` (Object): Response for `/scrappe` (`mandatory`)
+- `found articles` (Objects Array): Response for `/scrappe` (`mandatory`).
 
 body example:
 
