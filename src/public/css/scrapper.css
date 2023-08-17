@@ -45,7 +45,6 @@ button .show {
 #exportToExcel {
   cursor: pointer;
 }
-
 #scrapped {
   display: flex;
   flex-direction: row;
@@ -56,7 +55,9 @@ button .show {
   border-radius: 20px;
   font-weight: bold;
 }
-
+.red {
+  background-color: var(--soft-red);
+}
 @media (max-width: 900px) {
   #scrapped {
     display: flex;
