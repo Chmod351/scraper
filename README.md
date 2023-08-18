@@ -158,7 +158,7 @@ Especial thanks to:
 | [@PraveenShinde3](https://github.com/PraveenShinde3) |  |
 | [@Rayen-Allaya](https://github.com/Rayen-Allaya) |  |
 | [@Piyush-Desmukh](https://github.com/Piyush-Deshmukh) | |
- 
+|[@Bolaji06](https://github.com/Bolaji06 ) | |
 
 ## Contributions 📈 <a name="Contributions"></a>
 
