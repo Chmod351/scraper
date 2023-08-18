@@ -41,6 +41,19 @@ function updateArticlesList(container, articles, webpage) {
   });
 }
 
+
+function convertDateFormat(dateString){
+  const newDate = new Date(dateString);
+
+  // API date format is in UTC "Z" signifies UTC
+  const day = newDate.getUTCDate();
+  const month = newDate.getUTCMonth() + 1;
+  const year = newDate.getUTCFullYear();
+  const fullDate = `${day < 9 ? "0" : ""}${day}-${month < 9 ? "0" : ""}${month}-${year}`;
+
+  return fullDate;
+}
+
 function createScrappedResults(data) {
   const scrappedResults = document.createElement('section');
   const objFound = `Matches: ${data['objects found']}`;
@@ -48,7 +61,7 @@ function createScrappedResults(data) {
   const usedKeyword = `Used Times: ${data['key-word'].usedTimes}`;
   const webpage = `${data['scanned webpage'].url}`;
   const scrappedTimes = `Scrapped Times: ${data['scanned webpage'].scrapedTimes}`;
-  const update = `Last update: ${data['scanned webpage'].updatedAt}`;
+  const update = `Last update: ${convertDateFormat(data['scanned webpage'].updatedAt)}`;
 
   scrappedResults.className = 'scrapped-results';
   scrappedResults.innerHTML = `
