@@ -29,11 +29,12 @@
 
 .joined__input,
 .joined__submit {
-  padding: 1rem;
+  padding: 0.8rem;
   width: 90%;
   font: inherit;
-  border-radius: 6px;
+  border-radius: 20px;
   border: none;
+  background-color: var(--soft-card-view);
 }
 
 .joined__submit {
