@@ -13,16 +13,16 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin: auto auto auto -2rem;
 }
 .links-scrapped li {
   border-radius: 10px;
   height: auto;
-  width: 25%;
+  width: 29.2%;
   margin: 1rem;
-  padding: 0.5rem;
+  padding: 1rem;
   list-style: none;
   background-color: var(--soft-card-view);
+  overflow: hidden;
 }
 
 .text-scrapped {
