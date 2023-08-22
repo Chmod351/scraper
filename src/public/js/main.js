@@ -72,5 +72,3 @@ window.addEventListener('resize', () => {
     navButton.setAttribute('src', '././images/icon-hamburger.svg');
   }
 });
-AOS.init();
-
