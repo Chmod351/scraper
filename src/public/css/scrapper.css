@@ -23,6 +23,10 @@
   list-style: none;
   background-color: var(--soft-card-view);
   overflow: hidden;
+  box-shadow: -2px 2px 3px var(--grayish-blue);
+}
+.links-scrapped li:hover {
+  box-shadow: -5px 4px 5px var(--grayish-blue);
 }
 
 .text-scrapped {
@@ -54,9 +58,13 @@ button .show {
   padding: 0.5rem;
   border-radius: 20px;
   font-weight: bold;
+  box-shadow: -0px 2px 3px var(--grayish-blue);
 }
 .red {
   background-color: var(--soft-red);
+}
+.red:hover {
+  background-color: var(--grayish-blue);
 }
 @media (max-width: 900px) {
   #scrapped {
