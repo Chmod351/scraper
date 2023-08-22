@@ -41,15 +41,16 @@ function updateArticlesList(container, articles, webpage) {
   });
 }
 
-
-function convertDateFormat(dateString){
+function convertDateFormat(dateString) {
   const newDate = new Date(dateString);
 
   // API date format is in UTC "Z" signifies UTC
   const day = newDate.getUTCDate();
   const month = newDate.getUTCMonth() + 1;
   const year = newDate.getUTCFullYear();
-  const fullDate = `${day < 9 ? "0" : ""}${day}-${month < 9 ? "0" : ""}${month}-${year}`;
+  const fullDate = `${day < 9 ? '0' : ''}${day}-${
+    month < 9 ? '0' : ''
+  }${month}-${year}`;
 
   return fullDate;
 }
@@ -61,7 +62,9 @@ function createScrappedResults(data) {
   const usedKeyword = `Used Times: ${data['key-word'].usedTimes}`;
   const webpage = `${data['scanned webpage'].url}`;
   const scrappedTimes = `Scrapped Times: ${data['scanned webpage'].scrapedTimes}`;
-  const update = `Last update: ${convertDateFormat(data['scanned webpage'].updatedAt)}`;
+  const update = `Last update: ${convertDateFormat(
+    data['scanned webpage'].updatedAt,
+  )}`;
 
   scrappedResults.className = 'scrapped-results';
   scrappedResults.innerHTML = `
@@ -124,11 +127,15 @@ async function handleFormSubmit(event) {
         createExport(data['scanned webpage'], data['found articles']);
       });
     } else {
-      responseContainer.textContent = `Error: ${data.message}`;
+      responseContainer.innerHTML = `<p class="error--message">Error: ${data.message}</p>`;
     }
   } catch (error) {
     console.error(error);
-    responseContainer.textContent = `Error: ${error.message}`;
+    responseContainer.innerHTML = `<p class="error--message">
+    Looks like you found an Error!, try again with another CSS Class container, but if you see again this message probably that site has scrapping protection!</p>`;
+    button.classList.remove('show');
+    infoSubmit.classList.add('show');
+    infoSubmit.classList.remove('hide');
   }
 }
 
