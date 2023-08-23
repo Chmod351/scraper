@@ -1,6 +1,6 @@
 import Request from 'supertest';
 import { expect } from 'chai';
-import envConfig from '../config/envConfig';
+// import envConfig from '../config/envConfig';
 const baseUrl = 'https://scraper-5ask.onrender.com/api/v1';
 // const baseUrl = `${envConfig.host}:${envConfig.port}/api/v1`;
 
