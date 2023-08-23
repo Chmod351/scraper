@@ -58,6 +58,7 @@ button .show {
   padding: 0.5rem;
   border-radius: 20px;
   font-weight: bold;
+  width: 280px;
   box-shadow: -0px 2px 3px var(--grayish-blue);
 }
 .red {
@@ -93,5 +94,8 @@ button .show {
     width: 100%;
     margin: 0.5rem;
     padding: 1rem;
+  }
+  .detail {
+    width: 100%;
   }
 }
