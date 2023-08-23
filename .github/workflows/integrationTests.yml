@@ -18,9 +18,6 @@ jobs:
           cd src/
           npm install
       - name: Run Jest test
-        env:
-          PORT: ${{ secrets.PORT }}
-          URL_SERVER: https://scraper-5ask.onrender.com
         run: |
           cd src/
           npm run test:integration
