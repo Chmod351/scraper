@@ -18,6 +18,9 @@ jobs:
           cd src/
           npm install
       - name: Run Jest test
+        env:
+          PORT: ${{ secrets.PORT }}
+          URL_SERVER: ${{ secrets.URL_SERVER }}
         run: |
           cd src/
           npm run test:integration
