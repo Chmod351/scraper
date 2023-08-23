@@ -1,9 +1,9 @@
 import Request from 'supertest';
 import { expect } from 'chai';
-import { baseUrl } from './scraper.integration.test';
-
-const myRequest = Request(baseUrl);
+import envConfig from '../config/envConfig';
+const baseUrl = `${envConfig.host}:${envConfig.port}/api/v1`;
 console.log(baseUrl);
+const myRequest = Request(baseUrl);
 
 describe('Positive cases: Integration Test', () => {
   it('should not return related results that contain the keyword', async () => {
