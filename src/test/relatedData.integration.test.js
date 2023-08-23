@@ -3,6 +3,7 @@ import { expect } from 'chai';
 import { baseUrl } from './scraper.integration.test';
 
 const myRequest = Request(baseUrl);
+console.log(baseUrl);
 
 describe('Positive cases: Integration Test', () => {
   it('should not return related results that contain the keyword', async () => {
