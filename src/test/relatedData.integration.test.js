@@ -1,6 +1,7 @@
 import Request from 'supertest';
 import { expect } from 'chai';
 import { baseUrl } from './scraper.integration.test';
+
 const myRequest = Request(baseUrl);
 
 describe('Positive cases: Integration Test', () => {
