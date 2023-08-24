@@ -14,7 +14,7 @@
   flex-direction: row;
   flex-wrap: wrap;
 }
-.links-scrapped li {
+.links-scrapped .list {
   border-radius: 10px;
   height: auto;
   width: 29.2%;
@@ -23,6 +23,30 @@
   list-style: none;
   background-color: var(--soft-card-view);
   overflow: hidden;
+}
+
+.pagination{
+  width: 100%;
+  margin: 10px 0;
+}
+
+.pagination .pagination__list{
+  display: flex;
+  justify-content: center;
+}
+
+.pagination__list .pagination__number{
+  list-style: none;
+  margin: 0 5px;
+}
+
+.pagination__number .pagination__button{
+  padding: 10px 15px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  background: var(--soft-red);
+  color: white;
 }
 
 .text-scrapped {
