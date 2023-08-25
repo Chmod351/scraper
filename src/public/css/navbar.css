@@ -77,11 +77,17 @@
   display: block;
   font-weight: 500;
 }
+.nav__link:hover {
+  text-decoration: 5px underline var(--soft-red);
+}
 .nav__link--last {
   border: 1px solid #fff;
   border-radius: 4px;
   padding: 0.5rem 0;
   border-radius: 20px;
+}
+.nav__link--last:hover {
+  text-decoration: none;
 }
 
 .nav__social {
