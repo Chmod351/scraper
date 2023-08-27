@@ -16,6 +16,7 @@ async function fetchData(url, objectClass, keyWord) {
   return await response.json();
 }
 
+
 //peticion al servidor con los campos requeridos
 async function handleFormSubmit(event) {
   /* inpust value url, cssClass, KeyWord */
@@ -52,11 +53,11 @@ async function handleFormSubmit(event) {
         rows,
         homePageNumber
       );
-
-      const scrappedResults = createScrappedResults(data, keyWord);
+      const scrappedResults = createScrappedResults(data,keyWord);
       responseContainer.innerHTML = '';
       responseContainer.appendChild(scrappedResults);
       responseContainer.appendChild(articlesListContainer);
+    
       const exportToExcel = document.getElementById('exportToExcel');
       exportToExcel.addEventListener('click', () => {
         createExport(data['scanned webpage'], data['found articles']);
@@ -76,11 +77,6 @@ function createArticleListContainer() {
   return ul;
 }
 
-/* create div */
-// const divContainerBuilder = () => {
-//   const div = document.createElement("div");
-//   return div;
-// }
 
 /*create card */
 function updateArticlesList(container, articles, webpage, rows, homePageNumber) {
@@ -90,7 +86,7 @@ function updateArticlesList(container, articles, webpage, rows, homePageNumber) 
   const startIndex = rows * homePageNumber;
   const endIndex = startIndex + rows;
   const leakedArticles = articles.slice(startIndex, endIndex);
-  
+
   leakedArticles.forEach((article) => {
     const li = document.createElement('li');
     const a = document.createElement('a');
@@ -107,8 +103,8 @@ function updateArticlesList(container, articles, webpage, rows, homePageNumber) 
     a.appendChild(p);
     li.appendChild(a);
     container.appendChild(li);
-  });
-  settingsPagination(articles, rows, container);
+  })
+  settingsPagination(container,articles,webpage,rows );
 }
 
 /*section data result left */
@@ -136,8 +132,7 @@ Export to Excel</p>
   return scrappedResults;
 }
 
-/* div button */
-const settingsPagination = (totalArticles, rows, container) => {
+const settingsPagination = (container,totalArticles,webpage, rows) => {
   const nav = document.createElement('nav');
   const ul = createArticleListContainer();
   nav.className = "pagination"
@@ -154,8 +149,16 @@ const settingsPagination = (totalArticles, rows, container) => {
     ul.appendChild(li);
     nav.appendChild(ul);
     container.appendChild(nav);
+    createButton(button,i,container, totalArticles, webpage, rows)
   }
+}
 
+const createButton = (button, i,container, totalArticles, webpage, rows) => {
+  const numberButton = i;
+  button.addEventListener('click', () => {
+    container.innerHTML = '';
+    updateArticlesList(container, totalArticles, webpage, rows, numberButton)
+  })
 }
 
 function checkUrl(webpage, url) {
