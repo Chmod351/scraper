@@ -22,6 +22,7 @@ async function sendQuery(keyword) {
   }
 }
 
+
 const relatedDataService = {
   sendQuery,
 };
