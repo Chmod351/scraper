@@ -1,5 +1,7 @@
 ![Screenshot_from_2023-08-02_14-38-24-removebg-preview](https://github.com/yamilt351/scraper/assets/88646148/ccf99b1d-f8b6-4cda-b5e6-4891b88add2b)
 
+# THE APP IS LIVE ON Render, SO IT WILL TAKE SOME TIME TO LOAD ON THE FIRST LOAD
+
 ![Static Badge](https://img.shields.io/badge/Development-deployed) ![](https://img.shields.io/website-up-down-green-red/https/scraper-5ask.onrender.com/public/html.html.svg)
 ![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/yamilt351/scraper?color=green) ![GitHub issues](https://img.shields.io/github/issues/yamilt351/scraper?color=red) ![GitHub last commit (by committer)](https://img.shields.io/github/last-commit/yamilt351/scraper) ![GitHub top language](https://img.shields.io/github/languages/top/yamilt351/scraper?color=blue) ![](https://img.shields.io/github/license/yamilt351/scraper.svg)
 
@@ -16,7 +18,7 @@
 - [Usage Limitations](#Usage-Limitations)
 - [Contributions](#Contributions)
 - [Contributing Guidelines](https://github.com/yamilt351/scraper/blob/master/CONTRIBUTING.md)
-- [Code Of Conduct](#https://github.com/yamilt351/scraper/blob/master/CODE_OF_CONDUCT.md)
+- [Code Of Conduct](https://github.com/yamilt351/scraper/blob/master/CODE_OF_CONDUCT.md)
 
 ## Enjoying this project? Please consider giving it a star ⭐️. Your support means a lot to us!
 
@@ -30,7 +32,7 @@ This application not only allows you to `automate API creation`, `analyze and co
 
 ## Custom Usage ⚙️ <a name="Custom-Usage"></a>
 
-The code makes a `POST` request to the `/api/v1/scrappe` endpoint at `http://localhost:5000`. The request body should contain the following parameters:
+The code makes a `POST` request to the `/scrappe` endpoint at `https://scraper-5ask.onrender.com/api/v1`. The request body should contain the following parameters:
 
 - `keyWord` (string): The keyword to filter articles by (`optional`).
 - `url` (string): The URL of the web page to scrape (`mandatory`).
@@ -103,10 +105,10 @@ The API endpoint responds with a JSON object containing the following properties
 
 ### Export data to xlsx
 
-- Make a `Post` request to `/api/v1/export/to-excel`
+- Make a `Post` request to `/export/to-excel`
 - The request body should contain the following parameters:
-- `scanned webpage` (Object): Response for `/api/v1/scrappe` (`mandatory`)
-- `found articles` (Objects Array): Response for `/api/v1/scrappe` (`mandatory`).
+- `scanned webpage` (Object): Response for `/scrappe` (`mandatory`)
+- `found articles` (Objects Array): Response for `/scrappe` (`mandatory`).
 
 body example:
 
@@ -149,14 +151,16 @@ body example:
 ## Contributors ❤️
 
 Especial thanks to:
-
-- [@Robertw8](https://github.com/Robertw8)
-- [@conorvenus](https://github.com/conorvenus)
-- [@sudeepmahato16 ](https://github.com/sudeepmahato16)
-- [@2div](https://github.com/2div)
-- [@PraveenShinde3](https://github.com/PraveenShinde3)
-- [@Rayen-Allaya](https://github.com/Rayen-Allaya)
-- [@Piyush-Desmukh](https://github.com/Piyush-Deshmukh)
+  |📌 Frontend | 📌 Designers | 
+  |------------|-------------|
+  |[@Robertw8](https://github.com/Robertw8)| [@LorenaGambarrota](https://github.com/LorenaGambarrota)|
+| [@conorvenus](https://github.com/conorvenus)|  |
+| [@sudeepmahato16 ](https://github.com/sudeepmahato16)| |
+| [@2div](https://github.com/2div) |  |
+| [@PraveenShinde3](https://github.com/PraveenShinde3) |  |
+| [@Rayen-Allaya](https://github.com/Rayen-Allaya) |  |
+| [@Piyush-Desmukh](https://github.com/Piyush-Deshmukh) | |
+|[@Bolaji06](https://github.com/Bolaji06 ) | |
 
 ## Contributions 📈 <a name="Contributions"></a>
 

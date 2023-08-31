@@ -1,8 +1,8 @@
 import Request from 'supertest';
 import { expect } from 'chai';
-import envConfig from '../config/envConfig';
-
-const baseUrl = `${envConfig.host}:${envConfig.port}/api/v1`;
+// import envConfig from '../config/envConfig';
+const baseUrl = 'https://scraper-5ask.onrender.com/api/v1';
+// const baseUrl = `${envConfig.host}:${envConfig.port}/api/v1`;
 
 describe('Edge Cases: Integration Tests', () => {
   it('should return statusCode 400 bad request /api/scrappe', async () => {
