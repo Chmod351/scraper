@@ -17,7 +17,6 @@ async function fetchData(url, objectClass, keyWord) {
 }
 
 
-//peticion al servidor con los campos requeridos
 async function handleFormSubmit(event) {
   /* inpust value url, cssClass, KeyWord */
   const url = document.getElementById('url').value;
@@ -71,7 +70,7 @@ async function handleFormSubmit(event) {
   }
 }
 
-/* create Ul */
+/* create ul */
 function createArticleListContainer() {
   const ul = document.createElement('ul');
   return ul;
@@ -104,7 +103,7 @@ function updateArticlesList(container, articles, webpage, rows, homePageNumber) 
     li.appendChild(a);
     container.appendChild(li);
   })
-  settingsPagination(container,articles,webpage,rows );
+  settingsPagination(container,articles,webpage,rows, homePageNumber);
 }
 
 /*section data result left */
@@ -132,18 +131,20 @@ Export to Excel</p>
   return scrappedResults;
 }
 
-const settingsPagination = (container,totalArticles,webpage, rows) => {
-  const nav = document.createElement('nav');
+const settingsPagination = (container,totalArticles,webpage, rows, homePageNumber) => {
+  const nav = document.createElement("nav");
   const ul = createArticleListContainer();
   nav.className = "pagination"
   ul.className = "pagination__list";
   const totalPages = Math.ceil(totalArticles.length / rows);
+  ul.innerHTML = '';
   for(let i = 1; i <= totalPages ; i++){
     const li = document.createElement("li");
     const button = document.createElement("button");
     button.innerText = `${i}`;
     button.className = "pagination__button";
     button.type = "button";
+    if((homePageNumber + 1) == i) button.classList.add('pagination__button--active');
     li.className = "pagination__number";
     li.appendChild(button);
     ul.appendChild(li);
@@ -155,6 +156,7 @@ const settingsPagination = (container,totalArticles,webpage, rows) => {
 
 const createButton = (button, i,container, totalArticles, webpage, rows) => {
   const numberButton = i;
+
   button.addEventListener('click', () => {
     container.innerHTML = '';
     updateArticlesList(container, totalArticles, webpage, rows, numberButton)

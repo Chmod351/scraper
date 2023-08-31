@@ -26,13 +26,15 @@
 }
 
 .pagination{
-  width: 100%;
   margin: 10px 0;
 }
 
 .pagination .pagination__list{
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+  row-gap: 1rem;
+  padding-left: 0;
 }
 
 .pagination__list .pagination__number{
@@ -40,13 +42,20 @@
   margin: 0 5px;
 }
 
-.pagination__number .pagination__button{
+.pagination__button{
   padding: 10px 15px;
   border: none;
   border-radius: 50%;
   cursor: pointer;
   background: var(--soft-red);
   color: white;
+}
+.pagination__button:hover{
+  background-color: #ec2626;
+}
+
+.pagination__button--active{
+  background-color: #ec2626;
 }
 
 .text-scrapped {
@@ -82,6 +91,13 @@ button .show {
 .red {
   background-color: var(--soft-red);
 }
+
+@media screen and (min-width: 768px) {
+  .pagination .pagination__list{
+    padding-left: 40px;
+  }
+}
+
 @media (max-width: 900px) {
   #scrapped {
     display: flex;
@@ -92,7 +108,7 @@ button .show {
     width: 90%;
     margin: auto;
   }
-  .links-scrapped li {
+  .links-scrapped .list {
     width: 100%;
     margin: 0.5rem;
     padding: 1rem;
