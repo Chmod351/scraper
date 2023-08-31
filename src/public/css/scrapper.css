@@ -14,7 +14,7 @@
   flex-direction: row;
   flex-wrap: wrap;
 }
-.links-scrapped li {
+.links-scrapped .list {
   border-radius: 10px;
   height: auto;
   width: 29.2%;
@@ -27,6 +27,39 @@
 }
 .links-scrapped li:hover {
   box-shadow: -5px 4px 5px var(--grayish-blue);
+}
+
+.pagination{
+  margin: 10px 0;
+}
+
+.pagination .pagination__list{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  row-gap: 1rem;
+  padding-left: 0;
+}
+
+.pagination__list .pagination__number{
+  list-style: none;
+  margin: 0 5px;
+}
+
+.pagination__button{
+  padding: 10px 15px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  background: var(--soft-red);
+  color: white;
+}
+.pagination__button:hover{
+  background-color: #ec2626;
+}
+
+.pagination__button--active{
+  background-color: #ec2626;
 }
 
 .text-scrapped {
@@ -64,6 +97,15 @@ button .show {
 .red {
   background-color: var(--soft-red);
 }
+
+
+@media screen and (min-width: 768px) {
+  .pagination .pagination__list{
+    padding-left: 40px;
+  }
+}
+
+
 .red:hover {
   background-color: var(--grayish-blue);
 }
@@ -76,6 +118,7 @@ button .show {
   margin: auto;
   font-size: 25px;
 }
+
 @media (max-width: 900px) {
   #scrapped {
     margin: auto;
@@ -86,6 +129,9 @@ button .show {
     width: 90%;
     margin: auto;
   }
+
+  .links-scrapped .list {
+
   .links-scrapped {
     margin-left: -20px;
     max-width: 100%;
