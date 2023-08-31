@@ -16,7 +16,6 @@ async function fetchData(url, objectClass, keyWord) {
   return await response.json();
 }
 
-
 async function handleFormSubmit(event) {
   /* inpust value url, cssClass, KeyWord */
   const url = document.getElementById('url').value;
@@ -50,13 +49,13 @@ async function handleFormSubmit(event) {
         data['found articles'],
         data['scanned webpage'].url,
         rows,
-        homePageNumber
+        homePageNumber,
       );
-      const scrappedResults = createScrappedResults(data,keyWord);
+      const scrappedResults = createScrappedResults(data, keyWord);
       responseContainer.innerHTML = '';
       responseContainer.appendChild(scrappedResults);
       responseContainer.appendChild(articlesListContainer);
-    
+
       const exportToExcel = document.getElementById('exportToExcel');
       exportToExcel.addEventListener('click', () => {
         createExport(data['scanned webpage'], data['found articles']);
@@ -76,11 +75,16 @@ function createArticleListContainer() {
   return ul;
 }
 
-
 /*create card */
-function updateArticlesList(container, articles, webpage, rows, homePageNumber) {
+function updateArticlesList(
+  container,
+  articles,
+  webpage,
+  rows,
+  homePageNumber,
+) {
   container.innerHTML = '';
-  container.className = 'links-scrapped';
+  // container.className = 'links-scrapped';
   homePageNumber--;
   const startIndex = rows * homePageNumber;
   const endIndex = startIndex + rows;
@@ -97,15 +101,33 @@ function updateArticlesList(container, articles, webpage, rows, homePageNumber) 
     a.className = 'text-scrapped';
     p.textContent = article.title;
     li.title = article.title;
-    li.className = "list";
+    li.className = 'list';
 
     a.appendChild(p);
     li.appendChild(a);
     container.appendChild(li);
-  })
-  settingsPagination(container,articles,webpage,rows, homePageNumber);
+  });
+  settingsPagination(container, articles, webpage, rows, homePageNumber);
 }
+// function updateArticlesList(container, articles, webpage) {
+//   container.innerHTML = '';
+//   articles.forEach((article) => {
+//     const li = document.createElement('li');
+//     const a = document.createElement('a');
+//     const p = document.createElement('p');
 
+//     const dinamicUrl = checkUrl(webpage, article.link);
+//     a.href = dinamicUrl;
+//     a.target = '_blank';
+//     a.className = 'text-scrapped';
+//     p.textContent = article.title;
+//     li.title = article.title;
+
+//     a.appendChild(p);
+//     li.appendChild(a);
+//     container.appendChild(li);
+//   });
+// }
 
 /*section data result left */
 
@@ -149,37 +171,44 @@ Export to Excel</p>
   return scrappedResults;
 }
 
-const settingsPagination = (container,totalArticles,webpage, rows, homePageNumber) => {
-  const nav = document.createElement("nav");
+function settingsPagination(
+  container,
+  totalArticles,
+  webpage,
+  rows,
+  homePageNumber,
+) {
+  const nav = document.createElement('nav');
   const ul = createArticleListContainer();
-  nav.className = "pagination"
-  ul.className = "pagination__list";
+  nav.className = 'pagination';
+  ul.className = 'pagination__list';
   const totalPages = Math.ceil(totalArticles.length / rows);
   ul.innerHTML = '';
-  for(let i = 1; i <= totalPages ; i++){
-    const li = document.createElement("li");
-    const button = document.createElement("button");
+  for (let i = 1; i <= totalPages; i++) {
+    const li = document.createElement('li');
+    const button = document.createElement('button');
     button.innerText = `${i}`;
-    button.className = "pagination__button";
-    button.type = "button";
-    if((homePageNumber + 1) == i) button.classList.add('pagination__button--active');
-    li.className = "pagination__number";
+    button.className = 'pagination__button';
+    button.type = 'button';
+    if (homePageNumber + 1 == i)
+      button.classList.add('pagination__button--active');
+    li.className = 'pagination__number';
     li.appendChild(button);
     ul.appendChild(li);
     nav.appendChild(ul);
     container.appendChild(nav);
-    createButton(button,i,container, totalArticles, webpage, rows)
+    createButton(button, i, container, totalArticles, webpage, rows);
   }
 }
 
-const createButton = (button, i,container, totalArticles, webpage, rows) => {
+const createButton = (button, i, container, totalArticles, webpage, rows) => {
   const numberButton = i;
 
   button.addEventListener('click', () => {
     container.innerHTML = '';
-    updateArticlesList(container, totalArticles, webpage, rows, numberButton)
-  })
-}
+    updateArticlesList(container, totalArticles, webpage, rows, numberButton);
+  });
+};
 
 function checkUrl(webpage, url) {
   if (url.startsWith('https://www.')) {
@@ -188,7 +217,6 @@ function checkUrl(webpage, url) {
     return webpage + url;
   }
 }
-
 
 async function handleFormSubmit(event) {
   const url = document.getElementById('url').value;
