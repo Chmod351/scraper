@@ -19,86 +19,141 @@
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="stylesheet" href="./css/scrapper.css" />
-    <link rel="preconnect" href="https://fonts.gstaticWeb Scrapper
+    <link rel="preconnect" href="https://fonts.gstaticWeb Scrapper" />
     <link
       href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap"
       rel="stylesheet"
     />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
   </head>
   <body>
-    <header class="hero">
-      <nav class="nav container">
-        <figure class="nav__figure">
-          <img src="./images/logo-bookmark.svg" class="nav__logo" />
-        </figure>
+    <header class="hero" role="heading">
+      <nav class="nav container-nav">
+        <div class="nav__wrapper">
+          <figure class="nav__figure">
+            <a href="#Home">
+              <img
+                src="./images/logo-bookmark.svg"
+                class="nav__logo"
+                role="img"
+                alt="logo"
+                aria-label="web scrapper logo"
+                title="web scrapper"
+              />
+            </a>
+          </figure>
 
-        <div class="nav__hamburguer">
-          <img src="./images/icon-hamburger.svg" class="nav__button" />
-        </div>
+          <div class="nav__hamburguer" role="menuitem">
+            <img
+              src="./images/icon-hamburger.svg"
+              class="nav__button"
+              alt="menu"
+            />
+          </div>
 
-        <div class="nav__container">
-          <ul class="nav__list container">
-            <li class="nav__element">
-              <a href="#faq" class="nav__link">FAQS</a>
-            </li>
+          <div class="nav__container" role="navigation">
+            <ul class="nav__list container">
+              <li class="nav__element">
+                <a href="#Features" class="nav__link">Features</a>
+              </li>
+              <li class="nav__element">
+                <a href="#Functionalities" class="nav__link">Functionalities</a>
+              </li>
+              <li class="nav__element">
+                <a href="#FAQ" class="nav__link">FAQ</a>
+              </li>
+              <li class="nav__element">
+                <a
+                  href="https://github.com/yamilt351/scraper/blob/master/README.md#Contributions"
+                  target="_blank"
+                  class="nav__link"
+                  >Documentation</a
+                >
+              </li>
 
-            <li class="nav__element">
+              <li class="nav__element">
+                <a
+                  href="#Product"
+                  class="nav__link nav__link--last"
+                  role="button"
+                  >TRY NOW</a
+                >
+              </li>
+            </ul>
+
+            <div class="nav__social">
               <a
-                href="https://github.com/yamilt351/scraper/blob/master/README.md#Contributions"
-                target="_blank"
-                class="nav__link"
-                >Documentation</a
-              >
-            </li>
-
-            <li class="nav__element">
-              <a
-                target="_blank"
                 href="https://www.linkedin.com/in/yamil-tauil/"
-                class="nav__link"
-                >Contact</a
+                class="nav__media"
+                target="_blank"
+                title="Linkedin"
               >
-            </li>
+                <img
+                  src="./images/icon-linkedin.svg"
+                  class="nav__socialme"
+                  alt="linkedin"
+                  aria-label="link to linkedin"
+                />
+              </a>
 
-            <li class="nav__element">
-              <a href="#product" class="nav__link nav__link--last">TRY NOW</a>
-            </li>
-          </ul>
-
-          <div class="nav__social">
-            <a href="#" class="nav__media" target="_blank">
-              <img src="./images/icon-facebook.svg" class="nav__socialme" />
-            </a>
-
-            <a href="#" class="nav__media" target="_blank">
-              <img src="./images/icon-twitter.svg" class="nav__socialme" />
-            </a>
+              <a
+                href="https://github.com/yamilt351/scraper"
+                class="nav__media"
+                target="_blank"
+                title="Github"
+              >
+                <img
+                  src="./images/icon-github.svg"
+                  class="nav__socialme"
+                  alt="github"
+                  aria-label="link to github"
+                />
+              </a>
+            </div>
           </div>
         </div>
       </nav>
-
-      <section class="hero__main container">
+      <div class="progress-container">
+        <div class="progress-bar" id="myBar"></div>
+      </div>
+      <section
+        class="hero__main container"
+        role="heading"
+        aria-level="1"
+        id="Home"
+      >
         <figure class="hero__figure">
-          <img src="./images/illustration-hero.svg" class="hero__img" />
+          <img
+            src="./images/illustration-hero.svg"
+            class="hero__img"
+            alt="computer surfing the web "
+          />
         </figure>
 
-        <article class="hero__texts" data-aos="fade-right">
+        <article class="hero__texts">
           <h1 class="hero__title">A Powerfull Web Scrapper</h1>
           <p class="hero__paragraph">
-            This project is a highly versatile web scraper that allows users to
-            extract data from any website by providing the URL link and CSS
-            selector for scraping. With this tool, developers, analysts, and
-            researchers can easily obtain specific information from different
-            online sources for further analysis and processing.
+            Unleash your creativity with our<b>
+              free
+
+              <a href="https://github.com/yamilt351/scraper" target="_blank"
+                >Api Rest</a
+              >
+              !.
+            </b>
+            With our Web Scraper, you can effortlessly
+            <b> automate API creation. </b>
+            By consuming our public API, you gain the flexibility to tailor our
+            Scraper's functionality to your specific needs. Start crafting and
+            customizing your APIs today to elevate your projects to the next
+            level!
           </p>
 
           <div class="hero__buttons">
-            <a href="#product" class="hero__button"> Start Scrapping Now!</a>
+            <a href="#Product" class="hero__button"> Start Scrapping Now!</a>
 
             <a
               href="https://github.com/yamilt351/scraper/tree/master"
@@ -112,7 +167,7 @@
     </header>
 
     <main class="main">
-      <section class="features container">
+      <section class="features container" id="Features">
         <div class="features__content">
           <h2 class="features__title">Features</h2>
           <p class="features__paragraph">
@@ -123,7 +178,7 @@
           <ul class="features__list">
             <li class="features__element">
               <a
-                href="#"
+                href="https://github.com/yamilt351/scraper/blob/master/README.md#Contributions"
                 class="features__tab features__tab--active"
                 data-article="1"
                 >How it's Works?</a
@@ -131,13 +186,13 @@
             </li>
 
             <li class="features__element">
-              <a href="#" class="features__tab" data-article="2"
+              <a href="#Product" class="features__tab" data-article="2"
                 >Speedy Searching
               </a>
             </li>
 
             <li class="features__element">
-              <a href="#" class="features__tab" data-article="3"
+              <a href="#Product" class="features__tab" data-article="3"
                 >Privacy Policy
               </a>
             </li>
@@ -150,21 +205,29 @@
               <img
                 src="./images/illustration-features-tab-1.svg"
                 class="features__img"
+                alt="inspecting web page"
               />
             </figure>
 
             <div class="features__texts">
               <h3 class="features__subtitle">Scrappe a site with one click</h3>
               <p class="features__copy">
-                Go to the website you want to scrape. Open the browser's
-                developer tools by pressing F12 or right-clicking and selecting
-                "Inspect". Use the console to explore the page's content and
-                find the container that holds the text and the "a" (link)
-                element you want to extract. Once you find the container with
-                the appropriate class, copy it. Then, paste the CSS class into
-                our form and get their data!.
+                Go to the <b> website </b> you want to scrape. Open the<b>
+                  browser's developer tools
+                </b>
+                by pressing F12 or right-clicking and selecting "Inspect".<b>
+                  Use the console
+                </b>
+                to explore the page's content and
+                <b>
+                  find the container that holds the text and the "a" (link)
+                  element
+                </b>
+                you want to extract. Once you find the container with the
+                appropriate class, copy it. Then, paste the CSS class into our
+                form and get their data!.
               </p>
-              <a href="#product" class="features__cta">More Info</a>
+              <a href="#Product" class="features__cta">Start Now</a>
             </div>
           </article>
 
@@ -173,16 +236,26 @@
               <img
                 src="./images/illustration-features-tab-2.svg"
                 class="features__img"
+                alt="empowering search results"
               />
             </figure>
 
             <div class="features__texts">
               <h3 class="features__subtitle">Intelligent search</h3>
               <p class="features__copy">
-                Accelerate the retrieval of results using keywords, filter out
-                all unnecessary results, and save your time!
+                By utilizing specific<b> keywords</b>, not only can you swiftly
+                access
+                <b> related data stored in the database, </b>
+                but you can also enhance the efficiency of your scraping
+                process. These
+                <b>
+                  keywords enable you to filter and refine the results obtained
+                  during the scraping process
+                </b>
+                , ensuring that you accelerate result retrieval, filter out
+                unnecessary information, and save valuable time.
               </p>
-              <a href="#product" class="features__cta">More Info</a>
+              <a href="#Product" class="features__cta">Start Now</a>
             </div>
           </article>
 
@@ -191,78 +264,77 @@
               <img
                 src="./images/illustration-features-tab-3.svg"
                 class="features__img"
+                alt="user with his privacy protected"
               />
             </figure>
 
             <div class="features__texts">
               <h3 class="features__subtitle">Keep it private</h3>
               <p class="features__copy">
-                We take our users' privacy very seriously, which is why we do
-                not store any information related to how you use this tool.
+                We take our users' privacy very seriously, which is why
+                <b> we do not store any information </b>
+                related to how you use this tool.
               </p>
-              <a href="#product" class="features__cta">More Info</a>
+              <a href="#Product" class="features__cta"> Start Now </a>
             </div>
           </article>
         </div>
       </section>
 
-      <!-- <!-1- web extensions -1-> -->
-      <!-- <section class="download container"> -->
-      <!--   <h2 class="download__title">Download the extension</h2> -->
-      <!--   <p class="download__paragraph"> -->
-      <!--     We’ve got more browsers in the pipeline. Please do let us know if -->
-      <!--     you’ve got a favourite you’d like us to prioritize. -->
-      <!--   </p> -->
+      <!-- export feature -->
+      <section class="download container" id="Functionalities">
+        <h2 class="download__title">Download your Results</h2>
+        <p class="download__paragraph">
+          To facilitate API creation or information analysis, we provide the
+          option to export your results in a cross-platform compatible format.
+        </p>
 
-      <!--   <div class="download__container"> -->
-      <!--     <article -->
-      <!--       class="download__item" -->
-      <!--       data-aos="fade-down" -->
-      <!--       data-aos-easing="linear" -->
-      <!--       data-aos-duration="1300" -->
-      <!--     > -->
-      <!--       <figure class="download__figure"> -->
-      <!--         <img src="./images/logo-chrome.svg" class="download__img" /> -->
-      <!--       </figure> -->
+        <div class="download__container">
+          <article class="download__item">
+            <figure class="download__figure">
+              <img
+                src="./images/libreOffice.png"
+                class="download__img"
+                alt="libreOffice"
+              />
+            </figure>
 
-      <!--       <h3 class="download__browser">Add to Chrome</h3> -->
-      <!--       <p class="download__version">Minimum version 62</p> -->
-      <!--       <a href="#" class="download__extension">Add & Install Extension</a> -->
-      <!--     </article> -->
+            <h3 class="download__browser">LibreOffice</h3>
+            <p class="download__version">version 7.5.5</p>
+            <a href="#Product" class="download__extension">Export Data</a>
+          </article>
 
-      <!--     <article -->
-      <!--       class="download__item" -->
-      <!--       data-aos="fade-down" -->
-      <!--       data-aos-easing="linear" -->
-      <!--       data-aos-duration="1600" -->
-      <!--     > -->
-      <!--       <figure class="download__figure"> -->
-      <!--         <img src="./images/logo-firefox.svg" class="download__img" /> -->
-      <!--       </figure> -->
+          <article class="download__item">
+            <figure class="download__figure">
+              <img
+                src="./images/MicOffice.webp"
+                class="download__img"
+                alt="Microsoft Office"
+              />
+            </figure>
 
-      <!--       <h3 class="download__browser">Add to Firefox</h3> -->
-      <!--       <p class="download__version">Minimum version 55</p> -->
-      <!--       <a href="#" class="download__extension">Add & Install Extension</a> -->
-      <!--     </article> -->
+            <h3 class="download__browser">MsOffice</h3>
+            <p class="download__version">Office 2021</p>
+            <a href="#Product" class="download__extension">Export Data</a>
+          </article>
 
-      <!--     <article -->
-      <!--       class="download__item" -->
-      <!--       data-aos="fade-down" -->
-      <!--       data-aos-easing="linear" -->
-      <!--       data-aos-duration="1800" -->
-      <!--     > -->
-      <!--       <figure class="download__figure"> -->
-      <!--         <img src="./images/logo-opera.svg" class="download__img" /> -->
-      <!--       </figure> -->
+          <article class="download__item">
+            <figure class="download__figure">
+              <img
+                src="./images/gSheets.webp"
+                class="download__img"
+                alt="Google Sheets"
+              />
+            </figure>
 
-      <!--       <h3 class="download__browser">Add to Opera</h3> -->
-      <!--       <p class="download__version">Minimum version 46</p> -->
-      <!--       <a href="#" class="download__extension">Add & Install Extension</a> -->
-      <!--     </article> -->
-      <!--   </div> -->
-      <!-- </section> -->
+            <h3 class="download__browser">Google Sheets</h3>
+            <p class="download__version">Google Sheets</p>
+            <a href="#Product" class="download__extension">Export Data</a>
+          </article>
+        </div>
+      </section>
 
-      <section class="article container" id="faq">
+      <section class="article container" id="FAQ">
         <h2 class="article__title">Frequently Asked Questions</h2>
         <p class="article__paragraph">
           Here are some of our FAQs. If you have any other questions you’d like
@@ -272,7 +344,11 @@
         <div class="article__container">
           <h3 class="article__question">
             What is Web Scraping?
-            <img src="./images/icon-arrow.svg" class="article__arrow" />
+            <img
+              src="./images/icon-arrow.svg"
+              class="article__arrow"
+              alt="down arrow"
+            />
           </h3>
 
           <article class="article__content">
@@ -289,7 +365,11 @@
 
           <h3 class="article__question">
             Is Web Scraping legal?
-            <img src="./images/icon-arrow.svg" class="article__arrow" />
+            <img
+              src="./images/icon-arrow.svg"
+              class="article__arrow"
+              alt="down arrow"
+            />
           </h3>
 
           <article class="article__content">
@@ -307,7 +387,11 @@
 
           <h3 class="article__question">
             What types of data can be extracted with Web Scraping?
-            <img src="./images/icon-arrow.svg" class="article__arrow" />
+            <img
+              src="./images/icon-arrow.svg"
+              class="article__arrow"
+              alt="down arrow"
+            />
           </h3>
 
           <article class="article__content">
@@ -325,7 +409,11 @@
 
           <h3 class="article__question">
             What are the challenges of Web Scraping?
-            <img src="./images/icon-arrow.svg" class="article__arrow" />
+            <img
+              src="./images/icon-arrow.svg"
+              class="article__arrow"
+              alt="down arrow"
+            />
           </h3>
 
           <article class="article__content">
@@ -346,12 +434,14 @@
         >
       </section>
       <!-- scrapping form section -->
-      <section class="joined" id="product">
+      <section class="joined" id="Product">
         <div class="joined__container container">
           <p class="joined__paragraph">35,000+ active users!</p>
-          <h2 class="joined__title">Use your FREE DEMO NOW!</h2>
+          <h2 class="joined__title">TRY IT NOW!</h2>
           <form id="scraper-form" class="joined__form">
-            <label class="joined__text" for="url">Target URL:</label><br />
+            <label class="joined__text" for="url"
+              >Website Target to Scrappe :</label
+            ><br />
             <input
               title="target site URL"
               class="joined__input"
@@ -363,7 +453,7 @@
               placeholder="site url"
             /><br />
             <label class="joined__text" for="objectClass"
-              >Css Object Class:</label
+              >Container CSS Class:</label
             ><br />
             <input
               title="article css Class"
@@ -375,7 +465,8 @@
               required
               placeholder="css class"
             /><br />
-            <label class="joined__text" for="keyWord">Keyword To Search:</label
+            <label class="joined__text" for="keyWord"
+              >Keyword To Get Related Data:</label
             ><br />
             <input
               title="keyword to search (optional)"
@@ -383,7 +474,7 @@
               type="text"
               id="keyWord"
               name="keyWord"
-              placeholder="Keyword to search"
+              placeholder="Filter your results with a keyword"
             /><br />
 
             <div class="cta">
@@ -393,21 +484,28 @@
               </button>
             </div>
           </form>
-          <!--scrapping results -->
-          <div id="response" class="scrapp-container" data-aos="fade-up"></div>
         </div>
       </section>
     </main>
+    <!--scrapping results -->
 
+    <div id="Response" class="scrapp-container">
+      <div id="scrapped-data-pagination-container"></div>
+      <div class="container" id="scrapped"></div>
+    </div>
     <footer class="footer">
       <div class="footer__container container">
         <figure class="footer__figure">
-          <img src="./images/logo-bookmark-footer.svg" class="footer__logo" />
+          <img
+            src="./images/logo-bookmark-footer.svg"
+            class="footer__logo"
+            alt="web scrapper logo"
+          />
         </figure>
 
         <ul class="footer__list">
           <li class="footer__item">
-            <a href="#faq" class="footer__link"> FAQs</a>
+            <a href="#FAQ" class="footer__link"> FAQs</a>
           </li>
           <li class="footer__item">
             <a
@@ -417,12 +515,7 @@
             >
           </li>
           <li class="footer__item">
-            <a
-              href="https://www.linkedin.com/in/yamil-tauil/"
-              class="footer__link"
-            >
-              Contact</a
-            >
+            <a href="#Features" class="footer__link"> Features</a>
           </li>
         </ul>
 
@@ -431,19 +524,29 @@
             href="https://www.linkedin.com/in/yamil-tauil/"
             class="footer__social"
           >
-            <img src="./images/icon-facebook.svg" class="footer__icon" />
+            <img
+              src="./images/icon-linkedin.svg"
+              class="footer__icon"
+              alt="linkedin"
+            />
           </a>
           <a
             href="https://github.com/yamilt351/scraper/tree/master"
             class="footer__social"
           >
-            <img src="./images/icon-twitter.svg" class="footer__icon" />
+            <img
+              src="./images/icon-github.svg"
+              class="footer__icon"
+              alt="github"
+            />
           </a>
         </div>
       </div>
     </footer>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
     <script src="./js/scrapper.js"></script>
     <script src="./js/main.js"></script>
+    <script src="./js/exportToXlsx.js"></script>
+    <script src="./js/scrollIndicator.js"></script>
   </body>
 </html>

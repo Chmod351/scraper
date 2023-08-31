@@ -1,6 +1,6 @@
 import needle from 'needle';
 import cheerio from 'cheerio';
-import { BadRequestError } from '../helpers/errorHandler.js';
+import { BadRequestError } from '../../helpers/errorHandler.js';
 import WebsiteTarget from './scrapperModel/scrapperTargetModel.js';
 import Result from './scrapperModel/scrapperResults.js';
 import Keyword from './scrapperModel/scrapperKeyword.js';
@@ -82,15 +82,17 @@ async function scrapeAndCleanData(url, cssClass, keyword) {
 }
 
 async function getOrCreateKeyword(keyword) {
+  console.log('aca');
   if (!keyword) {
-    return null;
+    return [];
   }
   const resultKeyword = await Keyword.findOrCreate(
     { keyword },
     { $inc: { usedTimes: 1 } },
     { upsert: true, new: true, setDefaultsOnInsert: true },
   );
-  return resultKeyword;
+  const { doc, created } = await resultKeyword;
+  return doc;
 }
 
 async function createWebsiteTarget(url, cssClass) {
@@ -182,6 +184,7 @@ const scrappService = {
   cleanArticles,
   scrapeAndCleanData,
   saveScrapedDataToDatabase,
+  getOrCreateKeyword,
 };
 
 export default scrappService;

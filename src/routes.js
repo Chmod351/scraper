@@ -3,8 +3,9 @@ const router = express.Router();
 import swaggerJsdoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
 import options from './config/swaggerConfig.js';
-import scrapper from './scrapper/scrapperControllers.js';
+import scrapper from './scrapper/scrapping/scrapperControllers.js';
 import convertToExcel from './scrapper/xlsx/xlsxController.js';
+import relatedDataController from './scrapper/relatedData/relatedDataController.js';
 const specs = swaggerJsdoc(options);
 /**
  * @swagger
@@ -36,4 +37,5 @@ const specs = swaggerJsdoc(options);
 router.get('/docs', swaggerUi.serve, swaggerUi.setup(specs));
 router.post('/scrappe', scrapper.scrapperController);
 router.post('/export/to-excel', convertToExcel.exportData);
+router.get('/related/', relatedDataController.getData);
 export default router;

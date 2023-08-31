@@ -3,14 +3,19 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   --soft-blue: hsl(231, 69%, 60%);
   --soft-red: hsl(0, 94%, 66%);
-  --grayish-blue: hsl(229, 8%, 60%);
+  --grayish-blue: hsl(229, 31%, 21%, 0.8);
   --very-dark-blue: hsl(229, 31%, 21%);
 
   --grayish-blue-alpha: hsl(229, 8%, 60%, 0.5);
   --very-dark-blue-alpha: hsl(229, 31%, 21%, 0.8);
+  --soft-card-view: #a9b3ef;
 
   --padding-container: 60px 0;
 }
@@ -25,7 +30,7 @@ body {
 
 /* Hero */
 .container {
-  max-width: 1200px;
+  max-width: 1100px;
   overflow: hidden;
   margin: 0 auto;
   padding: var(--padding-container);
@@ -93,7 +98,7 @@ body {
   text-decoration: none;
   padding: 1rem;
   font-weight: 500;
-  border-radius: 4px;
+  border-radius: 30px;
 
   box-shadow: -5px 2px 3px var(--grayish-blue-alpha);
 }
@@ -144,6 +149,7 @@ body {
   }
 
   .hero__title {
+    margin-top: 40px;
     font-size: 2.5rem;
   }
 

@@ -4,6 +4,7 @@ import compression from 'compression';
 import rateLimit from 'express-rate-limit';
 import envConfig from '../config/envConfig.js';
 import express from 'express';
+import helmet from 'helmet';
 
 // config
 //
@@ -20,13 +21,14 @@ const limit = rateLimit({
 
 const url = express.urlencoded({ extended: true });
 const expressJsonMiddleware = express.json();
-
+const headers = helmet();
 const compress = compression();
 
 const morganConfig = morgan('dev');
 
 // middlewares
 export default function configureMiddlewares(app) {
+  app.use(headers);
   app.use(corsConfig);
   app.use(expressJsonMiddleware);
   app.use(url);

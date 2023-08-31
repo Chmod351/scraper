@@ -7,7 +7,7 @@
   "scripts": {
     "test": "npm run test:unit && npm run test:integration",
     "test:unit": "node --experimental-vm-modules node_modules/jest/bin/jest.js scraper.unit.test.js xlsx.unit.test.js",
-    "test:integration": "node --experimental-vm-modules node_modules/jest/bin/jest.js scraper.integration.test.js",
+    "test:integration": "node --experimental-vm-modules node_modules/jest/bin/jest.js scraper.integration.test.js relatedData.integration.test.js",
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
@@ -22,6 +22,7 @@
     "exceljs": "^4.3.0",
     "express": "^4.18.2",
     "express-rate-limit": "^6.7.0",
+    "helmet": "^7.0.0",
     "http-errors": "^2.0.0",
     "mongoose": "^7.4.2",
     "mongoose-findorcreate": "^4.0.0",

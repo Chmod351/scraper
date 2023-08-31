@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
-import findOrCreate from 'mongoose-findorcreate'
+import findOrCreate from 'mongoose-findorcreate';
+
 const ResultSchema = new mongoose.Schema(
   {
     websiteTarget: {
@@ -19,7 +20,7 @@ const ResultSchema = new mongoose.Schema(
   { timestamps: true },
   { autoIndex: false },
 );
-ResultSchema.plugin(findOrCreate)
-ResultSchema.index({ keywords: 1 });
+ResultSchema.plugin(findOrCreate);
+ResultSchema.index({ keywords: 'text' });
 const Result = mongoose.model('Result', ResultSchema);
 export default Result;

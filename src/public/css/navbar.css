@@ -1,20 +1,26 @@
 .container {
-  max-width: 1200px;
   overflow: hidden;
   margin: 0 auto;
   padding: var(--padding-container);
 }
-
 .nav {
-  width: 90%;
+  width: 100%;
   height: 70px;
+  position: fixed;
+  z-index: 99;
+  left: 50%;
+  background-color: #fff;
+  transform: translate(-50%, 0);
+  --padding-container: 0;
+  box-shadow: 0px 0px 8px rgba(99, 99, 99, 0.2);
+}
+.nav__wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  --padding-container: 0;
+  max-width: 90%;
+  margin: 17px auto;
 }
-
 .nav__figure {
   z-index: 100;
 }
@@ -38,15 +44,13 @@
   padding: 70px 0;
   min-height: 600px;
   background-color: var(--very-dark-blue-alpha);
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
   z-index: 10;
-
   transform: translate(-100%);
   transition: transform 0.3s;
+  height: 100vh;
 }
 
 .nav__container--active {
@@ -73,10 +77,17 @@
   display: block;
   font-weight: 500;
 }
+.nav__link:hover {
+  text-decoration: 5px underline var(--soft-red);
+}
 .nav__link--last {
   border: 1px solid #fff;
   border-radius: 4px;
-  padding: 1rem 0;
+  padding: 0.5rem 0;
+  border-radius: 20px;
+}
+.nav__link--last:hover {
+  text-decoration: none;
 }
 
 .nav__social {
@@ -87,16 +98,42 @@
   gap: 2rem;
 }
 
+.progress-container {
+  width: 100%;
+  height: 8px;
+  background: transparent;
+  position: fixed;
+  top: 70px;
+  left: 0;
+  z-index: 100;
+}
+
+.progress-bar {
+  height: 6px;
+  background: var(--soft-red);
+  width: 0%;
+  z-index: 200;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  box-shadow: 0 0 6px 12x rgba(0, 0, 0, 0.075);
+}
+
 @media (min-width: 768px) {
   .nav__hamburguer {
     display: none;
   }
-
+  .nav__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 17px auto;
+    max-width: 1100px;
+  }
   .nav__container {
     position: static;
     padding: 0;
     min-height: unset;
-
+    height: auto;
     background-color: #fff;
 
     display: block;
@@ -124,12 +161,14 @@
   .nav__link--last {
     border: none;
     color: white;
-    padding: 0.6rem 1.5rem;
+    font-weight: bold;
+    padding: 0.4rem 1.3rem;
     background-color: var(--soft-red);
     box-shadow: -5px 2px 3px var(--grayish-blue);
   }
   .nav__link--last:hover {
     transition: ease-in 0.3s;
+    color: white;
     background-color: var(--grayish-blue);
   }
 

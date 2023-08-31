@@ -1,55 +1,101 @@
+.scrapp-container {
+  background-color: var(--soft-blue);
+}
 .scrapped-results {
-  margin: 2rem 0;
+  max-width: 400px;
 }
 .scrapped-results p {
   color: white;
-  display: flex;
-  justify-content: start;
+
+  margin-top: 1rem;
 }
-.scrapped-list {
+.links-scrapped {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.links-scrapped li {
   border-radius: 10px;
   height: auto;
-  width: 90%;
-  margin: 1rem 0;
-  padding: 0.5rem;
+  width: 29.2%;
+  margin: 1rem;
+  padding: 1rem;
   list-style: none;
-  color: white;
-  background-image: linear-gradient(
-    to right,
-    #fff 0%,
-    #f1f1f1f1 51%,
-    #f3f3f3f3 100%
-  );
-  background-size: 200% auto;
-  transition: 0.5s;
+  background-color: var(--soft-card-view);
+  overflow: hidden;
+  box-shadow: -2px 2px 3px var(--grayish-blue);
 }
-.scrapped-list:hover {
-  transition: ease-in 0.5s;
-  color: black;
-
-  background-position: right center;
+.links-scrapped li:hover {
+  box-shadow: -5px 4px 5px var(--grayish-blue);
 }
 
 .text-scrapped {
-  color: black;
-}
-.text-scrapped:hover {
-  transition: ease-in 0.5s;
-}
-
-.links-scrapped {
-  margin: auto;
+  text-decoration: none;
+  color: var(--grayish-blue);
 }
 
 .buttonload {
-  background-color: #04aa6d; /* Green background */
-  border: none; /* Remove borders */
-  color: white; /* White text */
-  padding: 12px 16px; /* Some padding */
+  background-color: var(--soft-red);
+  border: none;
+  color: white;
+  padding: 12px 16px;
 }
 button .hide {
   display: none;
 }
 button .show {
   display: block;
+}
+#exportToExcel {
+  cursor: pointer;
+}
+#scrapped {
+  display: flex;
+  flex-direction: row;
+}
+.detail {
+  background-color: var(--soft-card-view);
+  padding: 0.5rem;
+  border-radius: 20px;
+  font-weight: bold;
+  width: 280px;
+  box-shadow: -0px 2px 3px var(--grayish-blue);
+}
+.red {
+  background-color: var(--soft-red);
+}
+.red:hover {
+  background-color: var(--grayish-blue);
+}
+.error--message {
+  color: var(--soft-card-view);
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  font-size: 25px;
+}
+@media (max-width: 900px) {
+  #scrapped {
+    margin: auto;
+    max-width: 400px;
+    flex-direction: column;
+  }
+  .scrapped-results {
+    width: 90%;
+    margin: auto;
+  }
+  .links-scrapped {
+    margin-left: -20px;
+    max-width: 100%;
+  }
+  .links-scrapped li {
+    width: 100%;
+    margin: 0.5rem;
+    padding: 1rem;
+  }
+  .detail {
+    width: 100%;
+  }
 }
