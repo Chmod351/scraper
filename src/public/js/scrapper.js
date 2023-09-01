@@ -17,58 +17,58 @@ async function fetchData(url, objectClass, keyWord) {
 }
 
 
-async function handleFormSubmit(event) {
-  /* inpust value url, cssClass, KeyWord */
-  const url = document.getElementById('url').value;
-  const objectClass = document.getElementById('objectClass').value;
-  const keyWord = document.getElementById('keyWord').value;
-  /*button form */
-  const button = document.getElementById('loading');
-  const infoSubmit = document.querySelector('.info');
-  /*container of result */
-  const responseContainer = document.getElementById('scrapped');
-  const articlesListContainer = createArticleListContainer();
-  /*pagination settings */
-  const rows = 9;
-  const homePageNumber = 1;
-  event.preventDefault();
+// async function handleFormSubmit(event) {
+//   /* inpust value url, cssClass, KeyWord */
+//   const url = document.getElementById('url').value;
+//   const objectClass = document.getElementById('objectClass').value;
+//   const keyWord = document.getElementById('keyWord').value;
+//   /*button form */
+//   const button = document.getElementById('loading');
+//   const infoSubmit = document.querySelector('.info');
+//   /*container of result */
+//   const responseContainer = document.getElementById('scrapped');
+//   const articlesListContainer = createArticleListContainer();
+//   /*pagination settings */
+//   const rows = 9;
+//   const homePageNumber = 1;
+//   event.preventDefault();
 
-  infoSubmit.classList.remove('show');
-  infoSubmit.classList.add('hide');
+//   infoSubmit.classList.remove('show');
+//   infoSubmit.classList.add('hide');
 
-  button.classList.add('show');
+//   button.classList.add('show');
 
-  try {
-    const data = await fetchData(url, objectClass, keyWord);
-    button.classList.remove('show');
-    infoSubmit.classList.add('show');
-    infoSubmit.classList.remove('hide');
+//   try {
+//     const data = await fetchData(url, objectClass, keyWord);
+//     button.classList.remove('show');
+//     infoSubmit.classList.add('show');
+//     infoSubmit.classList.remove('hide');
 
-    if (data.state === 'success') {
-      updateArticlesList(
-        articlesListContainer,
-        data['found articles'],
-        data['scanned webpage'].url,
-        rows,
-        homePageNumber
-      );
-      const scrappedResults = createScrappedResults(data,keyWord);
-      responseContainer.innerHTML = '';
-      responseContainer.appendChild(scrappedResults);
-      responseContainer.appendChild(articlesListContainer);
+//     if (data.state === 'success') {
+//       updateArticlesList(
+//         articlesListContainer,
+//         data['found articles'],
+//         data['scanned webpage'].url,
+//         rows,
+//         homePageNumber
+//       );
+//       const scrappedResults = createScrappedResults(data,keyWord);
+//       responseContainer.innerHTML = '';
+//       responseContainer.appendChild(scrappedResults);
+//       responseContainer.appendChild(articlesListContainer);
     
-      const exportToExcel = document.getElementById('exportToExcel');
-      exportToExcel.addEventListener('click', () => {
-        createExport(data['scanned webpage'], data['found articles']);
-      });
-    } else {
-      responseContainer.textContent = `Error: ${data.message}`;
-    }
-  } catch (error) {
-    console.error(error);
-    responseContainer.textContent = `Error: ${error.message}`;
-  }
-}
+//       const exportToExcel = document.getElementById('exportToExcel');
+//       exportToExcel.addEventListener('click', () => {
+//         createExport(data['scanned webpage'], data['found articles']);
+//       });
+//     } else {
+//       responseContainer.textContent = `Error: ${data.message}`;
+//     }
+//   } catch (error) {
+//     console.error(error);
+//     responseContainer.textContent = `Error: ${error.message}`;
+//   }
+// }
 
 /* create ul */
 function createArticleListContainer() {
@@ -198,6 +198,8 @@ async function handleFormSubmit(event) {
   const responseContainer = document.getElementById('scrapped');
   const articlesListContainer = createArticleListContainer();
   const keyWord = document.getElementById('keyWord').value;
+  const rows = 9;
+  const homePageNumber = 1;
   event.preventDefault();
 
   infoSubmit.classList.remove('show');
@@ -217,6 +219,8 @@ async function handleFormSubmit(event) {
         articlesListContainer,
         data['found articles'],
         data['scanned webpage'].url,
+        rows,
+        homePageNumber
       );
 
       const scrappedResults = createScrappedResults(data, keyWord);
