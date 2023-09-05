@@ -102,12 +102,6 @@ describe('Normal Cases: Unit Tests', () => {
 
     expect(result).to.deep.equal(expectedOutput);
   });
-  it('noKeyword should return a function that always returns true', () => {
-    const filterFn = scrappService.noKeyword();
-
-    expect(filterFn()).to.equal(true);
-  });
-
   it('withKeyword should return a function that checks if the keyword exists in the body', () => {
     const article = {
       title: 'Article with Keyword',

@@ -48,12 +48,6 @@ function filterArticles(articles, filterFn) {
   return articles.filter(filterFn);
 }
 
-function noKeyword() {
-  return function () {
-    return true;
-  };
-}
-
 function withKeyword(keyWord) {
   return function (article) {
     const convertToLowerCase = article.title.toLowerCase();
@@ -75,14 +69,13 @@ async function scrapeAndCleanData(url, cssClass, keyword) {
   const articles = scrapeData(bodyHtml, cssClass);
   // clean texts
   const cleanedArticles = cleanArticles(articles);
-  const filterFn = keyword ? withKeyword(keyword) : noKeyword();
+  const filterFn = withKeyword(keyword);
   // search by keyword or
   const filteredArticles = filterArticles(cleanedArticles, filterFn);
   return filteredArticles;
 }
 
 async function getOrCreateKeyword(keyword) {
-  console.log('aca');
   if (!keyword) {
     return [];
   }
@@ -130,23 +123,21 @@ async function createArticles(arrayResultsScrapped, websiteTarget) {
 async function addKeywordsToArticles(results, resultKeyword) {
   try {
     const updatedResults = [];
-    if (resultKeyword) {
-      const keyword = resultKeyword.doc; // get site keyword
-      for (const result of results) {
-        if (!result.keywords.includes(keyword)) {
-          result.keywords.push(keyword); // save keyword
-          await result.save();
-        }
-        updatedResults.push(result);
+    const keyword = resultKeyword.doc; // get site keyword
+    for (const result of results) {
+      if (!result.keywords.includes(keyword)) {
+        result.keywords.push(keyword); // save keyword
+        await result.save();
       }
+      updatedResults.push(result);
     }
-    return updatedResults;
   } catch (error) {
     throw error;
   }
 }
 
 async function saveScrapedDataToDatabase(req) {
+  let finalResults;
   const url = req.body.url;
   const cssClass = req.body.objectClass;
   const keyword = req.body.keyWord;
@@ -157,11 +148,8 @@ async function saveScrapedDataToDatabase(req) {
   const resultKeyword = await getOrCreateKeyword(keyword);
   const results = await createArticles(arrayResultsScrapped, websiteTarget);
 
-  let finalResults;
   if (keyword) {
     finalResults = await addKeywordsToArticles(results, resultKeyword);
-  } else {
-    finalResults = results;
   }
 
   return {
@@ -179,7 +167,6 @@ const scrappService = {
   scrapeData,
   removeSpecialChars,
   filterArticles,
-  noKeyword,
   withKeyword,
   cleanArticles,
   scrapeAndCleanData,
