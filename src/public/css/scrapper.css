@@ -13,11 +13,13 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  max-height: 580px;
+  overflow-y: scroll;
 }
 .links-scrapped li {
   border-radius: 10px;
   height: auto;
-  width: 29.2%;
+  width: 29%;
   margin: 1rem;
   padding: 1rem;
   list-style: none;
