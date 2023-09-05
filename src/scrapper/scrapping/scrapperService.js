@@ -151,7 +151,6 @@ async function saveScrapedDataToDatabase(req) {
   if (keyword) {
     finalResults = await addKeywordsToArticles(results, resultKeyword);
   }
-
   return {
     state: 'success',
     'objects found': arrayResultsScrapped.length,
