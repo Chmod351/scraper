@@ -16,10 +16,10 @@
   max-height: 580px;
   overflow-y: scroll;
 }
-.links-scrapped li {
+.links-scrapped .list {
   border-radius: 10px;
   height: auto;
-  width: 29%;
+  width: 28%;
   margin: 1rem;
   padding: 1rem;
   list-style: none;
@@ -29,6 +29,39 @@
 }
 .links-scrapped li:hover {
   box-shadow: -5px 4px 5px var(--grayish-blue);
+}
+.pagination{
+  margin: 10px 0;
+  width: 100%;
+}
+
+.pagination .pagination__list{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding-left: 0;
+}
+
+.pagination__list .pagination__number{
+  list-style: none;
+  border-radius: 5px;
+}
+
+.pagination__button{
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background: var(--soft-red);
+  color: white;
+}
+.pagination__button:hover{
+  background-color: #ec2626;
+}
+
+.pagination__button--active{
+  background-color: #ec2626;
 }
 
 .text-scrapped {
@@ -92,7 +125,7 @@ button .show {
     margin-left: -20px;
     max-width: 100%;
   }
-  .links-scrapped li {
+  .links-scrapped .list {
     width: 100%;
     margin: 0.5rem;
     padding: 1rem;

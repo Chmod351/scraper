@@ -17,13 +17,17 @@ async function fetchData(url, objectClass, keyWord) {
 
 function createArticleListContainer() {
   const ul = document.createElement('ul');
-  ul.className = 'links-scrapped';
   return ul;
 }
 
-function updateArticlesList(container, articles, webpage) {
+function updateArticlesList(container, articles, webpage, rows, homePageNumber) {
   container.innerHTML = '';
-  articles.forEach((article) => {
+  container.className = 'links-scrapped';
+  const startIndex = rows * homePageNumber;
+  const endIndex = startIndex + rows;
+  const leakedArticles = articles.slice(startIndex, endIndex);
+
+  leakedArticles.forEach((article) => {
     const li = document.createElement('li');
     const a = document.createElement('a');
     const p = document.createElement('p');
@@ -34,11 +38,45 @@ function updateArticlesList(container, articles, webpage) {
     a.className = 'text-scrapped';
     p.textContent = article.title;
     li.title = article.title;
+    li.className = "list";
 
     a.appendChild(p);
     li.appendChild(a);
     container.appendChild(li);
-  });
+  })
+  settingsPagination(container,articles,webpage,rows, homePageNumber);
+}
+
+const settingsPagination = (container,totalArticles,webpage, rows, homePageNumber) => {
+  const nav = document.createElement("nav");
+  const ul = createArticleListContainer();
+  nav.className = "pagination"
+  ul.className = "pagination__list";
+  const totalPages = Math.ceil(totalArticles.length / rows);
+  ul.innerHTML = '';
+  for(let i = 1; i <= totalPages - 1 ; i++){
+    const li = document.createElement("li");
+    const button = document.createElement("button");
+    button.innerText = `${i}`;
+    button.className = "pagination__button";
+    button.type = "button";
+    if(homePageNumber  == i) button.classList.add('pagination__button--active');
+    li.className = "pagination__number";
+    li.appendChild(button);
+    ul.appendChild(li);
+    nav.appendChild(ul);
+    container.appendChild(nav);
+    createButton(button,i,container, totalArticles, webpage, rows)
+  }
+}
+
+const createButton = (button, i,container, totalArticles, webpage, rows) => {
+  const numberButton = i;
+
+  button.addEventListener('click', () => {
+    container.innerHTML = '';
+    updateArticlesList(container, totalArticles, webpage, rows, numberButton)
+  })
 }
 
 function convertDateFormat(dateString) {
@@ -97,6 +135,8 @@ async function handleFormSubmit(event) {
   const responseContainer = document.getElementById('scrapped');
   const articlesListContainer = createArticleListContainer();
   const keyWord = document.getElementById('keyWord').value;
+  const rows = 9;
+  const homePageNumber = 1;
   event.preventDefault();
 
   infoSubmit.classList.remove('show');
@@ -116,6 +156,8 @@ async function handleFormSubmit(event) {
         articlesListContainer,
         data['found articles'],
         data['scanned webpage'].url,
+        rows,
+        homePageNumber
       );
 
       const scrappedResults = createScrappedResults(data, keyWord);
