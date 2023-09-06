@@ -1,4 +1,7 @@
-// scrapper.js
+//global vars
+
+//scrapper.js
+
 async function fetchData(url, objectClass, keyWord) {
   const response = await fetch('/api/v1/scrappe', {
     method: 'POST',
@@ -19,6 +22,7 @@ function createArticleListContainer() {
   const ul = document.createElement('ul');
   return ul;
 }
+
 
 function updateArticlesList(container, articles, webpage, rows, homePageNumber) {
   container.innerHTML = '';
@@ -93,32 +97,6 @@ function convertDateFormat(dateString) {
   return fullDate;
 }
 
-function createScrappedResults(data) {
-  const scrappedResults = document.createElement('section');
-  const objFound = `Matches: ${data['objects found']}`;
-  const keyword = `Keyword: ${data['key-word'].keyword}`;
-  const usedKeyword = `Used Times: ${data['key-word'].usedTimes}`;
-  const webpage = `${data['scanned webpage'].url}`;
-  const scrappedTimes = `Scrapped Times: ${data['scanned webpage'].scrapedTimes}`;
-  const update = `Last update: ${convertDateFormat(
-    data['scanned webpage'].updatedAt,
-  )}`;
-
-  scrappedResults.className = 'scrapped-results';
-  scrappedResults.innerHTML = `
-    <p class="text-scrapped detail" title="${objFound}" aria-label="${objFound}">${objFound}</p>
-    <p class="text-scrapped detail" title="${keyword}" aria-label="${keyword}">${keyword}</p>
-    <p class="text-scrapped detail" title="${usedKeyword}" aria-label="${usedKeyword}">${usedKeyword}</p>
-    <p class="text-scrapped detail" title="${webpage}" aria-label="${webpage}">${webpage}</p>
-    <p class="text-scrapped detail" title="${scrappedTimes}" aria-label="${scrappedTimes}">${scrappedTimes}</p>
-    <p class="text-scrapped detail" title="${update}" aria-label=${update}>${update}</p> 
-    <p class="text-scrapped detail red" id="exportToExcel" title="Export Results">
-Export to Excel</p>
-  
-  `;
-  return scrappedResults;
-}
-
 function checkUrl(webpage, url) {
   if (url.startsWith('https://www.')) {
     return url;
@@ -141,7 +119,6 @@ async function handleFormSubmit(event) {
 
   infoSubmit.classList.remove('show');
   infoSubmit.classList.add('hide');
-
   button.classList.add('show');
 
   try {
