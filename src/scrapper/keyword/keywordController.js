@@ -6,7 +6,7 @@ class KeywordController {
   }
   async createKeyword(req, res, next) {
     return await this.keywordService
-      .createKeyword(req.body.keyword)
+      .createKeyword(req.body.keyWord)
       .then((keyword) => res.json(keyword))
       .catch((err) => next(err));
   }
