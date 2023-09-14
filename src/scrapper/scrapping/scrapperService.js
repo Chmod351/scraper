@@ -1,9 +1,10 @@
 import needle from 'needle';
 import cheerio from 'cheerio';
 import { BadRequestError } from '../../helpers/errorHandler.js';
-import WebsiteTarget from './scrapperModel/scrapperTargetModel.js';
-import Result from './scrapperModel/scrapperResults.js';
-import Keyword from './scrapperModel/scrapperKeyword.js';
+
+import WebsiteTarget from '../targetSite/targetModel.js';
+import Result from '../result/resultModel.js';
+import Keyword from '../keyword/keywordModel.js';
 
 const scrapperLoader = cheerio.load;
 const urlAnalyzer = needle;
@@ -76,9 +77,6 @@ async function scrapeAndCleanData(url, cssClass, keyword) {
 }
 
 async function getOrCreateKeyword(keyword) {
-  if (!keyword) {
-    return [];
-  }
   const resultKeyword = await Keyword.findOrCreate(
     { keyword },
     { $inc: { usedTimes: 1 } },

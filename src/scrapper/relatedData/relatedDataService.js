@@ -1,4 +1,4 @@
-import Result from '../scrapping/scrapperModel/scrapperResults.js';
+import Result from '../result/resultModel.js';
 import { SomethingWentWrong } from '../../helpers/errorHandler.js';
 import scrappService from '../scrapping/scrapperService.js';
 
@@ -21,7 +21,6 @@ async function sendQuery(keyword) {
     throw new SomethingWentWrong(error.message);
   }
 }
-
 
 const relatedDataService = {
   sendQuery,
