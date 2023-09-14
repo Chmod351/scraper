@@ -1,6 +1,6 @@
 import WebsiteTarget from '../targetSite/targetModel.js';
 
-class WebsiteTarget {
+class WebsiteRepository {
   constructor(websiteTarget) {
     this.websiteTarget = websiteTarget;
   }
@@ -21,4 +21,4 @@ class WebsiteTarget {
   }
 }
 
-export default new WebsiteTarget(WebsiteTarget);
+export default new WebsiteRepository(WebsiteTarget);
